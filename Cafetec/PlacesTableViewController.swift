@@ -17,6 +17,17 @@ class PlacesTableViewController: UITableViewController {
         performSegue(withIdentifier: "logoutSegue", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "logoutSegue"){
+            
+            let vc = segue.destination as! ViewController
+            vc.loaderView?.alpha = 0
+            
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -14,48 +14,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="GWE-Hh-LNl" kind="relationship" relationship="rootViewController" id="dQM-zv-82a"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VKJ-Ir-uEN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzo-Pt-uHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2191" y="183"/>
-        </scene>
-        <!--First Responder View Controller-->
-        <scene sceneID="W1m-xK-UqP">
-            <objects>
-                <viewController id="GWE-Hh-LNl" customClass="FirstResponderViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3dd-wS-dup"/>
-                        <viewControllerLayoutGuide type="bottom" id="3o8-fP-2yW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="szK-Zv-EBx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAFETEC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDT-7v-Kfj">
-                                <frame key="frameInset" minX="162" minY="73" width="90" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="PM9-O4-lKr">
-                                <frame key="frameInset" minX="83" minY="119" width="248" height="248"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="yWI-2s-5A3"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="credentialsNeeded" id="f1q-og-KqI"/>
-                        <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="S8B-Ff-P9S"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="njZ-T5-R9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1399" y="183"/>
+            <point key="canvasLocation" x="-1530" y="183"/>
         </scene>
         <!--Iniciar Sesión-->
         <scene sceneID="tne-QT-ifu">
@@ -81,19 +45,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo institucional" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ybC-fH-M8g" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="454" width="312" height="42"/>
+                                <frame key="frameInset" minX="51" minY="754" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="09N-RR-5ed"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O5d-CX-Q82" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="506" width="312" height="42"/>
+                                <frame key="frameInset" minX="51" minY="806" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -103,9 +70,12 @@
                                         <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="p3z-yX-nsi"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-8N-Md5">
-                                <frame key="frameInset" minX="51" minY="568" width="312" height="60"/>
+                                <frame key="frameInset" minX="51" minY="868" width="312" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
@@ -117,7 +87,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7h-mW-PQX">
-                                <frame key="frameInset" minX="168" minY="661" width="78" height="30"/>
+                                <frame key="frameInset" minX="168" minY="961" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Registrarse">
@@ -127,6 +97,10 @@
                                     <segue destination="VcE-GW-ApE" kind="show" id="767-BV-V6O"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame_0_delay-0.04s.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-Zj-f3b">
+                                <frame key="frameInset" minX="172" minY="409" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -134,13 +108,16 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="emailTF" destination="ybC-fH-M8g" id="IVI-p1-VxK"/>
+                        <outlet property="loaderView" destination="ea2-Zj-f3b" id="Rpj-60-ifw"/>
                         <outlet property="passwordTF" destination="O5d-CX-Q82" id="IHF-Ci-5S3"/>
+                        <outlet property="signInBtn" destination="ZAG-8N-Md5" id="aK5-xc-8TD"/>
+                        <outlet property="signUpBtn" destination="W7h-mW-PQX" id="DzU-dI-vvo"/>
                         <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="GIg-1C-1SZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-572" y="184"/>
+            <point key="canvasLocation" x="-572.46376811594212" y="183.42391304347828"/>
         </scene>
         <!--Santa Fe-->
         <scene sceneID="gee-fY-Z8q">
@@ -237,26 +214,32 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="VcE-GW-ApE" id="a9E-mg-gVo"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo institucional" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7yP-YH-bzh" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo institucional" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7yP-YH-bzh" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
                                 <frame key="frameInset" minX="51" minY="380" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="VcE-GW-ApE" id="Azd-ta-sZn"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CyU-zF-2dz" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CyU-zF-2dz" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
                                 <frame key="frameInset" minX="51" minY="442" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -267,6 +250,9 @@
                                         <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="VcE-GW-ApE" id="Tju-Ex-Zxs"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ7-Jy-0bw">
                                 <frame key="frameInset" minX="51" minY="504" width="312" height="60"/>
@@ -280,17 +266,20 @@
                                     <action selector="signupPressed:" destination="VcE-GW-ApE" eventType="touchUpInside" id="knX-Wi-pMg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Matricula" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-ol-Y4o" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Matricula" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-ol-Y4o" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
                                 <frame key="frameInset" minX="51" minY="318" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="VcE-GW-ApE" id="CiG-9I-hmt"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -314,9 +303,10 @@
         <image name="Bottom border" width="271" height="40"/>
         <image name="Logo" width="209" height="209"/>
         <image name="fa-angle-left" width="10" height="20"/>
+        <image name="frame_0_delay-0.04s.gif" width="168" height="168"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S8B-Ff-P9S"/>
-        <segue reference="76Z-Ht-bTC"/>
+        <segue reference="VKJ-Ir-uEN"/>
+        <segue reference="uvs-kV-mMR"/>
     </inferredMetricsTieBreakers>
 </document>

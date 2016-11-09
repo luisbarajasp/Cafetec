@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
     func createAlert(title: String, message: String) {
         
@@ -17,7 +17,7 @@ class SignupViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
             
-            self.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: nil)
             
         }))
         
@@ -34,6 +34,9 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -42,7 +45,50 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+        
+    }
     
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    /* Set ascending tags to the text fields */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let nextTage = textField.tag+1;
+        // Try to find next responder
+        let nextResponder = textField.superview?.viewWithTag(nextTage) as UIResponder!
+        
+        if (nextResponder != nil){
+            // Found next responder, so set it.
+            nextResponder?.becomeFirstResponder()
+        }
+        else
+        {
+            // Not found, so remove keyboard
+            textField.resignFirstResponder()
+            signupPressed(self)
+        }
+        return false // We do not want UITextField to insert line-breaks.
+        
+    }
     
     
     @IBAction func returnToLogin(_ sender: AnyObject) {

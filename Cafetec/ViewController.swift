@@ -9,7 +9,17 @@
 import UIKit
 import Parse
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+
+    @IBOutlet var loaderView: UIImageView!
+    @IBOutlet var signUpBtn: UIButton!
+    @IBOutlet var signInBtn: UIButton!
+    @IBOutlet var passwordTF: UITextField!
+    @IBOutlet var emailTF: UITextField!
+    var name = ""
+    var i = 0
+    var loaded = false
     
     var activityIndicator = UIActivityIndicatorView()
     
@@ -26,32 +36,106 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
-
-    @IBOutlet var passwordTF: UITextField!
-    @IBOutlet var emailTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*let testObject = PFObject(className: "Place")
-        testObject["name"] = "Subway"
-        testObject.saveInBackground { (success, error) in
-            
-            if error != nil {
-                
-                print(error)
-                
-            }else{
-                
-                if success {
-                    
-                    print("Yeah")
-                    
-                }
-                
+        Timer.scheduledTimer(timeInterval: 0.04, target: self, selector: #selector(self.nextGif), userInfo: nil, repeats: true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    /* Set ascending tags to the text fields */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let nextTage = textField.tag+1;
+        // Try to find next responder
+        let nextResponder = textField.superview?.viewWithTag(nextTage) as UIResponder!
+        
+        if (nextResponder != nil){
+            // Found next responder, so set it.
+            nextResponder?.becomeFirstResponder()
+        }
+        else
+        {
+            // Not found, so remove keyboard
+            textField.resignFirstResponder()
+            loginPressed(self)
+        }
+        return false // We do not want UITextField to insert line-breaks.
+        
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
             }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    
+    func nextGif(){
+        
+        i += 1
+        
+        if(i > 19){
+            i = 0
+        }
+        
+        name = "frame_\(i)_delay-0.04s.gif"
+        
+        loaderView.image = UIImage(named: name)
+        
+    }
+    
+    func accessGranted() {
+        
+        performSegue(withIdentifier: "accessGranted", sender: self)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if PFUser.current() != nil {
             
-        }*/
+            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.accessGranted), userInfo: nil, repeats: true)
+            
+        }else if !loaded{
+            
+            UIView.animate(withDuration: 1.5, animations: {
+                
+                self.loaderView.alpha = 0
+                
+                self.emailTF.center = CGPoint(x: self.emailTF.center.x, y: self.emailTF.center.y - 300)
+                self.passwordTF.center = CGPoint(x: self.passwordTF.center.x, y: self.passwordTF.center.y - 300)
+                self.signInBtn.center = CGPoint(x: self.signInBtn.center.x, y: self.signInBtn.center.y - 300)
+                self.signUpBtn.center = CGPoint(x: self.signUpBtn.center.x, y: self.signUpBtn.center.y - 300)
+                
+            })
+            
+            loaded = true
+            
+        }
+        
         
     }
 
