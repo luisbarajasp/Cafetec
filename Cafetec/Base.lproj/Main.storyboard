@@ -14,12 +14,48 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uAy-sU-5cE"/>
+                        <segue destination="GWE-Hh-LNl" kind="relationship" relationship="rootViewController" id="dQM-zv-82a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzo-Pt-uHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1442" y="185"/>
+            <point key="canvasLocation" x="-2191" y="183"/>
+        </scene>
+        <!--First Responder View Controller-->
+        <scene sceneID="W1m-xK-UqP">
+            <objects>
+                <viewController id="GWE-Hh-LNl" customClass="FirstResponderViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3dd-wS-dup"/>
+                        <viewControllerLayoutGuide type="bottom" id="3o8-fP-2yW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="szK-Zv-EBx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAFETEC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDT-7v-Kfj">
+                                <frame key="frameInset" minX="162" minY="73" width="90" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="PM9-O4-lKr">
+                                <frame key="frameInset" minX="83" minY="119" width="248" height="248"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yWI-2s-5A3"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="credentialsNeeded" id="f1q-og-KqI"/>
+                        <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="S8B-Ff-P9S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="njZ-T5-R9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1399" y="183"/>
         </scene>
         <!--Iniciar Sesión-->
         <scene sceneID="tne-QT-ifu">
@@ -88,8 +124,7 @@
                                     <color key="titleColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b0s-Xi-sDx"/>
-                                    <segue destination="VcE-GW-ApE" kind="show" id="bLh-hv-LrS"/>
+                                    <segue destination="VcE-GW-ApE" kind="show" id="767-BV-V6O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,16 +135,73 @@
                     <connections>
                         <outlet property="emailTF" destination="ybC-fH-M8g" id="IVI-p1-VxK"/>
                         <outlet property="passwordTF" destination="O5d-CX-Q82" id="IHF-Ci-5S3"/>
+                        <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="GIg-1C-1SZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-572" y="184"/>
         </scene>
+        <!--Santa Fe-->
+        <scene sceneID="gee-fY-Z8q">
+            <objects>
+                <tableViewController id="89b-yi-vuM" customClass="PlacesTableViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5hT-2R-GZb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KYX-d6-jSx">
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KYX-d6-jSx" id="Sdb-r7-CB4">
+                                    <frame key="frameInset" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="89b-yi-vuM" id="VKt-De-ATd"/>
+                            <outlet property="delegate" destination="89b-yi-vuM" id="iqZ-oO-jWb"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Santa Fe" id="E7V-qw-Y7n">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Zi8-r8-usw">
+                            <connections>
+                                <action selector="logout:" destination="89b-yi-vuM" id="KBl-qv-qRk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="76Z-Ht-bTC"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXe-bi-rIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="899"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oaE-ya-5yt">
+            <objects>
+                <navigationController id="j5H-nt-bqR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o7R-9P-mgy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="89b-yi-vuM" kind="relationship" relationship="rootViewController" id="3ZD-8e-2Tm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwP-He-Zu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-572" y="899"/>
+        </scene>
         <!--Registrarse-->
         <scene sceneID="xcb-9i-Y3B">
             <objects>
-                <viewController title="Registrarse" id="VcE-GW-ApE" customClass="ViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Registrarse" id="VcE-GW-ApE" customClass="SignupViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WNv-dD-t47"/>
                         <viewControllerLayoutGuide type="bottom" id="GWl-23-9jl"/>
@@ -118,8 +210,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-sj-0UH">
+                                <frame key="frameInset" minX="135" minY="72" width="144" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Iniciar Sesión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hP-6P-PZO">
+                                <frame key="frameInset" minX="40" minY="30" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fa-angle-left" translatesAutoresizingMaskIntoConstraints="NO" id="x6N-fI-sya">
+                                <frame key="frameInset" minX="20" minY="31" width="10" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hM-bK-RoG">
+                                <frame key="frameInset" minX="20" minY="25" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="returnToLogin:" destination="VcE-GW-ApE" eventType="touchUpInside" id="7YI-GO-hUN"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GBD-kv-CtL" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
+                                <frame key="frameInset" minX="51" minY="256" width="312" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo institucional" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7yP-YH-bzh" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="454" width="312" height="42"/>
+                                <frame key="frameInset" minX="51" minY="380" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -131,7 +257,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CyU-zF-2dz" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="506" width="312" height="42"/>
+                                <frame key="frameInset" minX="51" minY="442" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -143,54 +269,54 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ7-Jy-0bw">
-                                <frame key="frameInset" minX="51" minY="568" width="312" height="60"/>
+                                <frame key="frameInset" minX="51" minY="504" width="312" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Iniciar Sesión">
+                                <state key="normal" title="Registrarse">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPressed:" destination="VcE-GW-ApE" eventType="touchUpInside" id="nhY-Ay-hop"/>
+                                    <action selector="signupPressed:" destination="VcE-GW-ApE" eventType="touchUpInside" id="knX-Wi-pMg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-AI-4bZ">
-                                <frame key="frameInset" minX="168" minY="661" width="78" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Matricula" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-ol-Y4o" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
+                                <frame key="frameInset" minX="51" minY="318" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Registrarse">
-                                    <color key="titleColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signupPressed:" destination="VcE-GW-ApE" eventType="touchUpInside" id="7CE-po-RH5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwk-by-cwh">
-                                <frame key="frameInset" minX="20" minY="30" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-sj-0UH">
-                                <frame key="frameInset" minX="135" minY="72" width="144" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="WWA-df-du0"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="emailTF" destination="7yP-YH-bzh" id="Mcm-hc-wyA"/>
-                        <outlet property="passwordTF" destination="CyU-zF-2dz" id="LC9-cW-jfj"/>
+                        <outlet property="emailTF" destination="7yP-YH-bzh" id="Xh7-32-iIv"/>
+                        <outlet property="matriculaTF" destination="JgB-ol-Y4o" id="Sho-z3-qev"/>
+                        <outlet property="nameTF" destination="GBD-kv-CtL" id="D7P-41-iVQ"/>
+                        <outlet property="passwordTF" destination="CyU-zF-2dz" id="61j-bT-Vq6"/>
+                        <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="uvs-kV-mMR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iag-Ax-bOd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="184"/>
+            <point key="canvasLocation" x="202.89855072463769" y="183.42391304347828"/>
         </scene>
     </scenes>
     <resources>
         <image name="Bottom border" width="271" height="40"/>
         <image name="Logo" width="209" height="209"/>
+        <image name="fa-angle-left" width="10" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="S8B-Ff-P9S"/>
+        <segue reference="76Z-Ht-bTC"/>
+    </inferredMetricsTieBreakers>
 </document>
