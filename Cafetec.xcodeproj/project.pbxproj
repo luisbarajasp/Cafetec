@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0608D6F1DD28F5800F291C4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D6D1DD28F5800F291C4 /* Bolts.framework */; };
+		A0608D701DD28F5800F291C4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D6E1DD28F5800F291C4 /* Parse.framework */; };
+		A0608D771DD2944400F291C4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D761DD2944400F291C4 /* AudioToolbox.framework */; };
+		A0608D791DD2945900F291C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D781DD2945900F291C4 /* SystemConfiguration.framework */; };
+		A0608D7B1DD294CE00F291C4 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D7A1DD294CE00F291C4 /* libstdc++.6.tbd */; };
+		A0608D7D1DD294E300F291C4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */; };
+		A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */; };
+		A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08541C61DC43475009695B8 /* AppDelegate.swift */; };
+		A08541C91DC43475009695B8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08541C81DC43475009695B8 /* Login.swift */; };
+		A08541CC1DC43475009695B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CA1DC43475009695B8 /* Main.storyboard */; };
+		A08541CE1DC43475009695B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08541CD1DC43475009695B8 /* Assets.xcassets */; };
+		A08541D11DC43475009695B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A0608D6D1DD28F5800F291C4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		A0608D6E1DD28F5800F291C4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		A0608D761DD2944400F291C4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A0608D781DD2945900F291C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A0608D7A1DD294CE00F291C4 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedTextField.swift; sourceTree = "<group>"; };
+		A0608D811DD2A73000F291C4 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Cafetec/Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
+		A08541C31DC43475009695B8 /* Cafetec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cafetec.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08541C61DC43475009695B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A08541C81DC43475009695B8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		A08541CB1DC43475009695B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A08541CD1DC43475009695B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A08541D01DC43475009695B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A08541D21DC43475009695B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A08541C01DC43475009695B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0608D7D1DD294E300F291C4 /* libsqlite3.tbd in Frameworks */,
+				A0608D7B1DD294CE00F291C4 /* libstdc++.6.tbd in Frameworks */,
+				A0608D791DD2945900F291C4 /* SystemConfiguration.framework in Frameworks */,
+				A0608D771DD2944400F291C4 /* AudioToolbox.framework in Frameworks */,
+				A0608D701DD28F5800F291C4 /* Parse.framework in Frameworks */,
+				A0608D6F1DD28F5800F291C4 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0608D6C1DD28F4000F291C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0608D811DD2A73000F291C4 /* FontAwesome.framework */,
+				A0608D751DD2940E00F291C4 /* System */,
+				A0608D6D1DD28F5800F291C4 /* Bolts.framework */,
+				A0608D6E1DD28F5800F291C4 /* Parse.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0608D751DD2940E00F291C4 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */,
+				A0608D7A1DD294CE00F291C4 /* libstdc++.6.tbd */,
+				A0608D781DD2945900F291C4 /* SystemConfiguration.framework */,
+				A0608D761DD2944400F291C4 /* AudioToolbox.framework */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		A0608D801DD29ED200F291C4 /* Custom classes */ = {
+			isa = PBXGroup;
+			children = (
+				A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */,
+			);
+			name = "Custom classes";
+			sourceTree = "<group>";
+		};
+		A08541BA1DC43475009695B8 = {
+			isa = PBXGroup;
+			children = (
+				A0608D6C1DD28F4000F291C4 /* Frameworks */,
+				A08541C51DC43475009695B8 /* Cafetec */,
+				A08541C41DC43475009695B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A08541C41DC43475009695B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A08541C31DC43475009695B8 /* Cafetec.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A08541C51DC43475009695B8 /* Cafetec */ = {
+			isa = PBXGroup;
+			children = (
+				A08541C61DC43475009695B8 /* AppDelegate.swift */,
+				A08541C81DC43475009695B8 /* Login.swift */,
+				A08541CA1DC43475009695B8 /* Main.storyboard */,
+				A08541CD1DC43475009695B8 /* Assets.xcassets */,
+				A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */,
+				A08541D21DC43475009695B8 /* Info.plist */,
+				A0608D801DD29ED200F291C4 /* Custom classes */,
+			);
+			path = Cafetec;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A08541C21DC43475009695B8 /* Cafetec */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A08541D51DC43475009695B8 /* Build configuration list for PBXNativeTarget "Cafetec" */;
+			buildPhases = (
+				A08541BF1DC43475009695B8 /* Sources */,
+				A08541C01DC43475009695B8 /* Frameworks */,
+				A08541C11DC43475009695B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cafetec;
+			productName = Cafetec;
+			productReference = A08541C31DC43475009695B8 /* Cafetec.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A08541BB1DC43475009695B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Techeando;
+				TargetAttributes = {
+					A08541C21DC43475009695B8 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A08541BE1DC43475009695B8 /* Build configuration list for PBXProject "Cafetec" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A08541BA1DC43475009695B8;
+			productRefGroup = A08541C41DC43475009695B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A08541C21DC43475009695B8 /* Cafetec */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A08541C11DC43475009695B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A08541D11DC43475009695B8 /* LaunchScreen.storyboard in Resources */,
+				A08541CE1DC43475009695B8 /* Assets.xcassets in Resources */,
+				A08541CC1DC43475009695B8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A08541BF1DC43475009695B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A08541C91DC43475009695B8 /* Login.swift in Sources */,
+				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
+				A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A08541CA1DC43475009695B8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A08541CB1DC43475009695B8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A08541D01DC43475009695B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A08541D31DC43475009695B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A08541D41DC43475009695B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A08541D61DC43475009695B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Cafetec/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Cafetec/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.techeando.Cafetec;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A08541D71DC43475009695B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Cafetec/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Cafetec/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.techeando.Cafetec;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A08541BE1DC43475009695B8 /* Build configuration list for PBXProject "Cafetec" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A08541D31DC43475009695B8 /* Debug */,
+				A08541D41DC43475009695B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A08541D51DC43475009695B8 /* Build configuration list for PBXNativeTarget "Cafetec" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A08541D61DC43475009695B8 /* Debug */,
+				A08541D71DC43475009695B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A08541BB1DC43475009695B8 /* Project object */;
+}
