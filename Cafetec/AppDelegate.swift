@@ -118,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if succeeded {
                 print("ParseStarterProject successfully subscribed to push notifications on the broadcast channel.\n");
             } else {
-                print("ParseStarterProject failed to subscribe to push notifications on the broadcast channel with error = %@.\n", error)
+                print("ParseStarterProject failed to subscribe to push notifications on the broadcast channel with error = %@.\n", error!)
             }
         }
     }

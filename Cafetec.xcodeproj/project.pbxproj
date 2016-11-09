@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01780471DD2BC1500887CC1 /* SignupViewController.swift */; };
-		A017804E1DD2C00500887CC1 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017804D1DD2C00500887CC1 /* PlacesTableViewController.swift */; };
 		A01780651DD2C65300887CC1 /* frame_0_delay-0.04s.gif in Resources */ = {isa = PBXBuildFile; fileRef = A01780511DD2C65300887CC1 /* frame_0_delay-0.04s.gif */; };
 		A01780661DD2C65300887CC1 /* frame_1_delay-0.04s.gif in Resources */ = {isa = PBXBuildFile; fileRef = A01780521DD2C65300887CC1 /* frame_1_delay-0.04s.gif */; };
 		A01780671DD2C65300887CC1 /* frame_2_delay-0.04s.gif in Resources */ = {isa = PBXBuildFile; fileRef = A01780531DD2C65300887CC1 /* frame_2_delay-0.04s.gif */; };
@@ -41,11 +40,11 @@
 		A08541CC1DC43475009695B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CA1DC43475009695B8 /* Main.storyboard */; };
 		A08541CE1DC43475009695B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08541CD1DC43475009695B8 /* Assets.xcassets */; };
 		A08541D11DC43475009695B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */; };
+		A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213B11DD3D16900764904 /* PlacesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A01780471DD2BC1500887CC1 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		A017804D1DD2C00500887CC1 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		A01780511DD2C65300887CC1 /* frame_0_delay-0.04s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frame_0_delay-0.04s.gif"; sourceTree = "<group>"; };
 		A01780521DD2C65300887CC1 /* frame_1_delay-0.04s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frame_1_delay-0.04s.gif"; sourceTree = "<group>"; };
 		A01780531DD2C65300887CC1 /* frame_2_delay-0.04s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "frame_2_delay-0.04s.gif"; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		A08541CD1DC43475009695B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A08541D01DC43475009695B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A08541D21DC43475009695B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F213B11DD3D16900764904 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,7 @@
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
 				A08541C81DC43475009695B8 /* ViewController.swift */,
 				A01780471DD2BC1500887CC1 /* SignupViewController.swift */,
-				A017804D1DD2C00500887CC1 /* PlacesTableViewController.swift */,
+				A0F213B11DD3D16900764904 /* PlacesViewController.swift */,
 				A08541CA1DC43475009695B8 /* Main.storyboard */,
 				A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */,
 				A0608D801DD29ED200F291C4 /* Custom classes */,
@@ -227,7 +227,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Techeando;
 				TargetAttributes = {
 					A08541C21DC43475009695B8 = {
@@ -295,9 +295,9 @@
 			files = (
 				A08541C91DC43475009695B8 /* ViewController.swift in Sources */,
 				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
+				A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */,
 				A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */,
 				A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */,
-				A017804E1DD2C00500887CC1 /* PlacesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +341,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -390,6 +391,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

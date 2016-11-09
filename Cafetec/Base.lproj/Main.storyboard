@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="19C-3k-Bge">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -33,7 +33,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAFETEC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96b-ne-RPz">
@@ -122,44 +122,6 @@
             </objects>
             <point key="canvasLocation" x="-572.46376811594212" y="183.42391304347828"/>
         </scene>
-        <!--Santa Fe-->
-        <scene sceneID="GpK-TM-fob">
-            <objects>
-                <tableViewController id="5AZ-3h-Akp" customClass="PlacesTableViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tfQ-RZ-5Qj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ucw-Xj-FVq">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucw-Xj-FVq" id="Tv6-uU-ufe">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="5AZ-3h-Akp" id="28N-N3-K9O"/>
-                            <outlet property="delegate" destination="5AZ-3h-Akp" id="qs3-bC-4uv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Santa Fe" id="bVk-Pe-qvx">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="iKv-kX-A6A">
-                            <connections>
-                                <action selector="logout:" destination="5AZ-3h-Akp" id="EnM-qx-phD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="logoutSegue" id="Nu8-ES-nay"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NTX-sL-3Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2276" y="109"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="40N-pa-30I">
             <objects>
@@ -174,14 +136,91 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="83G-rk-50i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="5AZ-3h-Akp" kind="relationship" relationship="rootViewController" id="axO-Tb-o2R"/>
+                        <segue destination="r2h-WM-Maf" kind="relationship" relationship="rootViewController" id="M4p-Z6-AMy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUc-vn-uxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1526" y="108"/>
+        </scene>
+        <!--Santa Fe-->
+        <scene sceneID="t0I-Ns-LUk">
+            <objects>
+                <viewController id="r2h-WM-Maf" customClass="PlacesViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yRi-qc-toh"/>
+                        <viewControllerLayoutGuide type="bottom" id="ObZ-ly-gjD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eNm-33-XRj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C5V-KU-ITC">
+                                <rect key="frame" x="0.0" y="33" width="414" height="654"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95196180555555554" green="0.95196180555555554" blue="0.95196180555555554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xVD-UY-gDo">
+                                    <size key="itemSize" width="393" height="230"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ADl-td-rhA">
+                                        <rect key="frame" x="10.666666666666666" y="0.0" width="393" height="230"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="230"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TacoInn" translatesAutoresizingMaskIntoConstraints="NO" id="tpr-yT-Oie">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkH-ww-MON">
+                                                    <rect key="frame" x="15.000000000000076" y="190" width="78" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybw-UT-xzm">
+                                                    <rect key="frame" x="15.000000000000076" y="207" width="68" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="r2h-WM-Maf" id="eWV-cq-UZF"/>
+                                    <outlet property="delegate" destination="r2h-WM-Maf" id="A2b-t6-YaW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Santa Fe" id="f2Q-yw-bYr">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yvZ-Qp-RnK">
+                            <connections>
+                                <action selector="logout:" destination="r2h-WM-Maf" id="XVa-dZ-hWG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="Pws-8Y-ZVp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyA-v0-MUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2292.753623188406" y="106.79347826086958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4yR-ll-5de">
@@ -192,7 +231,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Kl8-RV-ee7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1hU-t8-MnS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -216,7 +255,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gub-9h-8pc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9lh-zd-6cm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -239,7 +278,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="RCf-F5-TDA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,7 +305,7 @@
                         <viewControllerLayoutGuide type="bottom" id="a3b-rP-rr7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="17T-4o-Anb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -290,7 +329,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GWl-23-9jl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R33-fM-sBO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-sj-0UH">
@@ -416,11 +455,12 @@
         <image name="Paper Filled" width="25" height="25"/>
         <image name="Search" width="25" height="25"/>
         <image name="Search Filled" width="25" height="25"/>
+        <image name="TacoInn" width="1065" height="753"/>
         <image name="fa-angle-left" width="10" height="20"/>
         <image name="frame_0_delay-0.04s.gif" width="168" height="168"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dsb-J9-ruf"/>
-        <segue reference="Nu8-ES-nay"/>
+        <segue reference="Pws-8Y-ZVp"/>
     </inferredMetricsTieBreakers>
 </document>
