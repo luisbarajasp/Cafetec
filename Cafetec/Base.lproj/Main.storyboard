@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="19C-3k-Bge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="19C-3k-Bge">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,22 +33,22 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAFETEC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96b-ne-RPz">
-                                <frame key="frameInset" minX="162" minY="90" width="90" height="26"/>
+                                <rect key="frame" x="162" y="90" width="90" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-SR-xxf">
-                                <frame key="frameInset" minX="83" minY="136" width="248" height="248"/>
+                                <rect key="frame" x="83" y="136" width="248" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo institucional" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ybC-fH-M8g" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="754" width="312" height="42"/>
+                                <rect key="frame" x="51" y="754" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -60,7 +63,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O5d-CX-Q82" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="806" width="312" height="42"/>
+                                <rect key="frame" x="51" y="806" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -75,7 +78,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-8N-Md5">
-                                <frame key="frameInset" minX="51" minY="868" width="312" height="60"/>
+                                <rect key="frame" x="51" y="868" width="312" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
@@ -87,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7h-mW-PQX">
-                                <frame key="frameInset" minX="168" minY="961" width="78" height="30"/>
+                                <rect key="frame" x="168" y="961" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Registrarse">
@@ -98,7 +101,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame_0_delay-0.04s.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-Zj-f3b">
-                                <frame key="frameInset" minX="172" minY="409" width="80" height="80"/>
+                                <rect key="frame" x="172" y="409" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -112,7 +115,7 @@
                         <outlet property="passwordTF" destination="O5d-CX-Q82" id="IHF-Ci-5S3"/>
                         <outlet property="signInBtn" destination="ZAG-8N-Md5" id="aK5-xc-8TD"/>
                         <outlet property="signUpBtn" destination="W7h-mW-PQX" id="DzU-dI-vvo"/>
-                        <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="GIg-1C-1SZ"/>
+                        <segue destination="jTJ-av-n8t" kind="presentation" identifier="accessGranted" id="eh2-mD-oPv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,60 +123,163 @@
             <point key="canvasLocation" x="-572.46376811594212" y="183.42391304347828"/>
         </scene>
         <!--Santa Fe-->
-        <scene sceneID="gee-fY-Z8q">
+        <scene sceneID="GpK-TM-fob">
             <objects>
-                <tableViewController id="89b-yi-vuM" customClass="PlacesTableViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5hT-2R-GZb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                <tableViewController id="5AZ-3h-Akp" customClass="PlacesTableViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tfQ-RZ-5Qj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KYX-d6-jSx">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ucw-Xj-FVq">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KYX-d6-jSx" id="Sdb-r7-CB4">
-                                    <frame key="frameInset" width="414" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucw-Xj-FVq" id="Tv6-uU-ufe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="89b-yi-vuM" id="VKt-De-ATd"/>
-                            <outlet property="delegate" destination="89b-yi-vuM" id="iqZ-oO-jWb"/>
+                            <outlet property="dataSource" destination="5AZ-3h-Akp" id="28N-N3-K9O"/>
+                            <outlet property="delegate" destination="5AZ-3h-Akp" id="qs3-bC-4uv"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Santa Fe" id="E7V-qw-Y7n">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Zi8-r8-usw">
+                    <navigationItem key="navigationItem" title="Santa Fe" id="bVk-Pe-qvx">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="iKv-kX-A6A">
                             <connections>
-                                <action selector="logout:" destination="89b-yi-vuM" id="KBl-qv-qRk"/>
+                                <action selector="logout:" destination="5AZ-3h-Akp" id="EnM-qx-phD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="76Z-Ht-bTC"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logoutSegue" id="Nu8-ES-nay"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iXe-bi-rIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTX-sL-3Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="899"/>
+            <point key="canvasLocation" x="2276" y="109"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="oaE-ya-5yt">
+        <scene sceneID="40N-pa-30I">
             <objects>
-                <navigationController id="j5H-nt-bqR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o7R-9P-mgy">
+                <navigationController id="Y2j-t6-cuT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="Fork" id="lcV-a7-DZo">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Fork Filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="83G-rk-50i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="89b-yi-vuM" kind="relationship" relationship="rootViewController" id="3ZD-8e-2Tm"/>
+                        <segue destination="5AZ-3h-Akp" kind="relationship" relationship="rootViewController" id="axO-Tb-o2R"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wwP-He-Zu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uUc-vn-uxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-572" y="899"/>
+            <point key="canvasLocation" x="1526" y="108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4yR-ll-5de">
+            <objects>
+                <viewController id="cWM-fL-CQS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pnh-tL-gzS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kl8-RV-ee7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1hU-t8-MnS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" image="Search" id="IZ2-PL-loJ">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Search Filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-rp-luc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="918"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d8j-O1-m6e">
+            <objects>
+                <viewController id="J9P-QG-il5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGg-jc-9jx"/>
+                        <viewControllerLayoutGuide type="bottom" id="gub-9h-8pc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9lh-zd-6cm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" image="Circled User Male" id="w55-ZB-JqN">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Circled User Male Filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAx-8R-w8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="2415"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="F8B-0F-N29">
+            <objects>
+                <tabBarController id="jTJ-av-n8t" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QTe-1Q-DIv"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="RCf-F5-TDA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Y2j-t6-cuT" kind="relationship" relationship="viewControllers" id="Zvy-TK-ySG"/>
+                        <segue destination="cWM-fL-CQS" kind="relationship" relationship="viewControllers" id="o5m-VE-ukC"/>
+                        <segue destination="M2h-HM-A9T" kind="relationship" relationship="viewControllers" id="UNb-7N-uqg"/>
+                        <segue destination="J9P-QG-il5" kind="relationship" relationship="viewControllers" id="PZI-vz-S1z"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5E-cK-b2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-172" y="991"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cAP-Ep-7BC">
+            <objects>
+                <viewController id="M2h-HM-A9T" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M4B-jw-y4i"/>
+                        <viewControllerLayoutGuide type="bottom" id="a3b-rP-rr7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="17T-4o-Anb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" image="Paper" id="Ce5-hk-zVH">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Paper Filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8W-uY-dem" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="1622"/>
         </scene>
         <!--Registrarse-->
         <scene sceneID="xcb-9i-Y3B">
@@ -184,33 +290,33 @@
                         <viewControllerLayoutGuide type="bottom" id="GWl-23-9jl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R33-fM-sBO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-sj-0UH">
-                                <frame key="frameInset" minX="135" minY="72" width="144" height="144"/>
+                                <rect key="frame" x="135" y="72" width="144" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Iniciar Sesión" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hP-6P-PZO">
-                                <frame key="frameInset" minX="40" minY="30" width="96" height="21"/>
+                                <rect key="frame" x="40" y="30" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fa-angle-left" translatesAutoresizingMaskIntoConstraints="NO" id="x6N-fI-sya">
-                                <frame key="frameInset" minX="20" minY="31" width="10" height="20"/>
+                                <rect key="frame" x="20" y="31" width="10" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hM-bK-RoG">
-                                <frame key="frameInset" minX="20" minY="25" width="109" height="30"/>
+                                <rect key="frame" x="20" y="25" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="returnToLogin:" destination="VcE-GW-ApE" eventType="touchUpInside" id="7YI-GO-hUN"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GBD-kv-CtL" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="256" width="312" height="42"/>
+                                <rect key="frame" x="51" y="256" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -225,7 +331,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo institucional" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7yP-YH-bzh" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="380" width="312" height="42"/>
+                                <rect key="frame" x="51" y="380" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -240,7 +346,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CyU-zF-2dz" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="442" width="312" height="42"/>
+                                <rect key="frame" x="51" y="442" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -255,7 +361,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ7-Jy-0bw">
-                                <frame key="frameInset" minX="51" minY="504" width="312" height="60"/>
+                                <rect key="frame" x="51" y="504" width="312" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
@@ -267,7 +373,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Matricula" textAlignment="natural" minimumFontSize="17" background="Bottom border" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JgB-ol-Y4o" customClass="TabbedTextField" customModule="Cafetec" customModuleProvider="target">
-                                <frame key="frameInset" minX="51" minY="318" width="312" height="42"/>
+                                <rect key="frame" x="51" y="318" width="312" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -291,7 +397,7 @@
                         <outlet property="matriculaTF" destination="JgB-ol-Y4o" id="Sho-z3-qev"/>
                         <outlet property="nameTF" destination="GBD-kv-CtL" id="D7P-41-iVQ"/>
                         <outlet property="passwordTF" destination="CyU-zF-2dz" id="61j-bT-Vq6"/>
-                        <segue destination="j5H-nt-bqR" kind="presentation" identifier="accessGranted" id="uvs-kV-mMR"/>
+                        <segue destination="jTJ-av-n8t" kind="presentation" identifier="accessGranted" id="dsb-J9-ruf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iag-Ax-bOd" sceneMemberID="firstResponder"/>
@@ -301,12 +407,20 @@
     </scenes>
     <resources>
         <image name="Bottom border" width="271" height="40"/>
+        <image name="Circled User Male" width="25" height="25"/>
+        <image name="Circled User Male Filled" width="25" height="25"/>
+        <image name="Fork" width="25" height="25"/>
+        <image name="Fork Filled" width="25" height="25"/>
         <image name="Logo" width="209" height="209"/>
+        <image name="Paper" width="25" height="25"/>
+        <image name="Paper Filled" width="25" height="25"/>
+        <image name="Search" width="25" height="25"/>
+        <image name="Search Filled" width="25" height="25"/>
         <image name="fa-angle-left" width="10" height="20"/>
         <image name="frame_0_delay-0.04s.gif" width="168" height="168"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VKJ-Ir-uEN"/>
-        <segue reference="uvs-kV-mMR"/>
+        <segue reference="dsb-J9-ruf"/>
+        <segue reference="Nu8-ES-nay"/>
     </inferredMetricsTieBreakers>
 </document>

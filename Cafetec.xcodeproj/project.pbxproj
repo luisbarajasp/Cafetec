@@ -232,6 +232,7 @@
 				TargetAttributes = {
 					A08541C21DC43475009695B8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = LFJ2ELTF77;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -417,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LFJ2ELTF77;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -435,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LFJ2ELTF77;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
