@@ -133,10 +133,19 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Fork Filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="83G-rk-50i">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="83G-rk-50i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                            <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="r2h-WM-Maf" kind="relationship" relationship="rootViewController" id="M4p-Z6-AMy"/>
@@ -159,7 +168,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C5V-KU-ITC">
-                                <rect key="frame" x="0.0" y="33" width="414" height="654"/>
+                                <rect key="frame" x="0.0" y="14" width="414" height="673"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95196180555555554" green="0.95196180555555554" blue="0.95196180555555554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xVD-UY-gDo">
@@ -169,26 +178,26 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ADl-td-rhA">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ADl-td-rhA" customClass="PlaceCollectionViewCell" customModule="Cafetec" customModuleProvider="target">
                                         <rect key="frame" x="10.666666666666666" y="0.0" width="393" height="230"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TacoInn" translatesAutoresizingMaskIntoConstraints="NO" id="tpr-yT-Oie">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TacoInn" translatesAutoresizingMaskIntoConstraints="NO" id="tpr-yT-Oie">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkH-ww-MON">
-                                                    <rect key="frame" x="15.000000000000076" y="190" width="78" height="17"/>
+                                                    <rect key="frame" x="15" y="190" width="361" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybw-UT-xzm">
-                                                    <rect key="frame" x="15.000000000000076" y="207" width="68" height="16"/>
+                                                    <rect key="frame" x="15" y="207" width="361" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -197,6 +206,11 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="image" destination="tpr-yT-Oie" id="TVb-Jl-PUs"/>
+                                            <outlet property="name" destination="kkH-ww-MON" id="wkW-OL-5Xk"/>
+                                            <outlet property="type" destination="ybw-UT-xzm" id="IYr-w7-gFx"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -207,15 +221,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Santa Fe" id="f2Q-yw-bYr">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yvZ-Qp-RnK">
-                            <connections>
-                                <action selector="logout:" destination="r2h-WM-Maf" id="XVa-dZ-hWG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Santa Fe" id="f2Q-yw-bYr"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="Pws-8Y-ZVp"/>
+                        <outlet property="placesCollectionView" destination="C5V-KU-ITC" id="80i-Sh-akA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyA-v0-MUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,9 +287,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.99586588144302368" green="1" blue="0.9999271035194397" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -461,6 +470,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dsb-J9-ruf"/>
-        <segue reference="Pws-8Y-ZVp"/>
     </inferredMetricsTieBreakers>
 </document>

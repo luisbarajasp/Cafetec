@@ -10,19 +10,70 @@ import UIKit
 import Parse
 
 class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    @IBOutlet var placesCollectionView: UICollectionView!
+    var places = [PFObject]()
 
-    @IBAction func logout(_ sender: Any) {
+    /*@IBAction func logout(_ sender: Any) {
         
         PFUser.logOut()
         
         performSegue(withIdentifier: "logoutSegue", sender: self)
         
+    }*/
+    
+    func refresh(){
+        
+        let query = PFQuery(className: "Place")
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                
+            }else{
+                
+                
+                if let placesObjects = objects{
+                    
+                    for object in placesObjects {
+                        
+                        if let place = object as PFObject! {
+                            
+                            print("Hello")
+                            
+                            self.places.append(place)
+                            
+                            print(self.places.count)
+                            
+                        }
+                        
+                    }
+                    
+                    self.placesCollectionView.reloadData()
+                    
+                }
+                
+            }
+            
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refresh()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,13 +91,29 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return places.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PlaceCollectionViewCell
         
         // Configure the cell
+        cell.name.text = places[indexPath.row]["name"] as! String?
+        cell.type.text = places[indexPath.row]["type"] as! String?
+        
+        (places[indexPath.row]["image"] as! PFFile).getDataInBackground { (data, error) in
+            
+            if let imageData = data {
+                
+                if let downloadedImage = UIImage(data: imageData) {
+                    
+                    cell.image.image = downloadedImage
+                    
+                }
+                
+            }
+            
+        }
         
         return cell
     }

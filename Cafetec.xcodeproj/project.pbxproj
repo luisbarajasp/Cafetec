@@ -41,6 +41,7 @@
 		A08541CE1DC43475009695B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08541CD1DC43475009695B8 /* Assets.xcassets */; };
 		A08541D11DC43475009695B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */; };
 		A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213B11DD3D16900764904 /* PlacesViewController.swift */; };
+		A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		A08541D01DC43475009695B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A08541D21DC43475009695B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F213B11DD3D16900764904 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
+				A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */,
 				A08541C81DC43475009695B8 /* ViewController.swift */,
 				A01780471DD2BC1500887CC1 /* SignupViewController.swift */,
 				A0F213B11DD3D16900764904 /* PlacesViewController.swift */,
@@ -295,6 +298,7 @@
 			files = (
 				A08541C91DC43475009695B8 /* ViewController.swift in Sources */,
 				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
+				A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */,
 				A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */,
 				A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */,
 				A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */,
