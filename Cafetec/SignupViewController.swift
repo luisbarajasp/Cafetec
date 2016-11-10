@@ -92,7 +92,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func returnToLogin(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signupPressed(_ sender: AnyObject) {

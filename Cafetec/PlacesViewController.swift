@@ -12,6 +12,7 @@ import Parse
 class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var placesCollectionView: UICollectionView!
+    var placeSelected: PFObject?
     var places = [PFObject]()
 
     /*@IBAction func logout(_ sender: Any) {
@@ -41,11 +42,7 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
                         
                         if let place = object as PFObject! {
                             
-                            print("Hello")
-                            
                             self.places.append(place)
-                            
-                            print(self.places.count)
                             
                         }
                         
@@ -72,7 +69,7 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
+        self.navigationController?.navigationBar.isHidden = false
         
     }
 
@@ -118,7 +115,28 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "placeSelected" {
+            
+            let vc = segue.destination as! PlaceViewController
+            vc.place = self.placeSelected
+            
+            self.present(vc, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
     // MARK: UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.placeSelected = places[indexPath.row]
+        
+        performSegue(withIdentifier: "placeSelected", sender: self)
+        
+    }
     
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking
