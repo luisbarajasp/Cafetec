@@ -228,7 +228,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-JV-bqh">
-                                <rect key="frame" x="20" y="30" width="64" height="22"/>
+                                <rect key="frame" x="20" y="20" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="             " image="fa-angle-left-white"/>
                                 <connections>
@@ -279,7 +279,40 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GC4-wK-Qic" id="k0m-iH-0Hd">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-g1-nJh">
+                                                    <rect key="frame" x="20" y="20" width="225" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0V-zN-raC">
+                                                    <rect key="frame" x="20" y="44" width="225" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udv-AX-jiI">
+                                                    <rect key="frame" x="20" y="101" width="225" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="eiP-GH-e7r">
+                                                    <rect key="frame" x="265" y="3" width="136" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="foodDescription" destination="i0V-zN-raC" id="gKO-6p-Cb3"/>
+                                            <outlet property="foodImage" destination="eiP-GH-e7r" id="R2a-cf-WDS"/>
+                                            <outlet property="foodName" destination="Nlm-g1-nJh" id="Il1-LJ-V2u"/>
+                                            <outlet property="foodPrice" destination="udv-AX-jiI" id="cw2-mS-G3w"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -298,12 +331,13 @@
                         <outlet property="placeImage" destination="Qlw-dG-hfX" id="aJv-fV-9En"/>
                         <outlet property="placeName" destination="DpY-SW-wHk" id="4vE-Pa-Yny"/>
                         <outlet property="placeType" destination="7pb-u9-hfb" id="neb-Fo-wZE"/>
+                        <outlet property="tableView" destination="u2n-15-Yc4" id="80H-XE-qLL"/>
                         <outlet property="timeLabel" destination="Nus-XD-rxf" id="iEd-W5-21b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1q-V6-Qxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3630" y="125"/>
+            <point key="canvasLocation" x="3628.985507246377" y="124.72826086956523"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4yR-ll-5de">

@@ -12,7 +12,13 @@ import Parse
 class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var place: PFObject?
+    
+    var foods = [PFObject]()
+    
+    //Declare it on top of the class
+    var activityIndicator = UIActivityIndicatorView()
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var placeImage: UIImageView!
     @IBOutlet var placeName: UILabel!
     @IBOutlet var placeType: UILabel!
@@ -26,6 +32,69 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /*override var prefersStatusBarHidden: Bool {
         return true
     }*/
+    
+    func createAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func refresh() {
+        
+        //Display
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        //Comment if you do not want to ignore interaction whilst
+        UIApplication.shared.beginIgnoringInteractionEvents()
+
+        
+        let query = PFQuery(className: "Food")
+        
+        query.whereKey("place", equalTo: place!)
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                self.createAlert(title: "Error", message: "Sucedió un error por favor intenta más tarde.")
+                
+            }else{
+                
+                if let foodsObjects = objects {
+                    
+                    for food in foodsObjects {
+                        
+                        self.foods.append(food)
+                        
+                    }
+                    
+                    self.tableView.reloadData()
+                    
+                }
+                
+            }
+            
+            //Remove it
+            self.activityIndicator.stopAnimating()
+            //Comment if you commented the ignoring of interaction
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +131,8 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.navigationController?.navigationBar.isHidden = true
         
+        refresh()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,13 +147,39 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return foods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FoodTableViewCell
         
-        cell.textLabel?.text = "Test"
+        (self.foods[indexPath.row]["image"] as! PFFile).getDataInBackground { (data, error) in
+            
+            if let imageData = data {
+                
+                if let downloadedImage = UIImage(data: imageData) {
+                    
+                    cell.foodImage.image = downloadedImage
+                    
+                }
+                
+            }
+            
+        }
+        
+        cell.foodName.text = foods[indexPath.row]["name"] as! String?
+        cell.foodDescription.text = foods[indexPath.row]["description"] as! String?
+        var price: Float = 0
+        
+        if let priceU = foods[indexPath.row]["price"] as! Float? {
+            
+            price = priceU
+            
+        }
+        
+        let twoDecimalPlaces = String(format: "%.2f", price)
+        
+        cell.foodPrice.text =  "$\(twoDecimalPlaces)"
         
         return cell
     }
