@@ -11,12 +11,13 @@ import Parse
 
 class PlaceViewController: UIViewController {
     
-    @IBAction func backPressed(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
-        
-    }
     var place: PFObject?
 
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

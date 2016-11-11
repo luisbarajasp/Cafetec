@@ -221,16 +221,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Santa Fe" id="f2Q-yw-bYr">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="dtf-dL-Gix">
-                            <connections>
-                                <segue destination="XPj-HV-KBw" kind="show" id="X8y-sf-p1r"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Santa Fe" id="f2Q-yw-bYr"/>
                     <connections>
                         <outlet property="placesCollectionView" destination="C5V-KU-ITC" id="80i-Sh-akA"/>
-                        <segue destination="XPj-HV-KBw" kind="show" identifier="placeSelected" id="HNA-d5-B06"/>
+                        <segue destination="XPj-HV-KBw" kind="showDetail" identifier="placeSelected" id="HeT-P8-aQc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyA-v0-MUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,12 +243,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-JV-bqh">
-                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-dG-hfX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-JV-bqh">
+                                <rect key="frame" x="20" y="30" width="64" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="             " image="fa-angle-left-white"/>
                                 <connections>
-                                    <action selector="backPressed:" destination="XPj-HV-KBw" eventType="touchUpInside" id="9Ze-LZ-FMG"/>
+                                    <action selector="backPressed:" destination="XPj-HV-KBw" eventType="touchUpInside" id="QNo-Em-L9d"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -264,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1q-V6-Qxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3054" y="107"/>
+            <point key="canvasLocation" x="3053.6231884057975" y="106.79347826086958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4yR-ll-5de">
@@ -502,10 +500,10 @@
         <image name="Search Filled" width="25" height="25"/>
         <image name="cafetec" width="1065" height="487"/>
         <image name="fa-angle-left" width="10" height="20"/>
+        <image name="fa-angle-left-white" width="10" height="20"/>
         <image name="frame_0_delay-0.04s.gif" width="168" height="168"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dsb-J9-ruf"/>
-        <segue reference="HNA-d5-B06"/>
     </inferredMetricsTieBreakers>
 </document>
