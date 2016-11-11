@@ -9,14 +9,23 @@
 import UIKit
 import Parse
 
-class PlaceViewController: UIViewController {
+class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var place: PFObject?
 
+    @IBOutlet var placeImage: UIImageView!
+    @IBOutlet var placeName: UILabel!
+    @IBOutlet var placeType: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var foodTable: UITableView!
     
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    /*override var prefersStatusBarHidden: Bool {
+        return true
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +35,24 @@ class PlaceViewController: UIViewController {
         if let placeUnwrapped = place {
             
             print(placeUnwrapped)
+            
+            (placeUnwrapped["image"] as! PFFile).getDataInBackground { (data, error) in
+                
+                if let imageData = data {
+                    
+                    if let downloadedImage = UIImage(data: imageData) {
+                        
+                        self.placeImage.image = downloadedImage
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            placeName.text = placeUnwrapped["name"] as! String?
+            placeType.text = placeUnwrapped["type"] as! String?
+            timeLabel.text = "~30 min"
             
         }
     }
@@ -42,6 +69,29 @@ class PlaceViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - Food Table
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        cell.textLabel?.text = "Test"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        
+    }
 
     /*
     // MARK: - Navigation

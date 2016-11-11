@@ -119,10 +119,15 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         if segue.identifier == "placeSelected" {
             
-            let vc = segue.destination as! PlaceViewController
+            let nc = segue.destination as! UINavigationController
+            
+            let vc = nc.viewControllers[0] as! PlaceViewController
+            
             vc.place = self.placeSelected
             
-            self.present(vc, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(vc, animated: true)
+            
+            self.present(nc, animated: true, completion: nil)
             
         }
         

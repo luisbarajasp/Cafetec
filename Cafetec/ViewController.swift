@@ -12,7 +12,6 @@ import Parse
 class ViewController: UIViewController, UITextFieldDelegate {
     
 
-    @IBOutlet var loaderView: UIImageView!
     @IBOutlet var signUpBtn: UIButton!
     @IBOutlet var signInBtn: UIButton!
     @IBOutlet var passwordTF: UITextField!
@@ -39,8 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Timer.scheduledTimer(timeInterval: 0.04, target: self, selector: #selector(self.nextGif), userInfo: nil, repeats: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -92,20 +89,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func nextGif(){
-        
-        i += 1
-        
-        if(i > 19){
-            i = 0
-        }
-        
-        name = "frame_\(i)_delay-0.04s.gif"
-        
-        loaderView.image = UIImage(named: name)
-        
-    }
-    
     func accessGranted() {
         
         performSegue(withIdentifier: "accessGranted", sender: self)
@@ -117,13 +100,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if PFUser.current() != nil {
             
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.accessGranted), userInfo: nil, repeats: true)
+            //Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.accessGranted), userInfo: nil, repeats: true)
+            performSegue(withIdentifier: "accessGranted", sender: self)
             
         }else if !loaded{
             
             UIView.animate(withDuration: 1.5, animations: {
-                
-                self.loaderView.alpha = 0
                 
                 self.emailTF.center = CGPoint(x: self.emailTF.center.x, y: self.emailTF.center.y - 300)
                 self.passwordTF.center = CGPoint(x: self.passwordTF.center.x, y: self.passwordTF.center.y - 300)
