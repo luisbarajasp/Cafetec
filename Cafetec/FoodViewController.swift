@@ -155,16 +155,19 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
         return foodOptions.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        var sectionTitle = ""
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderOptionsTableViewCell
+        headerCell.backgroundColor = UIColor.white
         
-        let key = Array(foodOptions.keys)[section]
+        headerCell.nameLabel.text = Array(foodOptions.keys)[section]
         
-        sectionTitle = key
+        return headerCell
         
-        return sectionTitle
-        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
