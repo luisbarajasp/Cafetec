@@ -24,6 +24,7 @@
 		A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */; };
 		A0F213B81DD529AB00764904 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213B71DD529AB00764904 /* PlaceViewController.swift */; };
 		A0F213BC1DD5580500764904 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213BB1DD5580500764904 /* FoodTableViewCell.swift */; };
+		A0F213BE1DD56CE700764904 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F213BD1DD56CE700764904 /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		A0F213B71DD529AB00764904 /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		A0F213BB1DD5580500764904 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		A0F213BD1DD56CE700764904 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
 				A08541C81DC43475009695B8 /* ViewController.swift */,
 				A01780471DD2BC1500887CC1 /* SignupViewController.swift */,
+				A0F213BD1DD56CE700764904 /* FoodViewController.swift */,
 				A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */,
 				A0F213B71DD529AB00764904 /* PlaceViewController.swift */,
 				A0F213BB1DD5580500764904 /* FoodTableViewCell.swift */,
@@ -218,6 +221,7 @@
 				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
 				A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */,
 				A0F213B81DD529AB00764904 /* PlaceViewController.swift in Sources */,
+				A0F213BE1DD56CE700764904 /* FoodViewController.swift in Sources */,
 				A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */,
 				A0F213BC1DD5580500764904 /* FoodTableViewCell.swift in Sources */,
 				A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */,

@@ -101,6 +101,8 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         // Do any additional setup after loading the view.
         
+        refresh()
+        
         if let placeUnwrapped = place {
             
             print(placeUnwrapped)
@@ -130,8 +132,6 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        
-        refresh()
         
     }
 
