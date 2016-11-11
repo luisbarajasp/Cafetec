@@ -15,6 +15,8 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var foods = [PFObject]()
     
+    var selectedFood: PFObject?
+    
     //Declare it on top of the class
     var activityIndicator = UIActivityIndicatorView()
 
@@ -186,7 +188,23 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        selectedFood = foods[indexPath.row]
         
+        performSegue(withIdentifier: "foodSelected", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "foodSelected" {
+            
+            let vc = segue.destination as! FoodViewController
+            
+            vc.food = self.selectedFood
+            
+            //self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
         
     }
 
