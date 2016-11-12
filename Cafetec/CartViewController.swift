@@ -15,6 +15,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet var dynamicView: UIView!
     @IBOutlet var placeImage: UIImageView!
     @IBOutlet var placeName: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -137,6 +138,23 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let frame = CGRect(origin: point, size: size)
         
         self.tableView.frame = frame
+        
+        //Animations
+        self.placeName.alpha = 1
+        
+        //Variables to save the initial values
+        let width : CGFloat = dynamicView.frame.width
+        let height : CGFloat = dynamicView.frame.height
+        let x : CGFloat = dynamicView.frame.minX
+        let y : CGFloat = dynamicView.frame.minY
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            //self.placeName.alpha = 1
+            
+            self.dynamicView.frame = CGRect(x: x, y: y - 407, width: width, height: height)
+            
+        })
         
     }
     
