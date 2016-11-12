@@ -17,13 +17,11 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     @IBOutlet var cartSize: UILabel!
     @IBOutlet var cartBtn: UIButton!
-    /*@IBAction func logout(_ sender: Any) {
-        
-        PFUser.logOut()
-        
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-        
-    }*/
+    
+    @IBAction func cartBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "cartSegue", sender: self)
+    }
+    
     
     func refresh(){
         

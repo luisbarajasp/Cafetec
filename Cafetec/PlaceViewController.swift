@@ -36,6 +36,9 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /*override var prefersStatusBarHidden: Bool {
         return true
     }*/
+    @IBAction func cartBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "cartSegue", sender: self)
+    }
     
     func createAlert(title: String, message: String) {
         

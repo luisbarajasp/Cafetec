@@ -18,6 +18,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var cartBtn: UIButton!
     @IBOutlet var cartSize: UILabel!
     
+    @IBAction func cartBtnPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "cartSegue", sender: self)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

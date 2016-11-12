@@ -199,6 +199,9 @@
                                     <constraint firstAttribute="height" constant="60" id="bwc-di-LcT"/>
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
+                                <connections>
+                                    <action selector="cartBtnPressed:" destination="r2h-WM-Maf" eventType="touchUpInside" id="DhL-mX-QU6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etD-NQ-x8V">
                                 <rect key="frame" x="372" y="607" width="22" height="21"/>
@@ -226,6 +229,7 @@
                         <outlet property="cartSize" destination="etD-NQ-x8V" id="mLg-tR-ugU"/>
                         <outlet property="placesCollectionView" destination="C5V-KU-ITC" id="80i-Sh-akA"/>
                         <segue destination="a21-Ed-M4d" kind="showDetail" identifier="placeSelected" id="HeT-P8-aQc"/>
+                        <segue destination="Jbj-RN-MwR" kind="show" identifier="cartSegue" id="XiZ-Hs-pGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyA-v0-MUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,14 +248,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-dG-hfX">
+                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-dG-hfX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-JV-bqh">
                                 <rect key="frame" x="20" y="20" width="71" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="             " image="fa-angle-left-white"/>
+                                <state key="normal" title="             " image="Times"/>
                                 <connections>
                                     <action selector="backPressed:" destination="XPj-HV-KBw" eventType="touchUpInside" id="QNo-Em-L9d"/>
                                 </connections>
@@ -348,6 +352,9 @@
                                     <constraint firstAttribute="width" constant="60" id="wYh-C7-gqd"/>
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
+                                <connections>
+                                    <action selector="cartBtnPressed:" destination="XPj-HV-KBw" eventType="touchUpInside" id="eVO-aS-1BQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-C4-KCM">
                                 <rect key="frame" x="372" y="656" width="22" height="21"/>
@@ -357,7 +364,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7ia-Qq-lIe" firstAttribute="top" secondItem="KaO-Bf-pIN" secondAttribute="bottom" constant="20" id="6JQ-Qu-2tb"/>
                             <constraint firstAttribute="trailing" secondItem="KaO-Bf-pIN" secondAttribute="trailing" constant="20" id="Yx3-Tb-5tv"/>
@@ -376,6 +383,7 @@
                         <outlet property="tableView" destination="u2n-15-Yc4" id="80H-XE-qLL"/>
                         <outlet property="timeLabel" destination="Nus-XD-rxf" id="iEd-W5-21b"/>
                         <segue destination="mcD-B9-cdi" kind="show" identifier="foodSelected" id="9HZ-qd-HV6"/>
+                        <segue destination="Jbj-RN-MwR" kind="presentation" identifier="cartSegue" id="B0L-V7-Bad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1q-V6-Qxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +402,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="gxK-fc-UHF">
+                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="gxK-fc-UHF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -546,7 +554,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Kjc-bi-NOR" firstAttribute="top" secondItem="QlK-hB-720" secondAttribute="bottom" id="0H8-Or-R5O"/>
                             <constraint firstItem="Kjc-bi-NOR" firstAttribute="top" secondItem="QEw-hh-IJh" secondAttribute="bottom" id="44N-1q-yYr"/>
@@ -610,10 +618,161 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Search Filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <segue destination="Jbj-RN-MwR" kind="show" identifier="cartSegue" id="RLe-Hu-88u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-rp-luc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1526" y="918"/>
+        </scene>
+        <!--Cart View Controller-->
+        <scene sceneID="7sM-pS-eYU">
+            <objects>
+                <viewController id="Jbj-RN-MwR" customClass="CartViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w0D-QE-Ifw"/>
+                        <viewControllerLayoutGuide type="bottom" id="PFT-27-1uh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZbF-Pt-6SW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafetec" translatesAutoresizingMaskIntoConstraints="NO" id="L26-X5-ZVu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2D-ZA-62M">
+                                <rect key="frame" x="20" y="20" width="71" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="             " image="Times"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="Jbj-RN-MwR" eventType="touchUpInside" id="Wtp-JM-v54"/>
+                                    <action selector="backPressed:" destination="XPj-HV-KBw" eventType="touchUpInside" id="Zls-Qp-mAx"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehf-mi-Lgw">
+                                <rect key="frame" x="10" y="190" width="394" height="546"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYH-eP-yh9">
+                                        <rect key="frame" x="8" y="20" width="378" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orden lista en alrededor de 30 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTl-J5-NQn">
+                                        <rect key="frame" x="8" y="69" width="378" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="separator" translatesAutoresizingMaskIntoConstraints="NO" id="D37-uX-ndO">
+                                        <rect key="frame" x="10" y="100" width="374" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gDs-T9-xnl">
+                                        <rect key="frame" x="10" y="101" width="374" height="401"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="WWo-Vo-9MB" customClass="CartItemTableViewCell" customModule="Cafetec" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="374" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WWo-Vo-9MB" id="WaA-zo-NKI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="79"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnd-Wg-HVZ">
+                                                            <rect key="frame" x="10" y="29" width="27" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" red="0.13725490200000001" green="0.2470588235" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRd-RO-pEN">
+                                                            <rect key="frame" x="33" y="30" width="240" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgI-Ho-bpr">
+                                                            <rect key="frame" x="292" y="29" width="72" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="nameLabel" destination="ZRd-RO-pEN" id="CYc-uP-amG"/>
+                                                    <outlet property="priceLabel" destination="mgI-Ho-bpr" id="8vx-yM-Mzj"/>
+                                                    <outlet property="quantityLabel" destination="tnd-Wg-HVZ" id="5AC-if-KM3"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellTotal" rowHeight="80" id="1Kn-8K-ZVI" customClass="CartTotalTableViewCell" customModule="Cafetec" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="108" width="374" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Kn-8K-ZVI" id="ccN-8H-2p4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="79"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-iR-tnJ">
+                                                            <rect key="frame" x="20" y="29" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6o-0Y-BUz">
+                                                            <rect key="frame" x="289" y="29" width="75" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="totalPriceLabel" destination="X6o-0Y-BUz" id="tMe-sp-G5T"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Jbj-RN-MwR" id="6HG-Fr-sgo"/>
+                                            <outlet property="delegate" destination="Jbj-RN-MwR" id="Ff2-fV-AZN"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDa-go-mU3">
+                                <rect key="frame" x="0.0" y="698" width="414" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Confirmar pedido" backgroundImage="bg-confirm">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pay:" destination="Jbj-RN-MwR" eventType="touchUpInside" id="zsh-fc-Hle"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="placeImage" destination="L26-X5-ZVu" id="uSI-V3-KXR"/>
+                        <outlet property="placeName" destination="yYH-eP-yh9" id="G0I-fy-N3O"/>
+                        <outlet property="tableView" destination="gDs-T9-xnl" id="Vgz-nr-FJs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24l-78-sO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-172.46376811594203" y="2128.5326086956525"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="d8j-O1-m6e">
@@ -635,6 +794,7 @@
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
                                 <connections>
+                                    <action selector="cartBtnPressed:" destination="J9P-QG-il5" eventType="touchUpInside" id="kni-Um-eVc"/>
                                     <action selector="showCartPressed:" destination="J9P-QG-il5" eventType="touchUpInside" id="msW-8B-AhU"/>
                                 </connections>
                             </button>
@@ -720,6 +880,7 @@
                         <outlet property="nameLabel" destination="wAk-bm-Mmw" id="CjJ-kM-mB7"/>
                         <outlet property="tableView" destination="B0P-9W-C1U" id="mde-wl-93Y"/>
                         <segue destination="19C-3k-Bge" kind="show" identifier="logoutSegue" id="LMM-Pu-vGJ"/>
+                        <segue destination="Jbj-RN-MwR" kind="show" identifier="cartSegue" id="she-xV-WAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAx-8R-w8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -793,6 +954,9 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Paper Filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <segue destination="Jbj-RN-MwR" kind="show" identifier="cartSegue" id="A5z-cm-lXW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8W-uY-dem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -956,6 +1120,7 @@
         <image name="Plus" width="40" height="37"/>
         <image name="Search" width="25" height="25"/>
         <image name="Search Filled" width="25" height="25"/>
+        <image name="Times" width="18" height="20"/>
         <image name="bg-confirm" width="375" height="38"/>
         <image name="cafetec" width="1065" height="487"/>
         <image name="fa-angle-left" width="10" height="20"/>
@@ -964,5 +1129,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eh2-mD-oPv"/>
+        <segue reference="B0L-V7-Bad"/>
     </inferredMetricsTieBreakers>
 </document>
