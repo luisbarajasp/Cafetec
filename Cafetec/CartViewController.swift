@@ -24,6 +24,20 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var totalPrice: Float = 0
     
+    func createAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -164,7 +178,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - TableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -188,6 +202,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CartItemTableViewCell
             
             cell.quantityLabel.text = "\(items[indexPath.row]["quantity"] as! Int)"
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             let query = PFQuery(className: "Food")
             
@@ -215,7 +231,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             return cell
             
-        }else{
+        }else if indexPath.section == 1{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellTotal", for: indexPath) as! CartTotalTableViewCell
             
@@ -235,6 +251,26 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             return cell
             
+        }else{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellPay", for: indexPath) as! CartPayTableViewCell
+            
+            if PFUser.current()!["customerId"] != nil {
+                
+                // User has credit card
+                
+            }else{
+                
+                // User does not have credit card
+                
+                cell.cardLabel.text = "No tienes tarjeta"
+                cell.button.setTitle("NUEVA TARJETA", for: [])
+                
+            }
+            
+            
+            return cell
+            
         }
         
     }
@@ -245,6 +281,79 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0{
+            return true
+        }
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            
+            //Declare it on top of the class
+            var activityIndicator = UIActivityIndicatorView()
+            
+            //Display
+            activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            //Comment if you do not want to ignore interaction whilst
+            UIApplication.shared.beginIgnoringInteractionEvents()
+
+            
+            let item = self.items[indexPath.row]
+            
+            let query = PFQuery(className: "OrderItem")
+            
+            query.getObjectInBackground(withId: (item.objectId as String!)!, block: { (object, error) in
+                
+                //Remove it
+                activityIndicator.stopAnimating()
+                //Comment if you commented the ignoring of interaction
+                UIApplication.shared.endIgnoringInteractionEvents()
+                
+                if error != nil {
+                    
+                    print (error!)
+                    
+                    self.createAlert(title: "Error", message: "No se pudo editar el pedido. Intenta más tarde.")
+                    
+                }else{
+                    
+                    if let orderItem = object {
+                        
+                        let totalItemsObject = UserDefaults.standard.object(forKey: "totalItems")
+                        
+                        if let itemsUnwrapped = totalItemsObject as? Int {
+                            
+                            let totalItems = itemsUnwrapped - (orderItem["quantity"] as! Int)
+                            
+                            UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                            
+                        }
+                        
+                        orderItem.deleteInBackground()
+                        
+                        DispatchQueue.main.async{
+                            tableView.reloadData()
+                        }
+                        
+                        self.createAlert(title: "Eliminado", message: "Se eliminó el alimento con éxito.")
+
+                    }
+                    
+                }
+                
+            })
+            
+        }
     }
 
     /*

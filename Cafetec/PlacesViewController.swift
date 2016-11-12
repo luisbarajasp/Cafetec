@@ -62,12 +62,14 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         
         refresh()
+        
+        //UserDefaults.standard.set(2, forKey: "totalItems")
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = false
         

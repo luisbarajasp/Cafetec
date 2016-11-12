@@ -24,6 +24,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func backPressed(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
+        
     }
     
     @IBOutlet var foodImage: UIImageView!
@@ -205,6 +206,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 orderItem["options"] = dictionary
                                 //Set the order
                                 orderItem["orderId"] = order.objectId
+                                //Set the food
+                                orderItem["foodId"] = self.food?.objectId
                                 
                                 //Display
                                 self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))

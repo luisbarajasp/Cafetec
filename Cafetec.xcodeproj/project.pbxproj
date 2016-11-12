@@ -15,6 +15,7 @@
 		A0608D7B1DD294CE00F291C4 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D7A1DD294CE00F291C4 /* libstdc++.6.tbd */; };
 		A0608D7D1DD294E300F291C4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */; };
 		A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */; };
+		A062E8B61DD794530080ECE7 /* CartPayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */; };
 		A07812CE1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */; };
 		A07812D01DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */; };
 		A07812D41DD6C2BA00A2C2F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */; };
@@ -46,6 +47,7 @@
 		A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedTextField.swift; sourceTree = "<group>"; };
 		A0608D811DD2A73000F291C4 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Cafetec/Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
+		A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartPayTableViewCell.swift; sourceTree = "<group>"; };
 		A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				A07812D51DD6C4A200A2C2F6 /* SettingsTableViewCell.swift */,
 				A0F213B11DD3D16900764904 /* PlacesViewController.swift */,
 				A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */,
+				A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */,
 				A07812D91DD6F17200A2C2F6 /* CartItemTableViewCell.swift */,
 				A07812DB1DD6F24E00A2C2F6 /* CartTotalTableViewCell.swift */,
 				A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */,
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A062E8B61DD794530080ECE7 /* CartPayTableViewCell.swift in Sources */,
 				A08541C91DC43475009695B8 /* ViewController.swift in Sources */,
 				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
 				A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */,
