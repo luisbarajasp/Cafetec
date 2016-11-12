@@ -18,7 +18,10 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
     var foodOptions = [String : Array<String>]()
     var radioButtonControllers = [SSRadioButtonsController]()
     var buttonsArray = [UIButton]()
-
+    
+    //Declare it on top of the class
+    var activityIndicator = UIActivityIndicatorView()
+    
     @IBAction func backPressed(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
     }
@@ -96,7 +99,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
             toPay.text = "$"+twoDecimalPlaces
             
         }
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -104,8 +107,15 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidAppear(animated)
         
         fillButtonsArray()
+        
+        //Resize tableview to the content height
+        let point = self.optionsTable.frame.origin
+        let size = CGSize(width: self.optionsTable.frame.width, height: self.optionsTable.contentSize.height)
+        let frame = CGRect(origin: point, size: size)
+        
+        self.optionsTable.frame = frame
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -117,7 +127,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             count.setTitle("\(self.countNumber)", for: [])
             
-            confirmOrderBtn.setTitle("Añadir \(self.countNumber) al carrito", for: [])
+            confirmOrderBtn.setTitle("\(self.countNumber)", for: [])
             
             self.totalpay -= self.foodPrice
             
@@ -142,9 +152,327 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     @IBAction func orderConfirmed(_ sender: Any) {
+        print("\(radioButtonControllers[0].indexSelectedButton())")
+        print(radioButtonControllers[0].selectedButton()?.title(for: [])! as String!)
+        print("\(radioButtonControllers[1].indexSelectedButton())")
+        print(radioButtonControllers[1].selectedButton()?.title(for: [])! as String!)
         
-        radioButtonControllers[0].printButtonsArray()
-        radioButtonControllers[1].printButtonsArray()
+        let query = PFQuery(className: "Order")
+        
+        query.whereKey("userId", equalTo: PFUser.current()!.objectId!)
+        query.whereKey("state", equalTo: 0)
+        
+        query.findObjectsInBackground { (objects, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                
+            }else{
+                
+                if let orders = objects {
+                    
+                    if orders.count > 0 {
+                        
+                        // User has an active order
+                        
+                        if let order = orders[0] as PFObject!{
+                            
+                            let orderPlace = order["placeId"] as! String
+                            
+                            let foodPlace = self.food?["placeId"] as! String
+                        
+                            if orderPlace == foodPlace {
+                            
+                                // The food is from the same place
+                                
+                                let orderItem = PFObject(className: "OrderItem")
+                                
+                                //Set quantity
+                                orderItem["quantity"] = self.countNumber
+                                //Set total price
+                                orderItem["price"] = self.totalpay
+                                //Set the options selected
+                                let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
+                                let keys = Array(foodOptions.keys)
+                                var dictionary = [String: String]()
+                                var i = 0
+                                for key in keys {
+                                    dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
+                                    i += 1
+                                }
+                                print(dictionary)
+                                orderItem["options"] = dictionary
+                                //Set the order
+                                orderItem["orderId"] = order.objectId
+                                
+                                //Display
+                                self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                                self.activityIndicator.center = self.view.center
+                                self.activityIndicator.hidesWhenStopped = true
+                                self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                                self.view.addSubview(self.activityIndicator)
+                                self.activityIndicator.startAnimating()
+                                //Comment if you do not want to ignore interaction whilst
+                                UIApplication.shared.beginIgnoringInteractionEvents()
+                                
+                                orderItem.saveInBackground { (success, error) -> Void in
+                                    
+                                    //Remove it
+                                    self.activityIndicator.stopAnimating()
+                                    //Comment if you commented the ignoring of interaction
+                                    UIApplication.shared.endIgnoringInteractionEvents()
+                                    
+                                    // added test for success 11th July 2016
+                                    
+                                    if success {
+                                        
+                                        print("Object has been saved.")
+                                        
+                                    } else {
+                                        
+                                        if error != nil {
+                                            
+                                            print (error!)
+                                            
+                                        } else {
+                                            
+                                            print ("Error")
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }else{
+                            
+                                // The food is from another place
+                                
+                                let alert = UIAlertController(title: "Alerta", message: "Tienes una orden de otro establecimiento ¿qué deseas hacer?", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                
+                                alert.addAction(UIAlertAction(title: "Reemplazar", style: UIAlertActionStyle.default, handler: { (action) in
+                                    
+                                    order["status"] = 3
+                                    
+                                    let newOrder = PFObject(className: "Order")
+                                    
+                                    //Set the place
+                                    newOrder["placeId"] = self.food?["placeId"]
+                                    //Set the user
+                                    newOrder["user"] = PFUser.current()!.objectId
+                                    //Set the state
+                                    newOrder["state"] = 0
+                                    
+                                    //Display
+                                    self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                                    self.activityIndicator.center = self.view.center
+                                    self.activityIndicator.hidesWhenStopped = true
+                                    self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                                    self.view.addSubview(self.activityIndicator)
+                                    self.activityIndicator.startAnimating()
+                                    //Comment if you do not want to ignore interaction whilst
+                                    UIApplication.shared.beginIgnoringInteractionEvents()
+                                    
+                                    newOrder.saveInBackground { (success, error) -> Void in
+                                        
+                                        // added test for success 11th July 2016
+                                        
+                                        if success {
+                                            
+                                            print("Object has been saved.")
+                                            
+                                        } else {
+                                            
+                                            if error != nil {
+                                                
+                                                print (error!)
+                                                
+                                            } else {
+                                                
+                                                print ("Error")
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                    let orderItem = PFObject(className: "OrderItem")
+                                    
+                                    //Set quantity
+                                    orderItem["quantity"] = self.countNumber
+                                    //Set total price
+                                    orderItem["price"] = self.totalpay
+                                    //Set the options selected
+                                    let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
+                                    let keys = Array(foodOptions.keys)
+                                    var dictionary = [String: String]()
+                                    var i = 0
+                                    for key in keys {
+                                        dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
+                                        i += 1
+                                    }
+                                    print(dictionary)
+                                    orderItem["options"] = dictionary
+                                    //Set the order
+                                    orderItem["orderId"] = newOrder.objectId
+                                    
+                                    orderItem.saveInBackground { (success, error) -> Void in
+                                        
+                                        //Remove it
+                                        self.activityIndicator.stopAnimating()
+                                        //Comment if you commented the ignoring of interaction
+                                        UIApplication.shared.endIgnoringInteractionEvents()
+                                        
+                                        // added test for success 11th July 2016
+                                        
+                                        if success {
+                                            
+                                            print("Object has been saved.")
+                                            
+                                        } else {
+                                            
+                                            if error != nil {
+                                                
+                                                print (error!)
+                                                
+                                            } else {
+                                                
+                                                print ("Error")
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                    self.dismiss(animated: true, completion: nil)
+                                    
+                                    
+                                }))
+                                
+                                
+                                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) in
+                                    
+                                    self.dismiss(animated: true, completion: nil)
+                                    
+                                }))
+                                
+                                self.present(alert, animated: true, completion: nil)
+                                
+                            }
+                            
+                        }
+                        
+                    }else{
+                        
+                        print("Entered")
+                        
+                        // User has no active orders
+                        
+                        let order = PFObject(className: "Order")
+                        
+                        //Set the place
+                        order["placeId"] = self.food?["placeId"]
+                        //Set the user
+                        order["userId"] = PFUser.current()!.objectId
+                        //Set the state
+                        order["state"] = 0
+                        
+                        //Display
+                        self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                        self.activityIndicator.center = self.view.center
+                        self.activityIndicator.hidesWhenStopped = true
+                        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                        self.view.addSubview(self.activityIndicator)
+                        self.activityIndicator.startAnimating()
+                        //Comment if you do not want to ignore interaction whilst
+                        UIApplication.shared.beginIgnoringInteractionEvents()
+                        
+                        order.saveInBackground { (success, error) -> Void in
+                            
+                            // added test for success 11th July 2016
+                            
+                            if success {
+                                
+                                print("Order has been saved.")
+                                
+                                let orderItem = PFObject(className: "OrderItem")
+                                
+                                //Set quantity
+                                orderItem["quantity"] = self.countNumber
+                                //Set total price
+                                orderItem["price"] = self.totalpay
+                                //Set the options selected
+                                let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
+                                let keys = Array(foodOptions.keys)
+                                var dictionary = [String: String]()
+                                var i = 0
+                                for key in keys {
+                                    dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
+                                    i += 1
+                                }
+                                print(dictionary)
+                                orderItem["options"] = dictionary
+                                //Set the order
+                                orderItem["orderId"] = order.objectId
+                                
+                                orderItem.saveInBackground { (success, error) -> Void in
+                                    
+                                    //Remove it
+                                    self.activityIndicator.stopAnimating()
+                                    //Comment if you commented the ignoring of interaction
+                                    UIApplication.shared.endIgnoringInteractionEvents()
+                                    
+                                    // added test for success 11th July 2016
+                                    
+                                    if success {
+                                        
+                                        print("OrderItem has been saved.")
+                                        
+                                    } else {
+                                        
+                                        if error != nil {
+                                            
+                                            print (error!)
+                                            
+                                        } else {
+                                            
+                                            print ("Error")
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                                print(order)
+                                print(orderItem)
+                                
+                            } else {
+                                
+                                if error != nil {
+                                    
+                                    print (error!)
+                                    
+                                } else {
+                                    
+                                    print ("Error")
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        _ = self.navigationController?.popViewController(animated: true)
+        
         
     }
     
@@ -212,8 +540,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
             for _ in 0 ..< size!  {
                 
                 buttonsArrayA.append(buttonsArray.removeFirst())
-                //buttonsArray.remove(at: i)
-                print(buttonsArray.count)
                 
             }
             e += 1
@@ -227,15 +553,15 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

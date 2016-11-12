@@ -64,7 +64,7 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let query = PFQuery(className: "Food")
         
-        query.whereKey("place", equalTo: place!)
+        query.whereKey("placeId", equalTo: place!.objectId!)
         
         query.findObjectsInBackground { (objects, error) in
             
@@ -134,6 +134,14 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        let indexPath = self.tableView.indexPathForSelectedRow
+        
+        if ((indexPath) != nil) {
+            
+            self.tableView.deselectRow(at: indexPath!, animated: true)
+            
+        }
         
     }
 

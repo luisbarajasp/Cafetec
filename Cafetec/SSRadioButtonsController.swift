@@ -89,8 +89,6 @@ class SSRadioButtonsController : NSObject
             print(button)
         }
     }
- 
-    
     /**
      Set an array of UIButons to behave as controller.
      
@@ -126,4 +124,28 @@ class SSRadioButtonsController : NSObject
     func selectedButton() -> UIButton? {
         return currentSelectedButton
     }
+    /*
+    Get the index of the button selected.
+    - returns: Currently selected button index
+    */
+    func indexSelectedButton() -> Int {
+        
+        var i = 0
+        
+        for button in buttonsArray {
+            
+            if currentSelectedButton == button {
+                
+                return i
+                
+            }
+            
+            i += 1
+            
+        }
+        
+        return -1
+        
+    }
+ 
 }
