@@ -192,8 +192,27 @@
                                     <outlet property="delegate" destination="r2h-WM-Maf" id="A2b-t6-YaW"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwi-U1-983">
+                                <rect key="frame" x="334" y="607" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6LY-2f-I8m"/>
+                                    <constraint firstAttribute="height" constant="60" id="bwc-di-LcT"/>
+                                </constraints>
+                                <state key="normal" image="Carrito"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etD-NQ-x8V">
+                                <rect key="frame" x="372" y="607" width="22" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Dwi-U1-983" secondAttribute="trailing" constant="20" id="5gg-Hg-FuA"/>
+                            <constraint firstItem="ObZ-ly-gjD" firstAttribute="top" secondItem="Dwi-U1-983" secondAttribute="bottom" constant="20" id="hhR-2E-QK8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Fork" id="bs0-O3-P9S">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
@@ -320,8 +339,27 @@
                                     <outlet property="delegate" destination="XPj-HV-KBw" id="yju-g5-JrS"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaO-Bf-pIN">
+                                <rect key="frame" x="334" y="656" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3hP-2D-R06"/>
+                                    <constraint firstAttribute="width" constant="60" id="wYh-C7-gqd"/>
+                                </constraints>
+                                <state key="normal" image="Carrito"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-C4-KCM">
+                                <rect key="frame" x="372" y="656" width="22" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7ia-Qq-lIe" firstAttribute="top" secondItem="KaO-Bf-pIN" secondAttribute="bottom" constant="20" id="6JQ-Qu-2tb"/>
+                            <constraint firstAttribute="trailing" secondItem="KaO-Bf-pIN" secondAttribute="trailing" constant="20" id="Yx3-Tb-5tv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hgb-Lq-dmW"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -538,7 +576,28 @@
                     <view key="view" contentMode="scaleToFill" id="1hU-t8-MnS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-98-Y2A">
+                                <rect key="frame" x="334" y="607" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ZAn-ZG-op2"/>
+                                    <constraint firstAttribute="height" constant="60" id="dky-Dc-w09"/>
+                                </constraints>
+                                <state key="normal" image="Carrito"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEe-Gw-DIh">
+                                <rect key="frame" x="372" y="607" width="22" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kl8-RV-ee7" firstAttribute="top" secondItem="sgv-98-Y2A" secondAttribute="bottom" constant="20" id="Gf5-3w-EMR"/>
+                            <constraint firstAttribute="trailing" secondItem="sgv-98-Y2A" secondAttribute="trailing" constant="20" id="MVC-F0-o1X"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="Search" id="IZ2-PL-loJ">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
@@ -562,6 +621,23 @@
                     <view key="view" contentMode="scaleToFill" id="9lh-zd-6cm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHo-fs-WZQ">
+                                <rect key="frame" x="334" y="607" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6ML-FA-Ew1"/>
+                                    <constraint firstAttribute="width" constant="60" id="cVv-f9-BEH"/>
+                                </constraints>
+                                <state key="normal" image="Carrito"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOh-2c-Qg7">
+                                <rect key="frame" x="372" y="607" width="22" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="Circled User Male" id="w55-ZB-JqN">
@@ -613,7 +689,28 @@
                     <view key="view" contentMode="scaleToFill" id="17T-4o-Anb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-KF-mEI">
+                                <rect key="frame" x="334" y="607" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="pnj-ca-Zf2"/>
+                                    <constraint firstAttribute="height" constant="60" id="zfh-e2-1sd"/>
+                                </constraints>
+                                <state key="normal" image="Carrito"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFp-zo-Fj4">
+                                <rect key="frame" x="372" y="607" width="22" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a3b-rP-rr7" firstAttribute="top" secondItem="QgI-KF-mEI" secondAttribute="bottom" constant="20" id="CW0-AJ-byC"/>
+                            <constraint firstAttribute="trailing" secondItem="QgI-KF-mEI" secondAttribute="trailing" constant="20" id="som-AD-7cQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="Paper" id="Ce5-hk-zVH">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
@@ -770,6 +867,7 @@
     </scenes>
     <resources>
         <image name="Bottom border" width="271" height="40"/>
+        <image name="Carrito" width="60" height="60"/>
         <image name="Circled User Male" width="25" height="25"/>
         <image name="Circled User Male Filled" width="25" height="25"/>
         <image name="Count" width="40" height="37"/>
