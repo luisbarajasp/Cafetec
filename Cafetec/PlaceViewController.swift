@@ -20,6 +20,8 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Declare it on top of the class
     var activityIndicator = UIActivityIndicatorView()
 
+    @IBOutlet var cartSize: UILabel!
+    @IBOutlet var cartBtn: UIButton!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var placeImage: UIImageView!
     @IBOutlet var placeName: UILabel!
@@ -135,11 +137,156 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.navigationController?.navigationBar.isHidden = true
         
+        // Deselect previous row when returning to view
+        
         let indexPath = self.tableView.indexPathForSelectedRow
         
         if ((indexPath) != nil) {
             
             self.tableView.deselectRow(at: indexPath!, animated: true)
+            
+        }
+        
+        // Check if there is an active Order for displaying the button
+        
+        let activeOrderObject = UserDefaults.standard.object(forKey: "activeOrder")
+        let totalItemsObject = UserDefaults.standard.object(forKey: "totalItems")
+        
+        var totalItems = 0
+        
+        if let activeOrder = activeOrderObject as? String {
+            
+            if let itemsUnwrapped = totalItemsObject as? Int {
+                
+                if itemsUnwrapped > 0 {
+                    
+                    // User has active items
+                    
+                    totalItems = itemsUnwrapped
+                    
+                    self.cartSize.text = "\(totalItems)"
+                    
+                    self.cartBtn.isHidden = false
+                    self.cartSize.isHidden = false
+                    
+                    print(activeOrder)
+                    
+                }else{
+                    
+                    // User has not active items
+                    
+                    
+                    print(activeOrder)
+                    
+                    self.cartBtn.isHidden = true
+                    self.cartSize.isHidden = true
+                    
+                }
+                
+                
+            }else{
+                
+                // User has not active items
+                
+                self.cartBtn.isHidden = true
+                self.cartSize.isHidden = true
+                
+            }
+            
+        }else{
+            
+            let query = PFQuery(className: "Order")
+            
+            query.whereKey("userId", equalTo: (PFUser.current()?.objectId!)! as String)
+            query.whereKey("state", equalTo: 0)
+            
+            query.findObjectsInBackground(block: { (objects, error) in
+                
+                if error != nil {
+                    
+                    print (error!)
+                    
+                }else{
+                    
+                    if let orders = objects {
+                        
+                        if orders.count > 0 {
+                            
+                            // User has an active order
+                            
+                            if let order = orders[0] as PFObject!{
+                                
+                                UserDefaults.standard.set(order.objectId as String!, forKey: "activeOrder")
+                                
+                                let query = PFQuery(className: "OrderItem")
+                                
+                                query.whereKey("orderId", equalTo: order.objectId! as String)
+                                
+                                query.findObjectsInBackground(block: { (objects, error) in
+                                    
+                                    if error != nil {
+                                        
+                                        print (error!)
+                                        
+                                    }else{
+                                        
+                                        if let items = objects {
+                                            
+                                            if items.count > 0 {
+                                                
+                                                // User has active items
+                                                
+                                                for item in items {
+                                                    
+                                                    totalItems += item["quantity"] as! Int
+                                                    
+                                                }
+                                                
+                                                UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                                                
+                                                self.cartBtn.isHidden = false
+                                                self.cartSize.isHidden = false
+                                                
+                                            }else{
+                                                
+                                                // User has not active items
+                                                
+                                                UserDefaults.standard.set(0, forKey: "totalItems")
+                                                
+                                                self.cartBtn.isHidden = true
+                                                self.cartSize.isHidden = true
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                })
+                                
+                                
+                                
+                            }
+                            
+                        }else{
+                            
+                            // User does not have active order
+                            
+                            UserDefaults.standard.removeObject(forKey: "activeOrder")
+                            UserDefaults.standard.removeObject(forKey: "totalItems")
+                            
+                            self.cartBtn.isHidden = true
+                            self.cartSize.isHidden = true
+                            
+                        }
+                        
+                    }
+                    
+                    
+                }
+                
+                
+            })
             
         }
         

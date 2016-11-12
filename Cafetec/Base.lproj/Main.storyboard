@@ -200,7 +200,7 @@
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etD-NQ-x8V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etD-NQ-x8V">
                                 <rect key="frame" x="372" y="607" width="22" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -222,6 +222,8 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Santa Fe" id="f2Q-yw-bYr"/>
                     <connections>
+                        <outlet property="cartBtn" destination="Dwi-U1-983" id="q8y-KP-mcD"/>
+                        <outlet property="cartSize" destination="etD-NQ-x8V" id="mLg-tR-ugU"/>
                         <outlet property="placesCollectionView" destination="C5V-KU-ITC" id="80i-Sh-akA"/>
                         <segue destination="a21-Ed-M4d" kind="showDetail" identifier="placeSelected" id="HeT-P8-aQc"/>
                     </connections>
@@ -247,7 +249,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-JV-bqh">
-                                <rect key="frame" x="20" y="20" width="64" height="40"/>
+                                <rect key="frame" x="20" y="20" width="71" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="             " image="fa-angle-left-white"/>
                                 <connections>
@@ -347,7 +349,7 @@
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-C4-KCM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-C4-KCM">
                                 <rect key="frame" x="372" y="656" width="22" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -365,6 +367,8 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="cartBtn" destination="KaO-Bf-pIN" id="ptK-LP-Ywk"/>
+                        <outlet property="cartSize" destination="KXd-C4-KCM" id="a36-4k-ZVg"/>
                         <outlet property="foodTable" destination="u2n-15-Yc4" id="JnZ-w9-qgE"/>
                         <outlet property="placeImage" destination="Qlw-dG-hfX" id="aJv-fV-9En"/>
                         <outlet property="placeName" destination="DpY-SW-wHk" id="4vE-Pa-Yny"/>
@@ -395,7 +399,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-mu-2h7">
-                                <rect key="frame" x="20" y="20" width="64" height="40"/>
+                                <rect key="frame" x="20" y="20" width="71" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="             " image="fa-angle-left-white"/>
                                 <connections>
@@ -403,7 +407,7 @@
                                     <action selector="backPressed:" destination="mcD-B9-cdi" eventType="touchUpInside" id="flj-Xl-kyJ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlK-hB-720">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlK-hB-720">
                                 <rect key="frame" x="0.0" y="189" width="414" height="547"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3I6-tZ-kYW">
@@ -443,7 +447,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjP-OT-Za4">
                                                             <rect key="frame" x="16" y="4" width="342" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -453,17 +457,17 @@
                                                     <outlet property="nameLabel" destination="YjP-OT-Za4" id="eoD-7d-f5N"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="30" id="HN1-ey-zlk" customClass="OptionsTableViewCell" customModule="Cafetec" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="58" width="374" height="30"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="35" id="HN1-ey-zlk" customClass="OptionsTableViewCell" customModule="Cafetec" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="58" width="374" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HN1-ey-zlk" id="wDF-ka-bHc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQ4-2B-knR" customClass="SSRadioButton" customModule="Cafetec" customModuleProvider="target">
-                                                            <rect key="frame" x="44" y="4" width="322" height="20"/>
+                                                            <rect key="frame" x="44" y="7" width="322" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="tintColor" red="0.99695668770000001" green="0.97836169179999999" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="Button">
                                                                 <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -510,6 +514,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="nFX-XD-zbB"/>
+                                    <constraint firstAttribute="height" constant="547" id="z14-9a-8kw"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEw-hh-IJh">
@@ -585,7 +590,7 @@
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEe-Gw-DIh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEe-Gw-DIh">
                                 <rect key="frame" x="372" y="607" width="22" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -610,10 +615,10 @@
             </objects>
             <point key="canvasLocation" x="1526" y="918"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="d8j-O1-m6e">
             <objects>
-                <viewController id="J9P-QG-il5" sceneMemberID="viewController">
+                <viewController id="J9P-QG-il5" customClass="SettingsViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGg-jc-9jx"/>
                         <viewControllerLayoutGuide type="bottom" id="gub-9h-8pc"/>
@@ -622,23 +627,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHo-fs-WZQ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHo-fs-WZQ">
                                 <rect key="frame" x="334" y="607" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="6ML-FA-Ew1"/>
                                     <constraint firstAttribute="width" constant="60" id="cVv-f9-BEH"/>
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
+                                <connections>
+                                    <action selector="showCartPressed:" destination="J9P-QG-il5" eventType="touchUpInside" id="msW-8B-AhU"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOh-2c-Qg7">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOh-2c-Qg7">
                                 <rect key="frame" x="372" y="607" width="22" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Circled Color User Male" translatesAutoresizingMaskIntoConstraints="NO" id="UG9-dB-ReS">
+                                <rect key="frame" x="157" y="61" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-bm-Mmw">
+                                <rect key="frame" x="20" y="201" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxt-KQ-4Tn">
+                                <rect key="frame" x="20" y="242" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B0P-9W-C1U">
+                                <rect key="frame" x="0.0" y="293" width="414" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="VYs-Sa-SzN" customClass="SettingsTableViewCell" customModule="Cafetec" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VYs-Sa-SzN" id="tFA-Mc-flI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aaq-wj-ytv">
+                                                    <rect key="frame" x="20" y="14" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMA-A0-HkT">
+                                                    <rect key="frame" x="73" y="17" width="277" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="icon" destination="aaq-wj-ytv" id="8TY-R9-dab"/>
+                                            <outlet property="label" destination="YMA-A0-HkT" id="n0s-h2-SU4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="J9P-QG-il5" id="aau-5k-nhF"/>
+                                    <outlet property="delegate" destination="J9P-QG-il5" id="JOQ-OV-REH"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AHo-fs-WZQ" secondAttribute="trailing" constant="20" id="3O0-Xr-M0q"/>
+                            <constraint firstItem="gub-9h-8pc" firstAttribute="top" secondItem="AHo-fs-WZQ" secondAttribute="bottom" constant="20" id="lMf-KR-fcu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="Circled User Male" id="w55-ZB-JqN">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
@@ -646,10 +713,18 @@
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Circled User Male Filled"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="cartBtn" destination="AHo-fs-WZQ" id="pP7-cx-tud"/>
+                        <outlet property="cartSize" destination="aOh-2c-Qg7" id="RWW-0X-lRV"/>
+                        <outlet property="matriculaLabel" destination="hxt-KQ-4Tn" id="k48-em-rkl"/>
+                        <outlet property="nameLabel" destination="wAk-bm-Mmw" id="CjJ-kM-mB7"/>
+                        <outlet property="tableView" destination="B0P-9W-C1U" id="mde-wl-93Y"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logoutSegue" id="7hh-i2-5oE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAx-8R-w8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1526" y="2415"/>
+            <point key="canvasLocation" x="1524.6376811594205" y="2414.6739130434785"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="F8B-0F-N29">
@@ -698,7 +773,7 @@
                                 </constraints>
                                 <state key="normal" image="Carrito"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFp-zo-Fj4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFp-zo-Fj4">
                                 <rect key="frame" x="372" y="607" width="22" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -868,6 +943,7 @@
     <resources>
         <image name="Bottom border" width="271" height="40"/>
         <image name="Carrito" width="60" height="60"/>
+        <image name="Circled Color User Male" width="33" height="33"/>
         <image name="Circled User Male" width="25" height="25"/>
         <image name="Circled User Male Filled" width="25" height="25"/>
         <image name="Count" width="40" height="37"/>
@@ -888,5 +964,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eh2-mD-oPv"/>
+        <segue reference="7hh-i2-5oE"/>
     </inferredMetricsTieBreakers>
 </document>

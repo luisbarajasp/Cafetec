@@ -229,6 +229,16 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         print("Object has been saved.")
                                         
+                                        let totalItemsObject = UserDefaults.standard.object(forKey: "totalItems")
+                                        
+                                        if let itemsUnwrapped = totalItemsObject as? Int {
+                                            
+                                            let totalItems = itemsUnwrapped + self.countNumber
+                                            
+                                            UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                                            
+                                        }
+                                        
                                     } else {
                                         
                                         if error != nil {
@@ -280,7 +290,58 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                         if success {
                                             
-                                            print("Object has been saved.")
+                                            print("Order has been saved.")
+                                            UserDefaults.standard.set(newOrder.objectId! as String, forKey: "activeOrder")
+                                            
+                                            let orderItem = PFObject(className: "OrderItem")
+                                            
+                                            //Set quantity
+                                            orderItem["quantity"] = self.countNumber
+                                            //Set total price
+                                            orderItem["price"] = self.totalpay
+                                            //Set the options selected
+                                            let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
+                                            let keys = Array(foodOptions.keys)
+                                            var dictionary = [String: String]()
+                                            var i = 0
+                                            for key in keys {
+                                                dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
+                                                i += 1
+                                            }
+                                            print(dictionary)
+                                            orderItem["options"] = dictionary
+                                            //Set the order
+                                            orderItem["orderId"] = newOrder.objectId
+                                            
+                                            orderItem.saveInBackground { (success, error) -> Void in
+                                                
+                                                //Remove it
+                                                self.activityIndicator.stopAnimating()
+                                                //Comment if you commented the ignoring of interaction
+                                                UIApplication.shared.endIgnoringInteractionEvents()
+                                                
+                                                // added test for success 11th July 2016
+                                                
+                                                if success {
+                                                    
+                                                    print("OrderItem has been saved.")
+                                                    UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
+                                                    
+                                                } else {
+                                                    
+                                                    if error != nil {
+                                                        
+                                                        print (error!)
+                                                        
+                                                    } else {
+                                                        
+                                                        print ("Error")
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+
                                             
                                         } else {
                                             
@@ -296,55 +357,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         }
                                         
                                     }
-                                    
-                                    let orderItem = PFObject(className: "OrderItem")
-                                    
-                                    //Set quantity
-                                    orderItem["quantity"] = self.countNumber
-                                    //Set total price
-                                    orderItem["price"] = self.totalpay
-                                    //Set the options selected
-                                    let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
-                                    let keys = Array(foodOptions.keys)
-                                    var dictionary = [String: String]()
-                                    var i = 0
-                                    for key in keys {
-                                        dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
-                                        i += 1
-                                    }
-                                    print(dictionary)
-                                    orderItem["options"] = dictionary
-                                    //Set the order
-                                    orderItem["orderId"] = newOrder.objectId
-                                    
-                                    orderItem.saveInBackground { (success, error) -> Void in
-                                        
-                                        //Remove it
-                                        self.activityIndicator.stopAnimating()
-                                        //Comment if you commented the ignoring of interaction
-                                        UIApplication.shared.endIgnoringInteractionEvents()
-                                        
-                                        // added test for success 11th July 2016
-                                        
-                                        if success {
-                                            
-                                            print("Object has been saved.")
-                                            
-                                        } else {
-                                            
-                                            if error != nil {
-                                                
-                                                print (error!)
-                                                
-                                            } else {
-                                                
-                                                print ("Error")
-                                            }
-                                            
-                                        }
-                                        
-                                    }
-                                    
                                     
                                     self.dismiss(animated: true, completion: nil)
                                     
@@ -395,6 +407,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                             
                             if success {
                                 
+                                UserDefaults.standard.set(order.objectId! as String, forKey: "activeOrder")
+                                
                                 print("Order has been saved.")
                                 
                                 let orderItem = PFObject(className: "OrderItem")
@@ -429,6 +443,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     if success {
                                         
                                         print("OrderItem has been saved.")
+                                        
+                                        UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
                                         
                                     } else {
                                         
@@ -495,7 +511,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 30
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

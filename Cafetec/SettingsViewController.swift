@@ -1,69 +1,29 @@
 //
-//  PlacesViewController.swift
+//  SettingsViewController.swift
 //  Cafetec
 //
-//  Created by Luis Eduardo Barajas Perez on 09/11/16.
+//  Created by Luis Eduardo Barajas Perez on 11/11/16.
 //  Copyright © 2016 Techeando. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet var placesCollectionView: UICollectionView!
-    var placeSelected: PFObject?
-    var places = [PFObject]()
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet var cartSize: UILabel!
-    @IBOutlet var cartBtn: UIButton!
-    /*@IBAction func logout(_ sender: Any) {
-        
-        PFUser.logOut()
-        
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-        
-    }*/
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var matriculaLabel: UILabel!
     
-    func refresh(){
-        
-        let query = PFQuery(className: "Place")
-        
-        query.findObjectsInBackground { (objects, error) in
-            
-            if error != nil {
-                
-                print(error!)
-                
-            }else{
-                
-                
-                if let placesObjects = objects{
-                    
-                    for object in placesObjects {
-                        
-                        if let place = object as PFObject! {
-                            
-                            self.places.append(place)
-                            
-                        }
-                        
-                    }
-                    
-                    self.placesCollectionView.reloadData()
-                    
-                }
-                
-            }
-            
-        }
-        
-    }
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var cartBtn: UIButton!
+    @IBOutlet var cartSize: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh()
+        nameLabel.text = PFUser.current()?["name"] as! String?
+        matriculaLabel.text = PFUser.current()?["matricula"] as! String?
 
         // Do any additional setup after loading the view.
     }
@@ -71,7 +31,12 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.navigationController?.navigationBar.isHidden = false
+        //Resize tableview to the content height
+        let point = self.tableView.frame.origin
+        let size = CGSize(width: self.tableView.frame.width, height: self.tableView.contentSize.height)
+        let frame = CGRect(origin: point, size: size)
+        
+        self.tableView.frame = frame
         
         // Check if there is an active Order for displaying the button
         
@@ -216,6 +181,7 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
             
         }
         
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -223,100 +189,91 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: UICollectionViewDataSource
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+    @IBAction func showCartPressed(_ sender: Any) {
     }
     
+    // MARK: - tableView methods
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return places.count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PlaceCollectionViewCell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // Configure the cell
-        cell.name.text = places[indexPath.row]["name"] as! String?
-        cell.type.text = places[indexPath.row]["type"] as! String?
-        
-        (places[indexPath.row]["image"] as! PFFile).getDataInBackground { (data, error) in
+        if section == 0 {
             
-            if let imageData = data {
-                
-                if let downloadedImage = UIImage(data: imageData) {
-                    
-                    cell.image.image = downloadedImage
-                    
-                }
-                
-            }
+            return 2
+            
+        }else{
+            
+            return 1
             
         }
         
+    }
+    
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 0 {
+            
+            
+            
+        }
+        
+    }*/
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        
+        return 40
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 60
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingsTableViewCell
+            
+        if (indexPath.section == 0 && indexPath.row == 0){
+                
+            cell.icon.image = UIImage(named: "fa-credit-card")
+            cell.label.text = "Pago"
+                
+        }else if (indexPath.row == 1){
+                
+            cell.icon.image = UIImage(named: "Help")
+            cell.label.text = "Ayuda"
+                
+        }else{
+            
+            cell.icon.image = UIImage(named: "Exit")
+            cell.label.text = "Cerrar Sesión"
+            
+        }
+            
         return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "placeSelected" {
-            
-            let nc = segue.destination as! UINavigationController
-            
-            let vc = nc.viewControllers[0] as! PlaceViewController
-            
-            vc.place = self.placeSelected
-            
-            //self.navigationController?.pushViewController(vc, animated: true)
-            
-            self.present(nc, animated: true, completion: nil)
-            
-        }
         
     }
     
-    // MARK: UICollectionViewDelegate
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.placeSelected = places[indexPath.row]
         
-        performSegue(withIdentifier: "placeSelected", sender: self)
         
     }
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
 
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
