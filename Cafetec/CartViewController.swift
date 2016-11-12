@@ -79,6 +79,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
+        refresh()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,7 +131,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        refresh()
+        //Resize tableview to the content height
+        let point = self.tableView.frame.origin
+        let size = CGSize(width: self.tableView.frame.width, height: self.tableView.contentSize.height)
+        let frame = CGRect(origin: point, size: size)
+        
+        self.tableView.frame = frame
+        
     }
     
     @IBAction func pay(_ sender: Any) {
@@ -200,11 +208,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 total += item["price"] as! Float
                 
             }
-            print(total)
             
             let twoDecimalPlaces = String(format: "%.2f", total)
-            
-            print(twoDecimalPlaces)
             
             cell.totalPriceLabel.text = "$"+twoDecimalPlaces
             
