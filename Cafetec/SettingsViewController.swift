@@ -262,7 +262,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            
+            
+            
+        }else if indexPath.row == 1 {
+            
+            
+        }else{
+            
+            PFUser.logOut()
+            
+            performSegue(withIdentifier: "logoutSegue", sender: self)
+            
+        }
         
     }
 

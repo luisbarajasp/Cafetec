@@ -719,7 +719,7 @@
                         <outlet property="matriculaLabel" destination="hxt-KQ-4Tn" id="k48-em-rkl"/>
                         <outlet property="nameLabel" destination="wAk-bm-Mmw" id="CjJ-kM-mB7"/>
                         <outlet property="tableView" destination="B0P-9W-C1U" id="mde-wl-93Y"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="logoutSegue" id="7hh-i2-5oE"/>
+                        <segue destination="19C-3k-Bge" kind="show" identifier="logoutSegue" id="LMM-Pu-vGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAx-8R-w8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -964,6 +964,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eh2-mD-oPv"/>
-        <segue reference="7hh-i2-5oE"/>
     </inferredMetricsTieBreakers>
 </document>
