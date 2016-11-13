@@ -101,6 +101,57 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if PFUser.current() != nil {
             
             //Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.accessGranted), userInfo: nil, repeats: true)
+            
+            let query = PFQuery(className: "Order")
+            
+            query.whereKey("userId", equalTo: PFUser.current()!.objectId!)
+            
+            query.whereKey("state", equalTo: 0)
+            
+            query.findObjectsInBackground(block: { (objects, error) in
+                
+                if let orders = objects {
+                    
+                    let order = orders[0]
+                        
+                    let orderId = order.objectId as String!
+                        
+                    UserDefaults.standard.set(orderId, forKey: "activeOrder")
+                        
+                    let query = PFQuery(className: "OrderItem")
+                        
+                    query.whereKey("orderId", equalTo: orderId!)
+                        
+                    query.findObjectsInBackground(block: { (objects, error) in
+                        
+                        if let items = objects {
+                                
+                            if items.count > 0{
+                                    
+                                var totalItems = 0
+                                    
+                                for item in items {
+                                        
+                                    totalItems += item["quantity"] as! Int
+                                        
+                                }
+                                    
+                                UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                                    
+                            }else{
+                                    
+                                UserDefaults.standard.set(0, forKey: "totalItems")
+                                    
+                            }
+                                
+                        }
+                            
+                    })
+                    
+                }
+                
+            })
+            
             performSegue(withIdentifier: "accessGranted", sender: self)
             
         }else if !loaded{

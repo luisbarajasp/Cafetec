@@ -239,7 +239,7 @@
         <!--Place View Controller-->
         <scene sceneID="7rn-44-Ipa">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="XPj-HV-KBw" customClass="PlaceViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Place" hidesBottomBarWhenPushed="YES" id="XPj-HV-KBw" customClass="PlaceViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qa4-LS-d8n"/>
                         <viewControllerLayoutGuide type="bottom" id="7ia-Qq-lIe"/>
@@ -741,7 +741,7 @@
                                                     <outlet property="totalPriceLabel" destination="X6o-0Y-BUz" id="tMe-sp-G5T"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPay" rowHeight="80" id="8WX-Yp-BDm" customClass="CartPayTableViewCell" customModule="Cafetec" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPay" rowHeight="80" id="8WX-Yp-BDm" customClass="CartPayTableViewCell" customModule="Cafetec" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="188" width="374" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8WX-Yp-BDm" id="urm-cO-eRq">
@@ -809,11 +809,189 @@
                         <outlet property="placeImage" destination="L26-X5-ZVu" id="uSI-V3-KXR"/>
                         <outlet property="placeName" destination="yYH-eP-yh9" id="G0I-fy-N3O"/>
                         <outlet property="tableView" destination="gDs-T9-xnl" id="Vgz-nr-FJs"/>
+                        <segue destination="MHf-0z-8lx" kind="show" identifier="paySegue" id="Nxz-l4-IBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24l-78-sO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-172.46376811594203" y="2128.5326086956525"/>
+        </scene>
+        <!--Pago-->
+        <scene sceneID="lOt-qP-nDr">
+            <objects>
+                <viewController id="Gmk-CR-YmA" customClass="PayViewController" customModule="Cafetec" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PAv-AQ-kuT"/>
+                        <viewControllerLayoutGuide type="bottom" id="7WZ-Wz-0PH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ig9-Ai-qdG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nCX-uv-bjR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95283776521682739" green="0.95300072431564331" blue="0.95282751321792603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RgT-9a-w1w">
+                                    <size key="itemSize" width="396" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellNew" id="YRF-dL-c6W">
+                                        <rect key="frame" x="9" y="10" width="396" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="396" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nueva Tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKx-D3-FCm">
+                                                    <rect key="frame" x="60" y="20" width="247" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fa-plus" translatesAutoresizingMaskIntoConstraints="NO" id="Syg-U6-Xhe">
+                                                    <rect key="frame" x="20" y="20" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="s7b-tl-6jN" kind="show" id="eak-8s-5QF"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="7lz-Gb-fNP" customClass="PayCollectionViewCell" customModule="Cafetec" customModuleProvider="target">
+                                        <rect key="frame" x="9" y="80" width="396" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="396" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fa-credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="zeD-Sl-7V1">
+                                                    <rect key="frame" x="20" y="15" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXe-sd-Yxz">
+                                                    <rect key="frame" x="60" y="20" width="247" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL3-27-3mo">
+                                                    <rect key="frame" x="361" y="20" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="fa-times-circle"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="credtiCard" destination="sXe-sd-Yxz" id="Irn-dn-cIX"/>
+                                            <outlet property="delete" destination="lL3-27-3mo" id="dnq-PY-dUd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gmk-CR-YmA" id="eRB-vr-8Hv"/>
+                                    <outlet property="delegate" destination="Gmk-CR-YmA" id="kgb-9x-ohg"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pago" id="pKp-1n-7Ng">
+                        <barButtonItem key="leftBarButtonItem" image="Times-dark" id="1iH-k0-7Hi">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="dismissPay:" destination="Gmk-CR-YmA" id="yWB-QW-WVZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="nCX-uv-bjR" id="oqI-hh-7h4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ky-G8-Z76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="3179"/>
+        </scene>
+        <!--Nueva Tarjeta-->
+        <scene sceneID="pxo-w5-Xul">
+            <objects>
+                <viewController title="Nueva Tarjeta" id="s7b-tl-6jN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UZg-5E-8MF"/>
+                        <viewControllerLayoutGuide type="bottom" id="aE0-To-9Xx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="scf-sT-Lo3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1j2-fj-Fc2">
+                                <rect key="frame" x="20" y="80" width="374" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="4141 4141 4141 4141" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GyV-5F-btL">
+                                        <rect key="frame" x="20" y="41" width="334" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Número de tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zF8-sz-tVv">
+                                        <rect key="frame" x="20" y="20" width="138" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="123" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TEl-NZ-HzB">
+                                        <rect key="frame" x="20" y="112" width="152" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp0-me-E5j">
+                                        <rect key="frame" x="20" y="91" width="138" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="04/20" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dsn-cT-Aob">
+                                        <rect key="frame" x="202" y="112" width="152" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fecha de expiración" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry9-hZ-DG4">
+                                        <rect key="frame" x="202" y="91" width="139" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95283776521682739" green="0.95300072431564331" blue="0.95282751321792603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sEc-OF-QXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2273.913043478261" y="3178.5326086956525"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="d8j-O1-m6e">
@@ -922,11 +1100,12 @@
                         <outlet property="tableView" destination="B0P-9W-C1U" id="mde-wl-93Y"/>
                         <segue destination="19C-3k-Bge" kind="show" identifier="logoutSegue" id="LMM-Pu-vGJ"/>
                         <segue destination="Jbj-RN-MwR" kind="show" identifier="cartSegue" id="she-xV-WAY"/>
+                        <segue destination="MHf-0z-8lx" kind="show" identifier="paySegue" id="ntm-X6-xOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAx-8R-w8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524.6376811594205" y="2414.6739130434785"/>
+            <point key="canvasLocation" x="2431.8840579710145" y="2414.6739130434785"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="F8B-0F-N29">
@@ -1144,6 +1323,33 @@
             </objects>
             <point key="canvasLocation" x="2603" y="125"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v3f-09-7aF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MHf-0z-8lx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ReG-Bp-8d5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                        </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gmk-CR-YmA" kind="relationship" relationship="rootViewController" id="Dla-Y7-Lml"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ysL-kH-uun" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="3179"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Bottom border" width="271" height="40"/>
@@ -1162,15 +1368,19 @@
         <image name="Search" width="25" height="25"/>
         <image name="Search Filled" width="25" height="25"/>
         <image name="Times" width="18" height="20"/>
+        <image name="Times-dark" width="18" height="20"/>
         <image name="bg-confirm" width="375" height="38"/>
         <image name="cafetec" width="1065" height="487"/>
         <image name="fa-angle-left" width="10" height="20"/>
         <image name="fa-angle-left-white" width="10" height="20"/>
         <image name="fa-credit-card" width="30" height="24"/>
+        <image name="fa-plus" width="19" height="18"/>
+        <image name="fa-times-circle" width="17" height="16"/>
         <image name="separator" width="25" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eh2-mD-oPv"/>
-        <segue reference="she-xV-WAY"/>
+        <segue reference="ntm-X6-xOQ"/>
+        <segue reference="XiZ-Hs-pGM"/>
     </inferredMetricsTieBreakers>
 </document>

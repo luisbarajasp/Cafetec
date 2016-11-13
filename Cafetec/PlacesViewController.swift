@@ -274,6 +274,12 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             self.present(nc, animated: true, completion: nil)
             
+        }else if segue.identifier == "cartSegue" {
+            
+            let vc = segue.destination as! CartViewController
+            
+            vc.performAnimations = true
+            
         }
         
     }

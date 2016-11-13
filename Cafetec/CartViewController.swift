@@ -20,6 +20,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var placeName: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    var performAnimations = false
+    
     var items = [PFObject]()
     
     var totalPrice: Float = 0
@@ -105,6 +107,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func refresh() {
         
+        self.items.removeAll()
+        
         let orderObject = UserDefaults.standard.object(forKey: "activeOrder")
         
         if let order = orderObject as? String {
@@ -153,22 +157,28 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.frame = frame
         
-        //Animations
-        self.placeName.alpha = 1
-        
-        //Variables to save the initial values
-        let width : CGFloat = dynamicView.frame.width
-        let height : CGFloat = dynamicView.frame.height
-        let x : CGFloat = dynamicView.frame.minX
-        let y : CGFloat = dynamicView.frame.minY
-        
-        UIView.animate(withDuration: 0.5, animations: {
+        if performAnimations {
             
-            //self.placeName.alpha = 1
+            //Animations
+            self.placeName.alpha = 1
             
-            self.dynamicView.frame = CGRect(x: x, y: y - 407, width: width, height: height)
+            //Variables to save the initial values
+            let width : CGFloat = dynamicView.frame.width
+            let height : CGFloat = dynamicView.frame.height
+            let x : CGFloat = dynamicView.frame.minX
+            let y : CGFloat = dynamicView.frame.minY
             
-        })
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                //self.placeName.alpha = 1
+                
+                self.dynamicView.frame = CGRect(x: x, y: y - 407, width: width, height: height)
+                
+            })
+            
+            performAnimations = false
+            
+        }
         
     }
     
@@ -268,10 +278,20 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             }
             
+            cell.button.addTarget(self, action: #selector(CartViewController.goToPay), for: UIControlEvents.touchUpInside)
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
             
             return cell
             
         }
+        
+    }
+    
+    func goToPay() {
+        
+        performSegue(withIdentifier: "paySegue", sender: self)
         
     }
     
@@ -341,9 +361,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                         
                         orderItem.deleteInBackground()
                         
-                        DispatchQueue.main.async{
-                            tableView.reloadData()
-                        }
+                        self.refresh()
                         
                         self.createAlert(title: "Eliminado", message: "Se eliminó el alimento con éxito.")
 

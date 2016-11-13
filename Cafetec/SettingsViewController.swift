@@ -18,9 +18,23 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var cartBtn: UIButton!
     @IBOutlet var cartSize: UILabel!
     
+    //var activeOrder: PFObject?
+    
     @IBAction func cartBtnPressed(_ sender: Any) {
         
         performSegue(withIdentifier: "cartSegue", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "cartSegue" {
+            
+            let vc = segue.destination as! CartViewController
+            
+            vc.performAnimations = true
+            
+        }
         
     }
     
@@ -35,6 +49,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Deselect previous row when returning to view
+        
+        let indexPath = self.tableView.indexPathForSelectedRow
+        
+        if ((indexPath) != nil) {
+            
+            self.tableView.deselectRow(at: indexPath!, animated: true)
+            
+        }
         
         //Resize tableview to the content height
         let point = self.tableView.frame.origin
@@ -269,7 +293,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath.section == 0 && indexPath.row == 0 {
             
-            
+            performSegue(withIdentifier: "paySegue", sender: self)
             
         }else if indexPath.row == 1 {
             
@@ -277,6 +301,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }else{
             
             PFUser.logOut()
+            
+            UserDefaults.standard.removeObject(forKey: "activeOrder")
+            
+            UserDefaults.standard.removeObject(forKey: "totalItems")
             
             performSegue(withIdentifier: "logoutSegue", sender: self)
             

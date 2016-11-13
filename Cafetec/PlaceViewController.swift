@@ -362,6 +362,12 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             //self.navigationController?.pushViewController(vc, animated: true)
             
+        }else if segue.identifier == "cartSegue" {
+            
+            let vc = segue.destination as! CartViewController
+            
+            vc.performAnimations = true
+            
         }
         
     }

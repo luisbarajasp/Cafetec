@@ -16,6 +16,8 @@
 		A0608D7D1DD294E300F291C4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */; };
 		A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */; };
 		A062E8B61DD794530080ECE7 /* CartPayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */; };
+		A062E8C11DD9080F0080ECE7 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8C01DD9080F0080ECE7 /* PayViewController.swift */; };
+		A062E8C31DD912470080ECE7 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */; };
 		A07812CE1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */; };
 		A07812D01DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */; };
 		A07812D41DD6C2BA00A2C2F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */; };
@@ -48,6 +50,8 @@
 		A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedTextField.swift; sourceTree = "<group>"; };
 		A0608D811DD2A73000F291C4 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Cafetec/Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
 		A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartPayTableViewCell.swift; sourceTree = "<group>"; };
+		A062E8C01DD9080F0080ECE7 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,63 @@
 			name = "Custom classes";
 			sourceTree = "<group>";
 		};
+		A062E8BA1DD900A60080ECE7 /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				A08541C81DC43475009695B8 /* ViewController.swift */,
+				A01780471DD2BC1500887CC1 /* SignupViewController.swift */,
+			);
+			name = Login/Signup;
+			sourceTree = "<group>";
+		};
+		A062E8BB1DD900CF0080ECE7 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */,
+				A07812D91DD6F17200A2C2F6 /* CartItemTableViewCell.swift */,
+				A07812DB1DD6F24E00A2C2F6 /* CartTotalTableViewCell.swift */,
+				A07812D71DD6EA7600A2C2F6 /* CartViewController.swift */,
+			);
+			name = Cart;
+			sourceTree = "<group>";
+		};
+		A062E8BC1DD900DA0080ECE7 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				A0F213BD1DD56CE700764904 /* FoodViewController.swift */,
+				A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */,
+				A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */,
+			);
+			name = Food;
+			sourceTree = "<group>";
+		};
+		A062E8BD1DD901140080ECE7 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */,
+				A0F213B11DD3D16900764904 /* PlacesViewController.swift */,
+			);
+			name = Places;
+			sourceTree = "<group>";
+		};
+		A062E8BE1DD9011C0080ECE7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */,
+				A07812D51DD6C4A200A2C2F6 /* SettingsTableViewCell.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		A062E8BF1DD901420080ECE7 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				A0F213BB1DD5580500764904 /* FoodTableViewCell.swift */,
+				A0F213B71DD529AB00764904 /* PlaceViewController.swift */,
+			);
+			name = Place;
+			sourceTree = "<group>";
+		};
 		A08541BA1DC43475009695B8 = {
 			isa = PBXGroup;
 			children = (
@@ -152,21 +213,14 @@
 			isa = PBXGroup;
 			children = (
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
-				A08541C81DC43475009695B8 /* ViewController.swift */,
-				A01780471DD2BC1500887CC1 /* SignupViewController.swift */,
-				A0F213BD1DD56CE700764904 /* FoodViewController.swift */,
-				A0F213B51DD4E1BB00764904 /* PlaceCollectionViewCell.swift */,
-				A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */,
-				A0F213B71DD529AB00764904 /* PlaceViewController.swift */,
-				A0F213BB1DD5580500764904 /* FoodTableViewCell.swift */,
-				A07812D51DD6C4A200A2C2F6 /* SettingsTableViewCell.swift */,
-				A0F213B11DD3D16900764904 /* PlacesViewController.swift */,
-				A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */,
-				A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */,
-				A07812D91DD6F17200A2C2F6 /* CartItemTableViewCell.swift */,
-				A07812DB1DD6F24E00A2C2F6 /* CartTotalTableViewCell.swift */,
-				A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */,
-				A07812D71DD6EA7600A2C2F6 /* CartViewController.swift */,
+				A062E8C01DD9080F0080ECE7 /* PayViewController.swift */,
+				A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */,
+				A062E8BA1DD900A60080ECE7 /* Login/Signup */,
+				A062E8BD1DD901140080ECE7 /* Places */,
+				A062E8BF1DD901420080ECE7 /* Place */,
+				A062E8BC1DD900DA0080ECE7 /* Food */,
+				A062E8BE1DD9011C0080ECE7 /* Settings */,
+				A062E8BB1DD900CF0080ECE7 /* Cart */,
 				A08541CA1DC43475009695B8 /* Main.storyboard */,
 				A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */,
 				A0608D801DD29ED200F291C4 /* Custom classes */,
@@ -258,9 +312,11 @@
 				A0F213C21DD575D000764904 /* SSRadioButtonsController.swift in Sources */,
 				A07812D61DD6C4A200A2C2F6 /* SettingsTableViewCell.swift in Sources */,
 				A0F213BC1DD5580500764904 /* FoodTableViewCell.swift in Sources */,
+				A062E8C11DD9080F0080ECE7 /* PayViewController.swift in Sources */,
 				A07812D41DD6C2BA00A2C2F6 /* SettingsViewController.swift in Sources */,
 				A07812CE1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift in Sources */,
 				A07812D81DD6EA7600A2C2F6 /* CartViewController.swift in Sources */,
+				A062E8C31DD912470080ECE7 /* PayCollectionViewCell.swift in Sources */,
 				A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */,
 				A07812DA1DD6F17200A2C2F6 /* CartItemTableViewCell.swift in Sources */,
 				A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */,
