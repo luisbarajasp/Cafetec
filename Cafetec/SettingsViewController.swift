@@ -270,7 +270,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             
         if (indexPath.section == 0 && indexPath.row == 0){
                 
-            cell.icon.image = UIImage(named: "fa-credit-card")
+            cell.icon.image = UIImage(named: "Bank Cards Filled")
             cell.label.text = "Pago"
                 
         }else if (indexPath.row == 1){

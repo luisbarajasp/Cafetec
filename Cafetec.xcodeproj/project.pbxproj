@@ -18,6 +18,8 @@
 		A062E8B61DD794530080ECE7 /* CartPayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */; };
 		A062E8C11DD9080F0080ECE7 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8C01DD9080F0080ECE7 /* PayViewController.swift */; };
 		A062E8C31DD912470080ECE7 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */; };
+		A062E8C51DD92FB00080ECE7 /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8C41DD92FB00080ECE7 /* NewCardViewController.swift */; };
+		A062E8C71DD939BA0080ECE7 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062E8C61DD939BA0080ECE7 /* StringUtils.swift */; };
 		A07812CE1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */; };
 		A07812D01DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */; };
 		A07812D41DD6C2BA00A2C2F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */; };
@@ -52,6 +54,8 @@
 		A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartPayTableViewCell.swift; sourceTree = "<group>"; };
 		A062E8C01DD9080F0080ECE7 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
+		A062E8C41DD92FB00080ECE7 /* NewCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
+		A062E8C61DD939BA0080ECE7 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		A07812CD1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A07812CF1DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A07812D31DD6C2BA00A2C2F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				A0F213BF1DD5758300764904 /* SSRadioButton.swift */,
 				A0F213C11DD575D000764904 /* SSRadioButtonsController.swift */,
 				A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */,
+				A062E8C61DD939BA0080ECE7 /* StringUtils.swift */,
 			);
 			name = "Custom classes";
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			children = (
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
 				A062E8C01DD9080F0080ECE7 /* PayViewController.swift */,
+				A062E8C41DD92FB00080ECE7 /* NewCardViewController.swift */,
 				A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */,
 				A062E8BA1DD900A60080ECE7 /* Login/Signup */,
 				A062E8BD1DD901140080ECE7 /* Places */,
@@ -304,11 +310,13 @@
 				A062E8B61DD794530080ECE7 /* CartPayTableViewCell.swift in Sources */,
 				A08541C91DC43475009695B8 /* ViewController.swift in Sources */,
 				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
+				A062E8C51DD92FB00080ECE7 /* NewCardViewController.swift in Sources */,
 				A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */,
 				A07812D01DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift in Sources */,
 				A0F213B81DD529AB00764904 /* PlaceViewController.swift in Sources */,
 				A0F213BE1DD56CE700764904 /* FoodViewController.swift in Sources */,
 				A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */,
+				A062E8C71DD939BA0080ECE7 /* StringUtils.swift in Sources */,
 				A0F213C21DD575D000764904 /* SSRadioButtonsController.swift in Sources */,
 				A07812D61DD6C4A200A2C2F6 /* SettingsTableViewCell.swift in Sources */,
 				A0F213BC1DD5580500764904 /* FoodTableViewCell.swift in Sources */,

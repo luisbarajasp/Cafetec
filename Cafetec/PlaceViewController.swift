@@ -105,10 +105,10 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         refresh()
+
+        // Do any additional setup after loading the view.
         
         if let placeUnwrapped = place {
             
@@ -137,6 +137,8 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print("viewwillappear called")
         
         self.navigationController?.navigationBar.isHidden = true
         

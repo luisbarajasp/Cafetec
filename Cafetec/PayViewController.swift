@@ -19,6 +19,7 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //NotificationCenter.default.addObserver(self, selector: #selector(PayViewController.refresh), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         // Do any additional setup after loading the view.
     }
@@ -30,6 +31,8 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func refresh() {
+        
+        print("Refresh calles")
         
         let query = PFUser.query()
         
