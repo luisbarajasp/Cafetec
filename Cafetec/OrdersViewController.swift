@@ -1,61 +1,30 @@
 //
-//  PlaceViewController.swift
+//  OrdersViewController.swift
 //  Cafetec
 //
-//  Created by Luis Eduardo Barajas Perez on 10/11/16.
+//  Created by Luis Eduardo Barajas Perez on 14/11/16.
 //  Copyright © 2016 Techeando. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var place: PFObject?
-    
-    var foods = [PFObject]()
-    
-    var selectedFood: PFObject?
-    
-    //Declare it on top of the class
-    var activityIndicator = UIActivityIndicatorView()
+class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet var cartSize: UILabel!
     @IBOutlet var cartBtn: UIButton!
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var placeImage: UIImageView!
-    @IBOutlet var placeName: UILabel!
-    @IBOutlet var placeType: UILabel!
-    @IBOutlet var timeLabel: UILabel!
-    @IBOutlet var foodTable: UITableView!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var notFound: UILabel!
     
-    @IBAction func backPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    //Declare it on top of the class
+    var activityIndicator = UIActivityIndicatorView()
     
-    /*override var prefersStatusBarHidden: Bool {
-        return true
-    }*/
-    @IBAction func cartBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "cartSegue", sender: self)
-    }
+    var orderSelected: PFObject?
     
-    func createAlert(title: String, message: String) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
-            
-            self.dismiss(animated: true, completion: nil)
-            
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+    var orders = [PFObject]()
     
-    func refresh() {
-        
+    func refresh(){
+
         //Display
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         activityIndicator.center = self.view.center
@@ -65,39 +34,66 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         activityIndicator.startAnimating()
         //Comment if you do not want to ignore interaction whilst
         UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        self.orders.removeAll()
 
         
-        let query = PFQuery(className: "Food")
+        let queryTwo = PFQuery(className: "Order")
         
-        query.whereKey("placeId", equalTo: place!.objectId!)
+        queryTwo.whereKey("state", equalTo: 2)
+        
+        let queryOne = PFQuery(className: "Order")
+        
+        queryOne.whereKey("state", equalTo: 1)
+        
+        
+        let query = PFQuery.orQuery(withSubqueries: [queryOne, queryTwo])
+        
+        query.whereKey("userId", equalTo: (PFUser.current()?.objectId)! as String!)
         
         query.findObjectsInBackground { (objects, error) in
-            
-            if error != nil {
-                
-                print(error!)
-                self.createAlert(title: "Error", message: "Sucedió un error por favor intenta más tarde.")
-                
-            }else{
-                
-                if let foodsObjects = objects {
-                    
-                    for food in foodsObjects {
-                        
-                        self.foods.append(food)
-                        
-                    }
-                    
-                    self.tableView.reloadData()
-                    
-                }
-                
-            }
             
             //Remove it
             self.activityIndicator.stopAnimating()
             //Comment if you commented the ignoring of interaction
             UIApplication.shared.endIgnoringInteractionEvents()
+            
+            if error != nil {
+                
+                print(error!)
+                
+            }else{
+                
+                
+                if let orderObjects = objects{
+                    
+                    if orderObjects.count > 0 {
+                        
+                        for object in orderObjects {
+                            
+                            if let order = object as PFObject! {
+                                
+                                self.orders.append(order)
+                                
+                            }
+                            
+                        }
+                        
+                        print(self.orders)
+                        
+                        self.collectionView.reloadData()
+                        
+                        
+                    }else{
+                        
+                        self.notFound.isHidden = false
+                        
+                    }
+                    
+                    
+                }
+                
+            }
             
         }
         
@@ -105,52 +101,16 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        refresh()
 
         // Do any additional setup after loading the view.
-        
-        if let placeUnwrapped = place {
-            
-            print(placeUnwrapped)
-            
-            (placeUnwrapped["image"] as! PFFile).getDataInBackground { (data, error) in
-                
-                if let imageData = data {
-                    
-                    if let downloadedImage = UIImage(data: imageData) {
-                        
-                        self.placeImage.image = downloadedImage
-                        
-                    }
-                    
-                }
-                
-            }
-            
-            placeName.text = placeUnwrapped["name"] as! String?
-            placeType.text = placeUnwrapped["type"] as! String?
-            timeLabel.text = "~30 min"
-            
-        }
+        refresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("viewwillappear called")
-        
-        self.navigationController?.navigationBar.isHidden = true
-        
-        // Deselect previous row when returning to view
-        
-        let indexPath = self.tableView.indexPathForSelectedRow
-        
-        if ((indexPath) != nil) {
-            
-            self.tableView.deselectRow(at: indexPath!, animated: true)
-            
-        }
+        self.navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = false
         
         // Check if there is an active Order for displaying the button
         
@@ -258,6 +218,7 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                                 // User has not active items
                                                 
                                                 UserDefaults.standard.set(0, forKey: "totalItems")
+                                                self.cartSize.text = "\(totalItems)"
                                                 
                                                 self.cartBtn.isHidden = true
                                                 self.cartSize.isHidden = true
@@ -297,71 +258,126 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
+    
+    @IBAction func cartBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "cartSegue", sender: self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Food Table
+    // MARK: UICollectionViewDataSource
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foods.count
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        
+        return orders.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FoodTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OrderCollectionViewCell
         
-        (self.foods[indexPath.row]["image"] as! PFFile).getDataInBackground { (data, error) in
+        let query = PFQuery(className: "Place")
+        
+        query.whereKey("objectId", equalTo: orders[indexPath.row]["placeId"] as! String)
+        
+        do{
             
-            if let imageData = data {
+            let place = try query.getFirstObject()
+            
+            cell.placeName.text = place["name"] as? String
+            
+            let twoDecimalPlaces = String(format: "%.2f", orders[indexPath.row]["price"] as! Float)
+            
+            cell.orderPrice.text =  "$\(twoDecimalPlaces)"
+            
+            (place["image"] as! PFFile).getDataInBackground { (data, error) in
                 
-                if let downloadedImage = UIImage(data: imageData) {
+                if let imageData = data {
                     
-                    cell.foodImage.image = downloadedImage
+                    if let downloadedImage = UIImage(data: imageData) {
+                        
+                        cell.placeImage.image = downloadedImage
+                        
+                    }
                     
                 }
                 
             }
             
-        }
-        
-        cell.foodName.text = foods[indexPath.row]["name"] as! String?
-        cell.foodDescription.text = foods[indexPath.row]["description"] as! String?
-        var price: Float = 0
-        
-        if let priceU = foods[indexPath.row]["price"] as! Float? {
+            var dateOrder = ""
             
-            price = priceU
+            let updatedAt = orders[indexPath.row].updatedAt
+            
+            if updatedAt != nil {
+                
+                // change to a readable time format and change to local time zone
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YY"
+                dateFormatter.timeZone = NSTimeZone.local
+                dateOrder = dateFormatter.string(from: updatedAt!)
+                
+            }
+            
+            cell.orderDate.text = dateOrder
+            
+            let state = orders[indexPath.row]["state"] as! Int
+            
+            if state == 1 {
+                
+                cell.stateColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
+                cell.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
+                cell.stateStatus.text = "Por entregar"
+                
+            }else{
+                
+                cell.stateColor.backgroundColor = UIColor(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
+                cell.stateStatus.textColor = UIColor(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
+                
+                var timeStamp = ""
+                
+                let deliveredAt = orders[indexPath.row]["deliveredAt"]
+                
+                if deliveredAt != nil {
+                    
+                    // change to a readable time format and change to local time zone
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "HH:mm"
+                    dateFormatter.timeZone = NSTimeZone.local
+                    timeStamp = dateFormatter.string(from: deliveredAt! as! Date)
+                    
+                }
+                
+                cell.stateStatus.text = "Entregada " + timeStamp
+                
+            }
+            
+            
+            
+        }catch{
+            
+            print("Failed to get the place")
             
         }
-        
-        let twoDecimalPlaces = String(format: "%.2f", price)
-        
-        cell.foodPrice.text =  "$\(twoDecimalPlaces)"
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        selectedFood = foods[indexPath.row]
-        
-        performSegue(withIdentifier: "foodSelected", sender: self)
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "foodSelected" {
+        if segue.identifier == "orderSelected" {
             
-            let vc = segue.destination as! FoodViewController
+            let vc = segue.destination as! OrderViewController
             
-            vc.food = self.selectedFood
+            vc.orderSelected = self.orderSelected
             
             //self.navigationController?.pushViewController(vc, animated: true)
             
@@ -372,6 +388,16 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             vc.performAnimations = true
             
         }
+        
+    }
+    
+    // MARK: UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.orderSelected = orders[indexPath.row]
+        
+        performSegue(withIdentifier: "orderSelected", sender: self)
         
     }
 

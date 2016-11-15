@@ -170,6 +170,8 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
                                                 
                                                 UserDefaults.standard.set(totalItems, forKey: "totalItems")
                                                 
+                                                self.cartSize.text = "\(totalItems)"
+                                                
                                                 self.cartBtn.isHidden = false
                                                 self.cartSize.isHidden = false
                                                 
@@ -201,8 +203,12 @@ class PlacesViewController: UIViewController, UICollectionViewDelegate, UICollec
                             UserDefaults.standard.removeObject(forKey: "activeOrder")
                             UserDefaults.standard.removeObject(forKey: "totalItems")
                             
-                            self.cartBtn.isHidden = true
-                            self.cartSize.isHidden = true
+                            DispatchQueue.main.async {
+                                
+                                self.cartBtn.isHidden = true
+                                self.cartSize.isHidden = true
+                                
+                            }
                             
                         }
                         

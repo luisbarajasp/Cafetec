@@ -40,13 +40,13 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
             
             if let user = object as? PFUser {
                 
-                if user["customerId"] != nil {
+                if user["card"] != nil {
                     
                     // User has credit card
                     
                     self.creditCards = 1
                     
-                    self.creditCardNumber = "8906"
+                    self.creditCardNumber = user["card"] as! String!
                     
                 }else{
                     

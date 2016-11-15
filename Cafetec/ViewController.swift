@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
@@ -113,47 +114,64 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 if let orders = objects {
                     
-                    let order = orders[0]
+                    if orders.count > 0 {
                         
-                    let orderId = order.objectId as String!
+                        let order = orders[0]
                         
-                    UserDefaults.standard.set(orderId, forKey: "activeOrder")
+                        let orderId = order.objectId as String!
                         
-                    let query = PFQuery(className: "OrderItem")
+                        UserDefaults.standard.set(orderId, forKey: "activeOrder")
                         
-                    query.whereKey("orderId", equalTo: orderId!)
+                        let query = PFQuery(className: "OrderItem")
                         
-                    query.findObjectsInBackground(block: { (objects, error) in
+                        query.whereKey("orderId", equalTo: orderId!)
                         
-                        if let items = objects {
-                                
-                            if items.count > 0{
-                                    
-                                var totalItems = 0
-                                    
-                                for item in items {
-                                        
-                                    totalItems += item["quantity"] as! Int
-                                        
-                                }
-                                    
-                                UserDefaults.standard.set(totalItems, forKey: "totalItems")
-                                    
-                            }else{
-                                    
-                                UserDefaults.standard.set(0, forKey: "totalItems")
-                                    
-                            }
-                                
-                        }
+                        query.findObjectsInBackground(block: { (objects, error) in
                             
-                    })
+                            if let items = objects {
+                                
+                                if items.count > 0{
+                                    
+                                    var totalItems = 0
+                                    
+                                    for item in items {
+                                        
+                                        totalItems += item["quantity"] as! Int
+                                        
+                                    }
+                                    
+                                    UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                                    
+                                }else{
+                                    
+                                    UserDefaults.standard.set(0, forKey: "totalItems")
+                                    
+                                }
+                                
+                            }
+                            
+                        })
+                        
+                    }else{
+                        
+                        UserDefaults.standard.removeObject(forKey: "totalItems")
+                        UserDefaults.standard.removeObject(forKey: "activeOrder")
+                        
+                    }
+                    
+                    
+                }else{
+                    
+                    UserDefaults.standard.removeObject(forKey: "totalItems")
+                    UserDefaults.standard.removeObject(forKey: "activeOrder")
                     
                 }
                 
+                self.performSegue(withIdentifier: "accessGranted", sender: self)
+                
             })
             
-            performSegue(withIdentifier: "accessGranted", sender: self)
+            
             
         }else if !loaded{
             

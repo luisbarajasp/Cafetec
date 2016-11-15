@@ -247,6 +247,50 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                             
                                             UserDefaults.standard.set(totalItems, forKey: "totalItems")
                                             
+                                            
+                                            print("OrderItem has been saved.")
+                                            UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
+                                            
+                                            let oldPrice = order["price"] as! Float!
+                                            
+                                            let newPrice = oldPrice! + self.totalpay
+                                            
+                                            let query = PFQuery(className: "Order")
+                                            
+                                            query.getObjectInBackground(withId: order.objectId as String!, block: { (object, error) in
+                                                
+                                                if let orderObject = object {
+                                                    
+                                                    orderObject["price"] = newPrice
+                                                    
+                                                    orderObject.saveInBackground(block: { (success, error) in
+                                                        
+                                                        if error != nil {
+                                                            
+                                                            print(error!)
+                                                            
+                                                        }else{
+                                                            
+                                                            
+                                                            if success {
+                                                                
+                                                                print("Order update price")
+                                                                
+                                                            }else{
+                                                                
+                                                                print("error")
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        
+                                                    })
+                                                    
+                                                }
+                                                
+                                            })
+                                            
+                                            order["price"] = newPrice
                                         }
                                         
                                     } else {
@@ -273,17 +317,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 alert.addAction(UIAlertAction(title: "Reemplazar", style: UIAlertActionStyle.default, handler: { (action) in
                                     
-                                    order["status"] = 3
-                                    
-                                    let newOrder = PFObject(className: "Order")
-                                    
-                                    //Set the place
-                                    newOrder["placeId"] = self.food?["placeId"]
-                                    //Set the user
-                                    newOrder["user"] = PFUser.current()!.objectId
-                                    //Set the state
-                                    newOrder["state"] = 0
-                                    
                                     //Display
                                     self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                                     self.activityIndicator.center = self.view.center
@@ -294,64 +327,102 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     //Comment if you do not want to ignore interaction whilst
                                     UIApplication.shared.beginIgnoringInteractionEvents()
                                     
-                                    newOrder.saveInBackground { (success, error) -> Void in
+                                    let query = PFQuery(className: "OrderItem")
+                                    
+                                    query.whereKey("orderId", equalTo: order.objectId as String!)
+                                    
+                                    query.findObjectsInBackground(block: { (objects, error) in
+                                        
+                                        if let items = objects as [PFObject]! {
+                                            
+                                            for item in items {
+                                                
+                                                item.deleteInBackground()
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    })
+                                    
+                                    order["price"] = 0
+                                    
+                                    let orderItem = PFObject(className: "OrderItem")
+                                    
+                                    //Set quantity
+                                    orderItem["quantity"] = self.countNumber
+                                    //Set total price
+                                    orderItem["price"] = self.totalpay
+                                    //Set the options selected
+                                    let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
+                                    let keys = Array(foodOptions.keys)
+                                    var dictionary = [String: String]()
+                                    var i = 0
+                                    for key in keys {
+                                        dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
+                                        i += 1
+                                    }
+                                    print(dictionary)
+                                    orderItem["options"] = dictionary
+                                    //Set the order
+                                    orderItem["orderId"] = order.objectId
+                                    //Set the food
+                                    orderItem["foodId"] = self.food?.objectId
+                                    
+                                    orderItem.saveInBackground { (success, error) -> Void in
+                                        
+                                        //Remove it
+                                        self.activityIndicator.stopAnimating()
+                                        //Comment if you commented the ignoring of interaction
+                                        UIApplication.shared.endIgnoringInteractionEvents()
                                         
                                         // added test for success 11th July 2016
                                         
                                         if success {
                                             
-                                            print("Order has been saved.")
-                                            UserDefaults.standard.set(newOrder.objectId! as String, forKey: "activeOrder")
+                                            print("OrderItem has been saved.")
+                                            UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
                                             
-                                            let orderItem = PFObject(className: "OrderItem")
+                                            let oldPrice = order["price"] as! Float!
                                             
-                                            //Set quantity
-                                            orderItem["quantity"] = self.countNumber
-                                            //Set total price
-                                            orderItem["price"] = self.totalpay
-                                            //Set the options selected
-                                            let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
-                                            let keys = Array(foodOptions.keys)
-                                            var dictionary = [String: String]()
-                                            var i = 0
-                                            for key in keys {
-                                                dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
-                                                i += 1
-                                            }
-                                            print(dictionary)
-                                            orderItem["options"] = dictionary
-                                            //Set the order
-                                            orderItem["orderId"] = newOrder.objectId
+                                            let newPrice = oldPrice! + self.totalpay
                                             
-                                            orderItem.saveInBackground { (success, error) -> Void in
+                                            let query = PFQuery(className: "Order")
+                                            
+                                            query.getObjectInBackground(withId: order.objectId as String!, block: { (object, error) in
                                                 
-                                                //Remove it
-                                                self.activityIndicator.stopAnimating()
-                                                //Comment if you commented the ignoring of interaction
-                                                UIApplication.shared.endIgnoringInteractionEvents()
-                                                
-                                                // added test for success 11th July 2016
-                                                
-                                                if success {
+                                                if let orderObject = object {
                                                     
-                                                    print("OrderItem has been saved.")
-                                                    UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
+                                                    orderObject["price"] = newPrice
                                                     
-                                                } else {
-                                                    
-                                                    if error != nil {
+                                                    orderObject.saveInBackground(block: { (success, error) in
                                                         
-                                                        print (error!)
+                                                        if error != nil {
+                                                            
+                                                            print(error!)
+                                                            
+                                                        }else{
+                                                            
+                                                            
+                                                            if success {
+                                                                
+                                                                print("Order update price")
+                                                                
+                                                            }else{
+                                                                
+                                                                print("error")
+                                                                
+                                                            }
+                                                            
+                                                        }
                                                         
-                                                    } else {
-                                                        
-                                                        print ("Error")
-                                                    }
+                                                    })
                                                     
                                                 }
                                                 
-                                            }
-
+                                            })
+                                            
+                                            order["price"] = newPrice
                                             
                                         } else {
                                             
@@ -368,7 +439,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                     }
                                     
-                                    self.dismiss(animated: true, completion: nil)
+                                    alert.dismiss(animated: true, completion: nil)
                                     
                                     
                                 }))
@@ -376,7 +447,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) in
                                     
-                                    self.dismiss(animated: true, completion: nil)
+                                    alert.dismiss(animated: true, completion: nil)
                                     
                                 }))
                                 
@@ -440,6 +511,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 orderItem["options"] = dictionary
                                 //Set the order
                                 orderItem["orderId"] = order.objectId
+                                //Set the food
+                                orderItem["foodId"] = self.food?.objectId
                                 
                                 orderItem.saveInBackground { (success, error) -> Void in
                                     
@@ -453,8 +526,48 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     if success {
                                         
                                         print("OrderItem has been saved.")
-                                        
                                         UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
+                                        
+                                        let oldPrice = order["price"] as! Float!
+                                        
+                                        let newPrice = oldPrice! + self.totalpay
+                                        
+                                        let query = PFQuery(className: "Order")
+                                        
+                                        query.getObjectInBackground(withId: order.objectId as String!, block: { (object, error) in
+                                            
+                                            if let orderObject = object {
+                                                
+                                                orderObject["price"] = newPrice
+                                                
+                                                orderObject.saveInBackground(block: { (success, error) in
+                                                    
+                                                    if error != nil {
+                                                        
+                                                        print(error!)
+                                                        
+                                                    }else{
+                                                        
+                                                        
+                                                        if success {
+                                                            
+                                                            print("Order update price")
+                                                            
+                                                        }else{
+                                                            
+                                                            print("error")
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                })
+                                                
+                                            }
+                                            
+                                        })
+                                        
+                                        order["price"] = newPrice
                                         
                                     } else {
                                         

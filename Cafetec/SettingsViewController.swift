@@ -163,6 +163,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                                                 }
                                                 
                                                 UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                                                self.cartSize.text = "\(totalItems)"
                                                 
                                                 self.cartBtn.isHidden = false
                                                 self.cartSize.isHidden = false

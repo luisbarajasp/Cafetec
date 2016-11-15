@@ -31,6 +31,10 @@
 		A07D5F301DDA5A0700823368 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D5F2E1DDA5A0700823368 /* Stripe.framework */; };
 		A07D5F391DDA7B7000823368 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F381DDA7B7000823368 /* SearchViewController.swift */; };
 		A07D5F3B1DDA7C6900823368 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */; };
+		A07D5F3E1DDA917400823368 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F3D1DDA917400823368 /* OrdersViewController.swift */; };
+		A07D5F401DDA92EF00823368 /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F3F1DDA92EF00823368 /* OrderCollectionViewCell.swift */; };
+		A07D5F431DDAA59200823368 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F421DDAA59200823368 /* OrderViewController.swift */; };
+		A07D5F451DDAB91900823368 /* OrderQRTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F441DDAB91900823368 /* OrderQRTableViewCell.swift */; };
 		A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08541C61DC43475009695B8 /* AppDelegate.swift */; };
 		A08541C91DC43475009695B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08541C81DC43475009695B8 /* ViewController.swift */; };
 		A08541CC1DC43475009695B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CA1DC43475009695B8 /* Main.storyboard */; };
@@ -72,6 +76,10 @@
 		A07D5F2E1DDA5A0700823368 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Cafetec-habtkbidmqboaocinffzlqwlujtm/Build/Products/Debug-iphonesimulator/Stripe/Stripe.framework"; sourceTree = "<group>"; };
 		A07D5F381DDA7B7000823368 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		A07D5F3D1DDA917400823368 /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		A07D5F3F1DDA92EF00823368 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		A07D5F421DDAA59200823368 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		A07D5F441DDAB91900823368 /* OrderQRTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderQRTableViewCell.swift; sourceTree = "<group>"; };
 		A08541C31DC43475009695B8 /* Cafetec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cafetec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08541C61DC43475009695B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A08541C81DC43475009695B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +235,17 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		A07D5F411DDAA4C900823368 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				A07D5F3F1DDA92EF00823368 /* OrderCollectionViewCell.swift */,
+				A07D5F3D1DDA917400823368 /* OrdersViewController.swift */,
+				A07D5F441DDAB91900823368 /* OrderQRTableViewCell.swift */,
+				A07D5F421DDAA59200823368 /* OrderViewController.swift */,
+			);
+			name = Orders;
+			sourceTree = "<group>";
+		};
 		A08541BA1DC43475009695B8 = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +277,7 @@
 				A062E8BB1DD900CF0080ECE7 /* Cart */,
 				A07D5F3C1DDA8FF300823368 /* Search */,
 				A07D5F2C1DDA59DD00823368 /* Pay */,
+				A07D5F411DDAA4C900823368 /* Orders */,
 				A08541CA1DC43475009695B8 /* Main.storyboard */,
 				A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */,
 				A0608D801DD29ED200F291C4 /* Custom classes */,
@@ -402,13 +422,16 @@
 				A062E8B61DD794530080ECE7 /* CartPayTableViewCell.swift in Sources */,
 				A08541C91DC43475009695B8 /* ViewController.swift in Sources */,
 				A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */,
+				A07D5F431DDAA59200823368 /* OrderViewController.swift in Sources */,
 				A062E8C51DD92FB00080ECE7 /* NewCardViewController.swift in Sources */,
 				A0F213B61DD4E1BB00764904 /* PlaceCollectionViewCell.swift in Sources */,
 				A07812D01DD65B1000A2C2F6 /* HeaderOptionsTableViewCell.swift in Sources */,
 				A0F213B81DD529AB00764904 /* PlaceViewController.swift in Sources */,
 				A0F213BE1DD56CE700764904 /* FoodViewController.swift in Sources */,
 				A0F213B21DD3D16900764904 /* PlacesViewController.swift in Sources */,
+				A07D5F3E1DDA917400823368 /* OrdersViewController.swift in Sources */,
 				A062E8C71DD939BA0080ECE7 /* StringUtils.swift in Sources */,
+				A07D5F451DDAB91900823368 /* OrderQRTableViewCell.swift in Sources */,
 				A0F213C21DD575D000764904 /* SSRadioButtonsController.swift in Sources */,
 				A07812D61DD6C4A200A2C2F6 /* SettingsTableViewCell.swift in Sources */,
 				A0F213BC1DD5580500764904 /* FoodTableViewCell.swift in Sources */,
@@ -417,6 +440,7 @@
 				A07812CE1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift in Sources */,
 				A07812D81DD6EA7600A2C2F6 /* CartViewController.swift in Sources */,
 				A062E8C31DD912470080ECE7 /* PayCollectionViewCell.swift in Sources */,
+				A07D5F401DDA92EF00823368 /* OrderCollectionViewCell.swift in Sources */,
 				A07D5F391DDA7B7000823368 /* SearchViewController.swift in Sources */,
 				A07D5F3B1DDA7C6900823368 /* SearchTableViewCell.swift in Sources */,
 				A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */,

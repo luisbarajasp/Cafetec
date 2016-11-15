@@ -245,6 +245,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                                 }
                                                 
                                                 UserDefaults.standard.set(totalItems, forKey: "totalItems")
+                                                self.cartSize.text = "\(totalItems)"
                                                 
                                                 self.cartBtn.isHidden = false
                                                 self.cartSize.isHidden = false

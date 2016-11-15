@@ -183,6 +183,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func pay(_ sender: Any) {
+        
+        
+        
     }
     
     // MARK: - TableView
@@ -265,7 +268,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellPay", for: indexPath) as! CartPayTableViewCell
             
-            if PFUser.current()!["customerId"] != nil {
+            if PFUser.current()!["card"] != nil {
                 
                 // User has credit card
                 
