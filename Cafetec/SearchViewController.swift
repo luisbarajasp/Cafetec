@@ -23,10 +23,25 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var cartBtn: UIButton!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func createAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     func refresh() {
@@ -71,6 +86,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         self.tableView.isHidden = false
                         self.tableView.reloadData()
+                        
+                        //Resize tableview to the content height
+                        let point = self.tableView.frame.origin
+                        let size = CGSize(width: self.tableView.frame.width, height: self.tableView.contentSize.height)
+                        let frame = CGRect(origin: point, size: size)
+                        
+                        self.tableView.frame = frame
                         
                     }else{
                         
@@ -286,24 +308,30 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
      */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        textField.resignFirstResponder()
+        if searchTF.text != "" {
+            
+            textField.resignFirstResponder()
+            
+            refresh()
+            
+            //Display
+            activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            //Comment if you do not want to ignore interaction whilst
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            
+            
+            return true
+            
+        }
         
-        refresh()
+        self.createAlert(title: "Búsqueda vacía", message: "Favor de ingresar alguna palabra de búsqueda")
         
-        //Display
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        //Comment if you do not want to ignore interaction whilst
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
-        
-
-        
-        return true
+        return false
         
     }
     

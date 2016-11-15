@@ -218,6 +218,15 @@
 			name = Pay;
 			sourceTree = "<group>";
 		};
+		A07D5F3C1DDA8FF300823368 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A07D5F381DDA7B7000823368 /* SearchViewController.swift */,
+				A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		A08541BA1DC43475009695B8 = {
 			isa = PBXGroup;
 			children = (
@@ -241,15 +250,14 @@
 			isa = PBXGroup;
 			children = (
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
-				A07D5F2C1DDA59DD00823368 /* Pay */,
 				A062E8BA1DD900A60080ECE7 /* Login/Signup */,
 				A062E8BD1DD901140080ECE7 /* Places */,
 				A062E8BF1DD901420080ECE7 /* Place */,
 				A062E8BC1DD900DA0080ECE7 /* Food */,
 				A062E8BE1DD9011C0080ECE7 /* Settings */,
 				A062E8BB1DD900CF0080ECE7 /* Cart */,
-				A07D5F381DDA7B7000823368 /* SearchViewController.swift */,
-				A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */,
+				A07D5F3C1DDA8FF300823368 /* Search */,
+				A07D5F2C1DDA59DD00823368 /* Pay */,
 				A08541CA1DC43475009695B8 /* Main.storyboard */,
 				A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */,
 				A0608D801DD29ED200F291C4 /* Custom classes */,
