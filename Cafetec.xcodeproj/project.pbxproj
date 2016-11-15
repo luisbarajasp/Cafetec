@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BDE88B2C527AEF2BDA9B433 /* Pods_Cafetec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028720E5D305EF6CAF3BE17D /* Pods_Cafetec.framework */; };
 		A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01780471DD2BC1500887CC1 /* SignupViewController.swift */; };
 		A0608D6F1DD28F5800F291C4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D6D1DD28F5800F291C4 /* Bolts.framework */; };
 		A0608D701DD28F5800F291C4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0608D6E1DD28F5800F291C4 /* Parse.framework */; };
@@ -27,6 +28,9 @@
 		A07812D81DD6EA7600A2C2F6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812D71DD6EA7600A2C2F6 /* CartViewController.swift */; };
 		A07812DA1DD6F17200A2C2F6 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812D91DD6F17200A2C2F6 /* CartItemTableViewCell.swift */; };
 		A07812DC1DD6F24E00A2C2F6 /* CartTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07812DB1DD6F24E00A2C2F6 /* CartTotalTableViewCell.swift */; };
+		A07D5F301DDA5A0700823368 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D5F2E1DDA5A0700823368 /* Stripe.framework */; };
+		A07D5F391DDA7B7000823368 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F381DDA7B7000823368 /* SearchViewController.swift */; };
+		A07D5F3B1DDA7C6900823368 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */; };
 		A08541C71DC43475009695B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08541C61DC43475009695B8 /* AppDelegate.swift */; };
 		A08541C91DC43475009695B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08541C81DC43475009695B8 /* ViewController.swift */; };
 		A08541CC1DC43475009695B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08541CA1DC43475009695B8 /* Main.storyboard */; };
@@ -42,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		028720E5D305EF6CAF3BE17D /* Pods_Cafetec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cafetec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98DE532B3B185A2AEF45B0B7 /* Pods-Cafetec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafetec.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cafetec/Pods-Cafetec.release.xcconfig"; sourceTree = "<group>"; };
+		9F7AE6D65681F8E09E25A9A7 /* Pods-Cafetec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cafetec.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cafetec/Pods-Cafetec.debug.xcconfig"; sourceTree = "<group>"; };
 		A01780471DD2BC1500887CC1 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A0608D6D1DD28F5800F291C4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A0608D6E1DD28F5800F291C4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -50,7 +57,6 @@
 		A0608D7A1DD294CE00F291C4 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		A0608D7C1DD294E300F291C4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A0608D7E1DD29EA600F291C4 /* TabbedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedTextField.swift; sourceTree = "<group>"; };
-		A0608D811DD2A73000F291C4 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Cafetec/Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
 		A062E8B51DD794530080ECE7 /* CartPayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartPayTableViewCell.swift; sourceTree = "<group>"; };
 		A062E8C01DD9080F0080ECE7 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -63,6 +69,9 @@
 		A07812D71DD6EA7600A2C2F6 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		A07812D91DD6F17200A2C2F6 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		A07812DB1DD6F24E00A2C2F6 /* CartTotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTotalTableViewCell.swift; sourceTree = "<group>"; };
+		A07D5F2E1DDA5A0700823368 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Cafetec-habtkbidmqboaocinffzlqwlujtm/Build/Products/Debug-iphonesimulator/Stripe/Stripe.framework"; sourceTree = "<group>"; };
+		A07D5F381DDA7B7000823368 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		A08541C31DC43475009695B8 /* Cafetec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cafetec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08541C61DC43475009695B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A08541C81DC43475009695B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,12 +93,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07D5F301DDA5A0700823368 /* Stripe.framework in Frameworks */,
 				A0608D7D1DD294E300F291C4 /* libsqlite3.tbd in Frameworks */,
 				A0608D7B1DD294CE00F291C4 /* libstdc++.6.tbd in Frameworks */,
 				A0608D791DD2945900F291C4 /* SystemConfiguration.framework in Frameworks */,
 				A0608D771DD2944400F291C4 /* AudioToolbox.framework in Frameworks */,
 				A0608D701DD28F5800F291C4 /* Parse.framework in Frameworks */,
 				A0608D6F1DD28F5800F291C4 /* Bolts.framework in Frameworks */,
+				3BDE88B2C527AEF2BDA9B433 /* Pods_Cafetec.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,10 +120,11 @@
 		A0608D6C1DD28F4000F291C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A0608D811DD2A73000F291C4 /* FontAwesome.framework */,
+				A07D5F2E1DDA5A0700823368 /* Stripe.framework */,
 				A0608D751DD2940E00F291C4 /* System */,
 				A0608D6D1DD28F5800F291C4 /* Bolts.framework */,
 				A0608D6E1DD28F5800F291C4 /* Parse.framework */,
+				028720E5D305EF6CAF3BE17D /* Pods_Cafetec.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,6 +208,16 @@
 			name = Place;
 			sourceTree = "<group>";
 		};
+		A07D5F2C1DDA59DD00823368 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				A062E8C01DD9080F0080ECE7 /* PayViewController.swift */,
+				A062E8C41DD92FB00080ECE7 /* NewCardViewController.swift */,
+				A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */,
+			);
+			name = Pay;
+			sourceTree = "<group>";
+		};
 		A08541BA1DC43475009695B8 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +225,7 @@
 				A08541C51DC43475009695B8 /* Cafetec */,
 				A08541C41DC43475009695B8 /* Products */,
 				A01780501DD2C5C400887CC1 /* Resources */,
+				A26037164C6E059F6527C110 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,20 +241,29 @@
 			isa = PBXGroup;
 			children = (
 				A08541C61DC43475009695B8 /* AppDelegate.swift */,
-				A062E8C01DD9080F0080ECE7 /* PayViewController.swift */,
-				A062E8C41DD92FB00080ECE7 /* NewCardViewController.swift */,
-				A062E8C21DD912470080ECE7 /* PayCollectionViewCell.swift */,
+				A07D5F2C1DDA59DD00823368 /* Pay */,
 				A062E8BA1DD900A60080ECE7 /* Login/Signup */,
 				A062E8BD1DD901140080ECE7 /* Places */,
 				A062E8BF1DD901420080ECE7 /* Place */,
 				A062E8BC1DD900DA0080ECE7 /* Food */,
 				A062E8BE1DD9011C0080ECE7 /* Settings */,
 				A062E8BB1DD900CF0080ECE7 /* Cart */,
+				A07D5F381DDA7B7000823368 /* SearchViewController.swift */,
+				A07D5F3A1DDA7C6900823368 /* SearchTableViewCell.swift */,
 				A08541CA1DC43475009695B8 /* Main.storyboard */,
 				A08541CF1DC43475009695B8 /* LaunchScreen.storyboard */,
 				A0608D801DD29ED200F291C4 /* Custom classes */,
 			);
 			path = Cafetec;
+			sourceTree = "<group>";
+		};
+		A26037164C6E059F6527C110 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F7AE6D65681F8E09E25A9A7 /* Pods-Cafetec.debug.xcconfig */,
+				98DE532B3B185A2AEF45B0B7 /* Pods-Cafetec.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A08541D51DC43475009695B8 /* Build configuration list for PBXNativeTarget "Cafetec" */;
 			buildPhases = (
+				872A4AC31CFA18A275F6AE1A /* 📦 Check Pods Manifest.lock */,
 				A08541BF1DC43475009695B8 /* Sources */,
 				A08541C01DC43475009695B8 /* Frameworks */,
 				A08541C11DC43475009695B8 /* Resources */,
+				FB118A422695955BCEE2A180 /* 📦 Embed Pods Frameworks */,
+				67530C167EEB1C384E5F30B2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +302,7 @@
 					A08541C21DC43475009695B8 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = LFJ2ELTF77;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -302,6 +338,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67530C167EEB1C384E5F30B2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cafetec/Pods-Cafetec-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		872A4AC31CFA18A275F6AE1A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB118A422695955BCEE2A180 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cafetec/Pods-Cafetec-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A08541BF1DC43475009695B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -325,6 +409,8 @@
 				A07812CE1DD63C9A00A2C2F6 /* OptionsTableViewCell.swift in Sources */,
 				A07812D81DD6EA7600A2C2F6 /* CartViewController.swift in Sources */,
 				A062E8C31DD912470080ECE7 /* PayCollectionViewCell.swift in Sources */,
+				A07D5F391DDA7B7000823368 /* SearchViewController.swift in Sources */,
+				A07D5F3B1DDA7C6900823368 /* SearchTableViewCell.swift in Sources */,
 				A01780481DD2BC1500887CC1 /* SignupViewController.swift in Sources */,
 				A07812DA1DD6F17200A2C2F6 /* CartItemTableViewCell.swift in Sources */,
 				A0608D7F1DD29EA600F291C4 /* TabbedTextField.swift in Sources */,
@@ -450,36 +536,45 @@
 		};
 		A08541D61DC43475009695B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F7AE6D65681F8E09E25A9A7 /* Pods-Cafetec.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LFJ2ELTF77;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ChimpKit",
 				);
 				INFOPLIST_FILE = Cafetec/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.techeando.Cafetec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A08541D71DC43475009695B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98DE532B3B185A2AEF45B0B7 /* Pods-Cafetec.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LFJ2ELTF77;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ChimpKit",
 				);
 				INFOPLIST_FILE = Cafetec/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.techeando.Cafetec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

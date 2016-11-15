@@ -117,6 +117,13 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.optionsTable.frame = frame
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = true
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
