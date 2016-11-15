@@ -139,6 +139,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 self.tableView.reloadData()
                 
+                //Resize tableview to the content height
+                let point = self.tableView.frame.origin
+                let size = CGSize(width: self.tableView.frame.width, height: self.tableView.contentSize.height)
+                let frame = CGRect(origin: point, size: size)
+                
+                self.tableView.frame = frame
+                
             })
             
         }
@@ -149,13 +156,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //Resize tableview to the content height
-        let point = self.tableView.frame.origin
-        let size = CGSize(width: self.tableView.frame.width, height: self.tableView.contentSize.height)
-        let frame = CGRect(origin: point, size: size)
-        
-        self.tableView.frame = frame
         
         if performAnimations {
             

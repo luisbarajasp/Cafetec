@@ -12,6 +12,7 @@ import Parse
 class ViewController: UIViewController, UITextFieldDelegate {
     
 
+    @IBOutlet var rights: UILabel!
     @IBOutlet var signUpBtn: UIButton!
     @IBOutlet var signInBtn: UIButton!
     @IBOutlet var passwordTF: UITextField!
@@ -162,6 +163,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.passwordTF.center = CGPoint(x: self.passwordTF.center.x, y: self.passwordTF.center.y - 300)
                 self.signInBtn.center = CGPoint(x: self.signInBtn.center.x, y: self.signInBtn.center.y - 300)
                 self.signUpBtn.center = CGPoint(x: self.signUpBtn.center.x, y: self.signUpBtn.center.y - 300)
+                
+                self.rights.alpha = 0
                 
             })
             
