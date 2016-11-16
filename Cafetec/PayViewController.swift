@@ -11,10 +11,14 @@ import Parse
 
 class PayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var creditCards = 0
+    var card: PFObject?
     
     @IBOutlet var collectionView: UICollectionView!
+    
     var creditCardNumber = ""
+    
+    //Declare it on top of the class
+    var activityIndicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +31,6 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        refresh()
-    }
-    
-    func refresh() {
-        
-        print("Refresh calles")
-        
-        //Declare it on top of the class
-        var activityIndicator = UIActivityIndicatorView()
-        
         //Display
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         activityIndicator.center = self.view.center
@@ -46,34 +40,45 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         activityIndicator.startAnimating()
         //Comment if you do not want to ignore interaction whilst
         UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        refresh()
+    }
+    
+    func createAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func refresh() {
+        
+        self.card = nil
+        
+        print("Refresh calles")
 
         
-        let query = PFUser.query()
+        let query = PFQuery(className: "Card")
         
-        query?.getFirstObjectInBackground(block: { (object, error) in
+        query.whereKey("userId", equalTo: PFUser.current()?.objectId as String!)
+        
+        query.getFirstObjectInBackground(block: { (object, error) in
             
             //Remove it
-            activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
             //Comment if you commented the ignoring of interaction
             UIApplication.shared.endIgnoringInteractionEvents()
             
-            if let user = object as? PFUser {
-                print(user)
-                
-                if user["card"] != nil {
-                    
-                    // User has credit card
-                    
-                    self.creditCards = 1
-                    
-                    self.creditCardNumber = user["card"] as! String!
-                    
-                }else{
-                    
-                    // User does not have credit card
-                    
-                    
-                }
+            if let cardObject = object as PFObject! {
+                        
+                self.card = cardObject
                 
             }
             
@@ -104,7 +109,14 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return creditCards + 1
+        
+        if card != nil {
+            
+            return 2
+            
+        }
+        
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -119,7 +131,7 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PayCollectionViewCell
             
-            cell.credtiCard.text = "···· " + self.creditCardNumber
+            cell.credtiCard.text = "···· " + (self.card?["number"] as! String!)
             
             cell.delete.addTarget(self, action: #selector(PayViewController.deleteCard), for: UIControlEvents.touchUpInside)
             
@@ -133,32 +145,59 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         // Implement the deletion from stripe
         
-        let currentUser = PFUser.current()!
+        let query = PFQuery(className: "Card")
         
-        let query = PFUser.query()
+        print(self.card?.objectId as String!)
         
-        query?.getObjectInBackground(withId: currentUser.objectId!, block: { (object, error) in
-            
+        //Display
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        //Comment if you do not want to ignore interaction whilst
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        query.getObjectInBackground(withId: self.card?.objectId as String!, block: {(object, error) in
+        
             if error != nil {
                 
                 print(error!)
                 
             }else{
                 
-                if let user = object as! PFUser! {
+                if let cardObject = object as PFObject! {
                     
                     
-                    user.setNilValueForKey("card")
+                    cardObject.deleteInBackground(block: { (success, error) in
+                        
+                        if error != nil {
+                            
+                            print(error!)
+                            
+                        }else{
+                            
+                            if success {
+                                
+                                print("Card deleted successfully")
+                                
+                            }else{
+                                
+                                print("error")
+                                
+                            }
+                            
+                        }
+                        
+                    })
                     
-                    do{
-                        try user.save()
-                    }catch{
-                        print("error")
-                    }
                 }
                 
             }
             
+            self.refresh()
+        
         })
         
     }

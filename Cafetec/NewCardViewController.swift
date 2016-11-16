@@ -120,47 +120,72 @@ class NewCardViewController: UIViewController, UITextFieldDelegate {
     
     func removeActivityIndicator() {
         
-        // In Navigation controller used to let it know to parent to reload data
-        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        
         let currentUser = PFUser.current()!
         
-        let query = PFUser.query()
+        let numberString = number.text!
         
-        query?.whereKey("objectId", equalTo: currentUser.objectId!)
+        let query = PFQuery(className: "Card")
         
-        query?.findObjectsInBackground(block: { (objects, error) in
+        query.whereKey("userId", equalTo: currentUser.objectId as String!)
+        
+        query.getFirstObjectInBackground { (object, error) in
             
             if error != nil {
                 
                 print(error!)
                 
-            }else{
-                
-                if let users = objects as! [PFUser]! {
+                if let cardError = error as? NSError {
                     
-                    for user in users {
+                    if cardError.code == 101 {
                         
-                        let card = self.number.text!
+                        print("NSError")
                         
-                        user.setValue(card.substring(from: card.index(card.endIndex, offsetBy: -4)), forKey: "card")
+                        let card = PFObject(className: "Card")
+                         
+                         card["number"] = numberString.substring(from: numberString.index(numberString.endIndex, offsetBy: -4))
+                         
+                         card["cvc"] = self.cvc.text!
+                         
+                         card["date"] = self.date.text!
+                         
+                         card["userId"] = currentUser.objectId! as String!
+                         
+                         let acl = PFACL()
+                         acl.getPublicWriteAccess = true
+                         acl.getPublicReadAccess = true
+                         acl.setWriteAccess(true, for: PFUser.current()!)
+                         card.acl = acl
                         
-                        user.saveInBackground()
+                        card.saveInBackground()
                         
                     }
                     
                 }
                 
+                
+ 
+            }else{
+ 
+                if let card = object as PFObject! {
+                    
+                    card["number"] = numberString.substring(from: numberString.index(numberString.endIndex, offsetBy: -4))
+                    
+                    card.saveInBackground()
+                    
+                }
+ 
             }
+            
+            _ = self.navigationController?.popViewController(animated: true)
             
             //Remove it
             self.activityIndicator.stopAnimating()
             //Comment if you commented the ignoring of interaction
             UIApplication.shared.endIgnoringInteractionEvents()
-            
-            _ = self.navigationController?.popViewController(animated: true)
-            
-        })
+ 
+        }
+        
+        
         
     }
     

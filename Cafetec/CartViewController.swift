@@ -20,9 +20,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var placeName: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    //Declare it on top of the class
+    var activityIndicator = UIActivityIndicatorView()
+    
     var performAnimations = false
     
     var items = [PFObject]()
+    
+    var cardNumber: PFObject?
     
     var totalPrice: Float = 0
     
@@ -172,6 +177,17 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func refresh() {
         
+        //Display
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        //Comment if you do not want to ignore interaction whilst
+        UIApplication.shared.beginIgnoringInteractionEvents()
+
+        
         self.items.removeAll()
         
         let orderObject = UserDefaults.standard.object(forKey: "activeOrder")
@@ -217,6 +233,26 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
+        let query = PFQuery(className: "Card")
+        
+        query.whereKey("userId", equalTo: PFUser.current()?.objectId as String!)
+        
+        query.getFirstObjectInBackground(block: { (object, error) in
+            
+            //Remove it
+            self.activityIndicator.stopAnimating()
+            //Comment if you commented the ignoring of interaction
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
+            if let cardObject = object as PFObject! {
+                
+                self.cardNumber = cardObject
+                
+            }
+            
+            self.tableView.reloadData()
+            
+        })
         
         
     }
@@ -403,11 +439,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellPay", for: indexPath) as! CartPayTableViewCell
             
-            if PFUser.current()!["card"] != nil {
+            if self.cardNumber != nil {
                 
                 // User has credit card
                 
-                cell.cardLabel.text = "···· " + (PFUser.current()!["card"] as! String!)
+                cell.cardLabel.text = "···· " + (self.cardNumber?["number"] as! String!)
                 cell.button.setTitle("CAMBIAR", for: [])
                 
             }else{
