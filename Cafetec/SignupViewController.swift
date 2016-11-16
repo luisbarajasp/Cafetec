@@ -125,12 +125,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             user["name"] = nameTF.text
             user["matricula"] = matriculaTF.text
             
-            let acl = PFACL()
-            acl.getPublicWriteAccess = true
-            acl.getPublicReadAccess = true
-            //acl.setWriteAccess(true, for: PFUser.current()!)
-            user.acl = acl
-            
             user.signUpInBackground(block: { (success, error) in
                 
                 self.activityIndicator.stopAnimating()

@@ -216,6 +216,12 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 //Set the food
                                 orderItem["foodId"] = self.food?.objectId
                                 
+                                let acl = PFACL()
+                                acl.getPublicWriteAccess = true
+                                acl.getPublicReadAccess = true
+                                acl.setWriteAccess(true, for: PFUser.current()!)
+                                orderItem.acl = acl
+                                
                                 //Display
                                 self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                                 self.activityIndicator.center = self.view.center
@@ -249,7 +255,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                             
                                             
                                             print("OrderItem has been saved.")
-                                            UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
                                             
                                             let oldPrice = order["price"] as! Float!
                                             
@@ -368,6 +373,12 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     orderItem["orderId"] = order.objectId
                                     //Set the food
                                     orderItem["foodId"] = self.food?.objectId
+                                    
+                                    let acl = PFACL()
+                                    acl.getPublicWriteAccess = true
+                                    acl.getPublicReadAccess = true
+                                    acl.setWriteAccess(true, for: PFUser.current()!)
+                                    orderItem.acl = acl
                                     
                                     orderItem.saveInBackground { (success, error) -> Void in
                                         
@@ -520,6 +531,12 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 //Set the food
                                 orderItem["foodId"] = self.food?.objectId
                                 
+                                let acl = PFACL()
+                                acl.getPublicWriteAccess = true
+                                acl.getPublicReadAccess = true
+                                acl.setWriteAccess(true, for: PFUser.current()!)
+                                orderItem.acl = acl
+                                
                                 orderItem.saveInBackground { (success, error) -> Void in
                                     
                                     //Remove it
@@ -534,9 +551,9 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         print("OrderItem has been saved.")
                                         UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
                                         
-                                        let oldPrice = order["price"] as! Float!
+                                        let oldPrice: Float = 0
                                         
-                                        let newPrice = oldPrice! + self.totalpay
+                                        let newPrice = oldPrice + self.totalpay
                                         
                                         let query = PFQuery(className: "Order")
                                         

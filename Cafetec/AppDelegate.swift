@@ -10,7 +10,7 @@
 import UIKit
 
 import Parse
-import Stripe
+//import Stripe
 
 // If you want to use any of the UI components, uncomment this line
 // import ParseUI
