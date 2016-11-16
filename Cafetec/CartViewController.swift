@@ -26,6 +26,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var totalPrice: Float = 0
     
+    var activeOrder: PFObject?
+    
     func createAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -45,6 +47,68 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // Do any additional setup after loading the view.
         
+        /*let orderObject = UserDefaults.standard.object(forKey: "activeOrder")
+        
+        if let order = orderObject as? String {
+            
+            let query = PFQuery(className: "Order")
+            
+            query.getObjectInBackground(withId: order, block: { (object, error) in
+                
+                if error != nil {
+                    
+                    print(error!)
+                    
+                }else{
+                    
+                    if let order = object {
+                        
+                        self.activeOrder = order
+                        
+                        let query = PFQuery(className: "Place")
+                        
+                        query.getObjectInBackground(withId: order["placeId"] as! String, block: { (object, error) in
+                            
+                            if let place = object {
+                                
+                                (place["image"] as! PFFile).getDataInBackground { (data, error) in
+                                    
+                                    if let imageData = data {
+                                        
+                                        if let downloadedImage = UIImage(data: imageData) {
+                                            
+                                            self.placeImage.image = downloadedImage
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                                self.placeName.text = place["name"] as! String?
+                                
+                            }
+                            
+                            
+                        })
+                        
+                    }
+                    
+                }
+                
+            })
+            
+        }
+        
+        refresh()*/
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("viewwillappear")
+        
         let orderObject = UserDefaults.standard.object(forKey: "activeOrder")
         
         if let order = orderObject as? String {
@@ -60,6 +124,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }else{
                     
                     if let order = object {
+                        
+                        self.activeOrder = order
                         
                         let query = PFQuery(className: "Place")
                         
@@ -97,7 +163,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         refresh()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -184,7 +249,75 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func pay(_ sender: Any) {
         
+        let orderObject = UserDefaults.standard.object(forKey: "activeOrder")
         
+        if let order = orderObject as? String {
+            
+            let query = PFQuery(className: "Order")
+            
+            query.whereKey("objectId", equalTo: order)
+            
+            //Declare it on top of the class
+            var activityIndicator = UIActivityIndicatorView()
+            
+            //Display
+            activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            //Comment if you do not want to ignore interaction whilst
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            
+            
+            query.getFirstObjectInBackground { (object, error) in
+                
+                //Remove it
+                activityIndicator.stopAnimating()
+                //Comment if you commented the ignoring of interaction
+                UIApplication.shared.endIgnoringInteractionEvents()
+                
+                if error != nil {
+                    
+                    print(error!)
+                    
+                }else{
+                    
+                    if let orderO = object as PFObject! {
+                        
+                        orderO["state"] = 1
+                        
+                        orderO.saveInBackground()
+                        
+                        UserDefaults.standard.removeObject(forKey: "activeOrder")
+                        
+                        UserDefaults.standard.removeObject(forKey: "totalItems")
+                        
+                        self.performSegue(withIdentifier: "showTicket", sender: self)
+                        
+                    }
+                    
+                }
+                
+            }
+
+            
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showTicket" {
+            
+            let vc = segue.destination as! OrderViewController
+            
+            vc.showBack = false
+            
+            vc.orderSelected = activeOrder
+            
+        }
         
     }
     
@@ -271,6 +404,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             if PFUser.current()!["card"] != nil {
                 
                 // User has credit card
+                
+                cell.cardLabel.text = "···· " + (PFUser.current()!["card"] as! String!)
+                cell.button.setTitle("CAMBIAR", for: [])
                 
             }else{
                 

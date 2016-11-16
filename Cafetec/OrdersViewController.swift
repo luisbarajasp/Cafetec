@@ -379,6 +379,8 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             vc.orderSelected = self.orderSelected
             
+            vc.showBack = true
+            
             //self.navigationController?.pushViewController(vc, animated: true)
             
         }else if segue.identifier == "cartSegue" {

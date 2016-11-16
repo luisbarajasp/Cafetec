@@ -472,6 +472,12 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                         //Set the state
                         order["state"] = 0
                         
+                        let acl = PFACL()
+                        acl.getPublicWriteAccess = true
+                        acl.getPublicReadAccess = true
+                        acl.setWriteAccess(true, for: PFUser.current()!)
+                        order.acl = acl
+                        
                         //Display
                         self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                         self.activityIndicator.center = self.view.center

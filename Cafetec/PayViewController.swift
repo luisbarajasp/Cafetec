@@ -34,11 +34,31 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         print("Refresh calles")
         
+        //Declare it on top of the class
+        var activityIndicator = UIActivityIndicatorView()
+        
+        //Display
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        //Comment if you do not want to ignore interaction whilst
+        UIApplication.shared.beginIgnoringInteractionEvents()
+
+        
         let query = PFUser.query()
         
         query?.getFirstObjectInBackground(block: { (object, error) in
             
+            //Remove it
+            activityIndicator.stopAnimating()
+            //Comment if you commented the ignoring of interaction
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
             if let user = object as? PFUser {
+                print(user)
                 
                 if user["card"] != nil {
                     
@@ -57,9 +77,9 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
                 
             }
             
+            self.collectionView.reloadData()
+            
         })
-        
-       self.collectionView.reloadData()
 
         
     }
@@ -99,7 +119,7 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PayCollectionViewCell
             
-            cell.credtiCard.text = "····" + self.creditCardNumber
+            cell.credtiCard.text = "···· " + self.creditCardNumber
             
             cell.delete.addTarget(self, action: #selector(PayViewController.deleteCard), for: UIControlEvents.touchUpInside)
             
@@ -112,6 +132,34 @@ class PayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     func deleteCard() {
         
         // Implement the deletion from stripe
+        
+        let currentUser = PFUser.current()!
+        
+        let query = PFUser.query()
+        
+        query?.getObjectInBackground(withId: currentUser.objectId!, block: { (object, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                
+            }else{
+                
+                if let user = object as! PFUser! {
+                    
+                    
+                    user.setNilValueForKey("card")
+                    
+                    do{
+                        try user.save()
+                    }catch{
+                        print("error")
+                    }
+                }
+                
+            }
+            
+        })
         
     }
     

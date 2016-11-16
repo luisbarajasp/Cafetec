@@ -19,13 +19,24 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var placeImage: UIImageView!
     @IBOutlet var placeName: UILabel!
     @IBOutlet var dynamicView: UIView!
+    @IBOutlet var backBtn: UIButton!
+    
+    var showBack = true
     
     var orderSelected: PFObject?
     
     var items = [PFObject]()
 
     @IBAction func backPressed(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
+        if showBack {
+            
+            _ = self.navigationController?.popViewController(animated: true)
+            
+        }else{
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,10 +46,24 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.tabBarController?.tabBar.isHidden = true
         
+        if !showBack {
+            
+            backBtn.setImage(UIImage(named: "Times"), for: [])
+            
+        }else{
+            
+            backBtn.setImage(UIImage(named: "fa-angle-left-white"), for: [])
+            
+        }
+        
         
         let query = PFQuery(className: "Place")
         
-        query.whereKey("objectId", equalTo: orderSelected?["placeId"] as! String)
+        let placeId = orderSelected?["placeId"] as! String
+        
+        print(placeId)
+        
+        query.whereKey("objectId", equalTo: placeId)
         
         do{
             
@@ -124,8 +149,6 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func refresh() {
         
         self.items.removeAll()
-        
-        
             
             let query = PFQuery(className: "OrderItem")
             
@@ -258,8 +281,6 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 cell.cardLabel.text = "···· " + (PFUser.current()!["card"] as! String!)
                 
             }
-            
-            print(PFUser.current()!)
             
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             

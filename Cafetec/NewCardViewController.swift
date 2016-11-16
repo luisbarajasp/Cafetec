@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NewCardViewController: UIViewController, UITextFieldDelegate {
 
@@ -26,6 +27,20 @@ class NewCardViewController: UIViewController, UITextFieldDelegate {
         number.delegate = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func createAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,22 +83,39 @@ class NewCardViewController: UIViewController, UITextFieldDelegate {
     }
     
     func submitNewCard() {
-        self.view.endEditing(true)
         
-        //Display
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        //Comment if you do not want to ignore interaction whilst
-        UIApplication.shared.beginIgnoringInteractionEvents()
+        if number.text != "" && cvc.text != "" && date.text != "" {
+            
+            if (number.text?.characters.count)! > 15 && (cvc.text?.characters.count)! > 2 && (date.text?.characters.count)! > 3 {
+                self.view.endEditing(true)
+                
+                //Display
+                activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                activityIndicator.center = self.view.center
+                activityIndicator.hidesWhenStopped = true
+                activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                view.addSubview(activityIndicator)
+                activityIndicator.startAnimating()
+                //Comment if you do not want to ignore interaction whilst
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                
+                Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(NewCardViewController.removeActivityIndicator), userInfo: nil, repeats: false)
+            }else{
+                
+                self.createAlert(title: "Datos Incompleto", message: "La tarjeta tiene que ser de 16 digitos, el cvc 3 digitos y la fecha de 4 digitos.")
+                
+            }
+            
+        }else{
+            
+            self.createAlert(title: "Datos Vacíos", message: "Por favor llena todos los campos.")
+            
+        }
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(NewCardViewController.removeActivityIndicator), userInfo: nil, repeats: false)
-
         
-        
+    }
+    @IBAction func save(_ sender: Any) {
+        self.submitNewCard()
     }
     
     func removeActivityIndicator() {
@@ -91,12 +123,44 @@ class NewCardViewController: UIViewController, UITextFieldDelegate {
         // In Navigation controller used to let it know to parent to reload data
         //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         
-        //Remove it
-        self.activityIndicator.stopAnimating()
-        //Comment if you commented the ignoring of interaction
-        UIApplication.shared.endIgnoringInteractionEvents()
+        let currentUser = PFUser.current()!
         
-        _ = self.navigationController?.popViewController(animated: true)
+        let query = PFUser.query()
+        
+        query?.whereKey("objectId", equalTo: currentUser.objectId!)
+        
+        query?.findObjectsInBackground(block: { (objects, error) in
+            
+            if error != nil {
+                
+                print(error!)
+                
+            }else{
+                
+                if let users = objects as! [PFUser]! {
+                    
+                    for user in users {
+                        
+                        let card = self.number.text!
+                        
+                        user.setValue(card.substring(from: card.index(card.endIndex, offsetBy: -4)), forKey: "card")
+                        
+                        user.saveInBackground()
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            //Remove it
+            self.activityIndicator.stopAnimating()
+            //Comment if you commented the ignoring of interaction
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
+            _ = self.navigationController?.popViewController(animated: true)
+            
+        })
         
     }
     

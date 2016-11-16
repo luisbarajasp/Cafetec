@@ -232,7 +232,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if section == 0 {
             
-            return 2
+            return 1
             
         }else{
             
@@ -274,11 +274,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.icon.image = UIImage(named: "Bank Cards Filled")
             cell.label.text = "Pago"
                 
-        }else if (indexPath.row == 1){
-                
-            cell.icon.image = UIImage(named: "Help")
-            cell.label.text = "Ayuda"
-                
         }else{
             
             cell.icon.image = UIImage(named: "Exit")
@@ -295,10 +290,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0 && indexPath.row == 0 {
             
             performSegue(withIdentifier: "paySegue", sender: self)
-            
-        }else if indexPath.row == 1 {
-            
-            
+           
         }else{
             
             PFUser.logOut()

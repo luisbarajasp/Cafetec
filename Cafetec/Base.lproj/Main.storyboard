@@ -913,6 +913,7 @@
                         <outlet property="placeName" destination="yYH-eP-yh9" id="G0I-fy-N3O"/>
                         <outlet property="tableView" destination="gDs-T9-xnl" id="Vgz-nr-FJs"/>
                         <segue destination="MHf-0z-8lx" kind="show" identifier="paySegue" id="Nxz-l4-IBp"/>
+                        <segue destination="Fif-vx-Xn9" kind="presentation" identifier="showTicket" id="Og8-Jk-Ke1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24l-78-sO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1097,6 +1098,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVc-vM-YHg">
+                                <rect key="frame" x="160" y="311" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="GUARDAR">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="s7b-tl-6jN" eventType="touchUpInside" id="wws-zH-ejG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95283776521682739" green="0.95300072431564331" blue="0.95282751321792603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1573,6 +1585,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="backBtn" destination="kPj-vT-8gB" id="qKY-Sb-6Ty"/>
                         <outlet property="dynamicView" destination="1tr-xc-dQr" id="bHq-Ga-aLg"/>
                         <outlet property="orderDate" destination="Fs3-qF-cgV" id="2KM-fF-Vq1"/>
                         <outlet property="orderPrice" destination="iAm-TA-PSy" id="pEi-2I-qP2"/>
@@ -1843,6 +1856,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="eh2-mD-oPv"/>
         <segue reference="A5z-cm-lXW"/>
+        <segue reference="Og8-Jk-Ke1"/>
         <segue reference="Nxz-l4-IBp"/>
         <segue reference="9HZ-qd-HV6"/>
     </inferredMetricsTieBreakers>
