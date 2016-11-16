@@ -51,6 +51,8 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         query.whereKey("userId", equalTo: (PFUser.current()?.objectId)! as String!)
         
+        query.order(byDescending: "createdAt")
+        
         query.findObjectsInBackground { (objects, error) in
             
             //Remove it

@@ -71,6 +71,8 @@ class PlaceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         query.whereKey("placeId", equalTo: place!.objectId!)
         
+        query.order(byDescending: "name")
+        
         query.findObjectsInBackground { (objects, error) in
             
             if error != nil {

@@ -153,6 +153,8 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let query = PFQuery(className: "OrderItem")
             
             query.whereKey("orderId", equalTo: orderSelected?.objectId as String!)
+        
+            query.order(byDescending: "createdAt")
             
             query.findObjectsInBackground(block: { (objects, error) in
                 

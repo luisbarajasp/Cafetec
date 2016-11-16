@@ -182,6 +182,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             query.whereKey("orderId", equalTo: order)
             
+            query.order(byDescending: "createdAt")
+            
             query.findObjectsInBackground(block: { (objects, error) in
                 
                 if error != nil {
