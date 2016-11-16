@@ -34,7 +34,10 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
         }else{
             
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: {
+                let secondPresentingVC = self.presentingViewController?.presentingViewController;
+                secondPresentingVC?.dismiss(animated: true, completion: nil)
+            })
             
         }
     }
@@ -276,13 +279,8 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellPay", for: indexPath) as! CartPayTableViewCell
             
-            if PFUser.current()!["card"] != nil {
                 
-                // User has credit card
-                
-                cell.cardLabel.text = "···· " + (PFUser.current()!["card"] as! String!)
-                
-            }
+            cell.cardLabel.text = "···· " + (orderSelected?["card"] as! String!)
             
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             
@@ -290,6 +288,8 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return cell
             
         }else{
+            
+            // MARK: - QR generation
             
             var qrcodeImage: CIImage!
             

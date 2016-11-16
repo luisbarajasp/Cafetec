@@ -27,7 +27,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var items = [PFObject]()
     
-    var cardNumber: PFObject?
+    var card: PFObject?
     
     var totalPrice: Float = 0
     
@@ -246,7 +246,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if let cardObject = object as PFObject! {
                 
-                self.cardNumber = cardObject
+                self.card = cardObject
                 
             }
             
@@ -325,6 +325,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if let orderO = object as PFObject! {
                         
                         orderO["state"] = 1
+                        
+                        orderO["card"] = self.card?["number"] as! String!
                         
                         orderO.saveInBackground()
                         
@@ -439,11 +441,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellPay", for: indexPath) as! CartPayTableViewCell
             
-            if self.cardNumber != nil {
+            if self.card != nil {
                 
                 // User has credit card
                 
-                cell.cardLabel.text = "···· " + (self.cardNumber?["number"] as! String!)
+                cell.cardLabel.text = "···· " + (self.card?["number"] as! String!)
                 cell.button.setTitle("CAMBIAR", for: [])
                 
             }else{
