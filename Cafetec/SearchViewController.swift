@@ -48,6 +48,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.foods.removeAll()
         
+        self.notFound.isHidden = true
+        
         let search = searchTF.text!
         
         let queryName = PFQuery(className: "Food")
