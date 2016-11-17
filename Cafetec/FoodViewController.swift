@@ -160,10 +160,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     @IBAction func orderConfirmed(_ sender: Any) {
-        print("\(radioButtonControllers[0].indexSelectedButton())")
-        print(radioButtonControllers[0].selectedButton()?.title(for: [])! as String!)
-        print("\(radioButtonControllers[1].indexSelectedButton())")
-        print(radioButtonControllers[1].selectedButton()?.title(for: [])! as String!)
         
         let query = PFQuery(className: "Order")
         
@@ -313,6 +309,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     
                                 }
                                 
+                                _ = self.navigationController?.popViewController(animated: true)
+                                
                             }else{
                             
                                 // The food is from another place
@@ -332,7 +330,7 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     //Comment if you do not want to ignore interaction whilst
                                     UIApplication.shared.beginIgnoringInteractionEvents()
                                     
-                                    let query = PFQuery(className: "OrderItem")
+                                    var query = PFQuery(className: "OrderItem")
                                     
                                     query.whereKey("orderId", equalTo: order.objectId as String!)
                                     
@@ -350,107 +348,165 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                         
                                     })
                                     
-                                    order["price"] = 0
+                                    query = PFQuery(className: "Order")
                                     
-                                    let orderItem = PFObject(className: "OrderItem")
+                                    query.getObjectInBackground(withId: order.objectId!, block: { (object, error) in
+                                        
+                                        if error != nil{
+                                            
+                                            print(error!)
+                                            
+                                        }else{
+                                            
+                                            if let orderObject = object as PFObject! {
+                                                
+                                                
+                                                orderObject.deleteInBackground()
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    })
                                     
-                                    //Set quantity
-                                    orderItem["quantity"] = self.countNumber
-                                    //Set total price
-                                    orderItem["price"] = self.totalpay
-                                    //Set the options selected
-                                    let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
-                                    let keys = Array(foodOptions.keys)
-                                    var dictionary = [String: String]()
-                                    var i = 0
-                                    for key in keys {
-                                        dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
-                                        i += 1
-                                    }
-                                    print(dictionary)
-                                    orderItem["options"] = dictionary
-                                    //Set the order
-                                    orderItem["orderId"] = order.objectId
-                                    //Set the food
-                                    orderItem["foodId"] = self.food?.objectId
+                                    let newOrder = PFObject(className: "Order")
+                                    
+                                    newOrder["state"] = 0
+                                    newOrder["price"] = 0
+                                    newOrder["placeId"] = self.food?["placeId"]
+                                    newOrder["userId"] = PFUser.current()?.objectId!
                                     
                                     let acl = PFACL()
                                     acl.getPublicWriteAccess = true
                                     acl.getPublicReadAccess = true
                                     acl.setWriteAccess(true, for: PFUser.current()!)
-                                    orderItem.acl = acl
+                                    newOrder.acl = acl
                                     
-                                    orderItem.saveInBackground { (success, error) -> Void in
+                                    newOrder.saveInBackground(block: { (success, error) in
                                         
-                                        //Remove it
-                                        self.activityIndicator.stopAnimating()
-                                        //Comment if you commented the ignoring of interaction
-                                        UIApplication.shared.endIgnoringInteractionEvents()
-                                        
-                                        // added test for success 11th July 2016
-                                        
-                                        if success {
+                                        if error != nil {
                                             
-                                            print("OrderItem has been saved.")
-                                            UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
+                                            print(error!)
                                             
-                                            let oldPrice = order["price"] as! Float!
+                                        }else{
                                             
-                                            let newPrice = oldPrice! + self.totalpay
                                             
-                                            let query = PFQuery(className: "Order")
-                                            
-                                            query.getObjectInBackground(withId: order.objectId as String!, block: { (object, error) in
+                                            if success {
                                                 
-                                                if let orderObject = object {
+                                                
+                                                let orderItem = PFObject(className: "OrderItem")
+                                                
+                                                //Set quantity
+                                                orderItem["quantity"] = self.countNumber
+                                                //Set total price
+                                                orderItem["price"] = self.totalpay
+                                                //Set the options selected
+                                                let foodOptions = self.food?["options"] as! Dictionary<String, Array<String>>
+                                                let keys = Array(foodOptions.keys)
+                                                var dictionary = [String: String]()
+                                                var i = 0
+                                                for key in keys {
+                                                    dictionary[key] = self.radioButtonControllers[i].selectedButton()?.title(for: [])! as String!
+                                                    i += 1
+                                                }
+                                                print(dictionary)
+                                                orderItem["options"] = dictionary
+                                                //Set the order
+                                                orderItem["orderId"] = newOrder.objectId
+                                                //Set the food
+                                                orderItem["foodId"] = self.food?.objectId
+                                                
+                                                let acl = PFACL()
+                                                acl.getPublicWriteAccess = true
+                                                acl.getPublicReadAccess = true
+                                                acl.setWriteAccess(true, for: PFUser.current()!)
+                                                orderItem.acl = acl
+                                                
+                                                orderItem.saveInBackground { (success, error) -> Void in
                                                     
-                                                    orderObject["price"] = newPrice
+                                                    //Remove it
+                                                    self.activityIndicator.stopAnimating()
+                                                    //Comment if you commented the ignoring of interaction
+                                                    UIApplication.shared.endIgnoringInteractionEvents()
                                                     
-                                                    orderObject.saveInBackground(block: { (success, error) in
+                                                    // added test for success 11th July 2016
+                                                    
+                                                    if success {
                                                         
-                                                        if error != nil {
+                                                        print("OrderItem has been saved.")
+                                                        
+                                                        let newPrice = self.totalpay
+                                                        
+                                                        let query = PFQuery(className: "Order")
+                                                        
+                                                        query.getObjectInBackground(withId: newOrder.objectId as String!, block: { (object, error) in
                                                             
-                                                            print(error!)
-                                                            
-                                                        }else{
-                                                            
-                                                            
-                                                            if success {
+                                                            if let orderObject = object {
                                                                 
-                                                                print("Order update price")
+                                                                orderObject["price"] = self.totalpay
                                                                 
-                                                            }else{
-                                                                
-                                                                print("error")
+                                                                orderObject.saveInBackground(block: { (success, error) in
+                                                                    
+                                                                    if error != nil {
+                                                                        
+                                                                        print(error!)
+                                                                        
+                                                                    }else{
+                                                                        
+                                                                        
+                                                                        if success {
+                                                                            
+                                                                            print("Order update price")
+                                                                            
+                                                                        }else{
+                                                                            
+                                                                            print("error")
+                                                                            
+                                                                        }
+                                                                        
+                                                                    }
+                                                                    
+                                                                })
                                                                 
                                                             }
                                                             
+                                                        })
+                                                        
+                                                        newOrder["price"] = newPrice
+                                                        
+                                                        UserDefaults.standard.set(newOrder.objectId as String!, forKey: "activeOrder")
+                                                        UserDefaults.standard.set(self.countNumber, forKey: "totalItems")
+                                                        
+                                                    } else {
+                                                        
+                                                        if error != nil {
+                                                            
+                                                            print (error!)
+                                                            
+                                                        } else {
+                                                            
+                                                            print ("Error")
                                                         }
                                                         
-                                                    })
-                                                    
+                                                    }
                                                 }
                                                 
-                                            })
-                                            
-                                            order["price"] = newPrice
-                                            
-                                        } else {
-                                            
-                                            if error != nil {
+                                            }else{
                                                 
-                                                print (error!)
                                                 
-                                            } else {
+                                                print("error")
                                                 
-                                                print ("Error")
                                             }
                                             
                                         }
                                         
-                                    }
+                                        
+                                    })
+                                    
                                     
                                     alert.dismiss(animated: true, completion: nil)
+                                    
+                                    _ = self.navigationController?.popViewController(animated: true)
                                     
                                     
                                 }))
@@ -459,6 +515,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) in
                                     
                                     alert.dismiss(animated: true, completion: nil)
+                                    
+                                    _ = self.navigationController?.popViewController(animated: true)
                                     
                                 }))
                                 
@@ -625,6 +683,8 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
                             
                         }
                         
+                        _ = self.navigationController?.popViewController(animated: true)
+                        
                     }
                     
                 }
@@ -632,9 +692,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         }
-        
-        _ = self.navigationController?.popViewController(animated: true)
-        
         
     }
     

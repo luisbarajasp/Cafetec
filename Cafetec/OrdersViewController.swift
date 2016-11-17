@@ -46,8 +46,12 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         queryOne.whereKey("state", equalTo: 1)
         
+        let queryThree = PFQuery(className: "Order")
         
-        let query = PFQuery.orQuery(withSubqueries: [queryOne, queryTwo])
+        queryThree.whereKey("state", equalTo: 3)
+        
+        
+        let query = PFQuery.orQuery(withSubqueries: [queryOne, queryTwo, queryThree])
         
         query.whereKey("userId", equalTo: (PFUser.current()?.objectId)! as String!)
         
