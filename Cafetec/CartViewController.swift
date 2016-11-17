@@ -52,60 +52,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // Do any additional setup after loading the view.
         
-        /*let orderObject = UserDefaults.standard.object(forKey: "activeOrder")
-        
-        if let order = orderObject as? String {
-            
-            let query = PFQuery(className: "Order")
-            
-            query.getObjectInBackground(withId: order, block: { (object, error) in
-                
-                if error != nil {
-                    
-                    print(error!)
-                    
-                }else{
-                    
-                    if let order = object {
-                        
-                        self.activeOrder = order
-                        
-                        let query = PFQuery(className: "Place")
-                        
-                        query.getObjectInBackground(withId: order["placeId"] as! String, block: { (object, error) in
-                            
-                            if let place = object {
-                                
-                                (place["image"] as! PFFile).getDataInBackground { (data, error) in
-                                    
-                                    if let imageData = data {
-                                        
-                                        if let downloadedImage = UIImage(data: imageData) {
-                                            
-                                            self.placeImage.image = downloadedImage
-                                            
-                                        }
-                                        
-                                    }
-                                    
-                                }
-                                
-                                self.placeName.text = place["name"] as! String?
-                                
-                            }
-                            
-                            
-                        })
-                        
-                    }
-                    
-                }
-                
-            })
-            
-        }
-        
-        refresh()*/
+        print("viewdidload")
         
     }
     
@@ -327,6 +274,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                         orderO["state"] = 1
                         
                         orderO["card"] = self.card?["number"] as! String!
+                        
+                        self.activeOrder?["card"] = self.card?["number"] as! String!
                         
                         orderO.saveInBackground()
                         

@@ -34,10 +34,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
         }else{
             
-            self.dismiss(animated: true, completion: {
-                let secondPresentingVC = self.presentingViewController?.presentingViewController;
-                secondPresentingVC?.dismiss(animated: true, completion: nil)
-            })
+            self.dismiss(animated: true, completion: nil)
             
         }
     }
@@ -116,7 +113,7 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
                 self.stateStatus.text = "Por entregar"
                 
-            }else{
+            }else if state == 2{
                 
                 self.statusColor.backgroundColor = UIColor(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
                 self.stateStatus.textColor = UIColor(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
@@ -136,6 +133,13 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 
                 self.stateStatus.text = "Entregada " + timeStamp
+                
+            }else{
+                
+                self.statusColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
+                self.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
+                
+                self.stateStatus.text = "Cancelada"
                 
             }
             

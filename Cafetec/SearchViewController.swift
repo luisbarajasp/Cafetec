@@ -46,6 +46,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func refresh() {
         
+        self.foods.removeAll()
+        
         let search = searchTF.text!
         
         let queryName = PFQuery(className: "Food")

@@ -92,7 +92,6 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
                         
                     }
                     
-                    
                 }
                 
             }
@@ -105,7 +104,7 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        refresh()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,6 +114,8 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.tabBarController?.tabBar.isHidden = false
         
         // Check if there is an active Order for displaying the button
+        
+        refresh()
         
         let activeOrderObject = UserDefaults.standard.object(forKey: "activeOrder")
         let totalItemsObject = UserDefaults.standard.object(forKey: "totalItems")
@@ -339,7 +340,7 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
                 cell.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
                 cell.stateStatus.text = "Por entregar"
                 
-            }else{
+            }else if state == 2{
                 
                 cell.stateColor.backgroundColor = UIColor(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
                 cell.stateStatus.textColor = UIColor(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
@@ -359,6 +360,13 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
                 }
                 
                 cell.stateStatus.text = "Entregada " + timeStamp
+                
+            }else{
+                
+                cell.stateColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
+                cell.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
+                
+                cell.stateStatus.text = "Cancelada"
                 
             }
             
