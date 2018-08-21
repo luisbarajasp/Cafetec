@@ -487,6 +487,35 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                             
                         }
                         
+                        let query = PFQuery(className: "Order")
+                        
+                        query.getObjectInBackground(withId: orderItem["orderId"] as! String, block: { (object, error) in
+                            
+                            if error != nil {
+                                
+                                print(error!)
+                                
+                            }else{
+                                
+                                if let order = object as PFObject! {
+                                    
+                                    let oldPrice = order["price"] as! Float!
+                                    
+                                    let orderItemPrice = orderItem["Price"] as! Float!
+                                    
+                                    let newPrice = oldPrice! - orderItemPrice!
+                                    
+                                    order["price"] = newPrice
+                                    
+                                    
+                                    order.saveInBackground()
+                                    
+                                }
+                                
+                            }
+                            
+                        })
+                        
                         orderItem.deleteInBackground()
                         
                         self.refresh()

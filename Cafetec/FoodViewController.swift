@@ -62,6 +62,29 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fillButtonsArray()
+        
+        //Resize tableview to the content height
+        let point = self.optionsTable.frame.origin
+        let size = CGSize(width: self.optionsTable.frame.width, height: self.optionsTable.contentSize.height)
+        let frame = CGRect(origin: point, size: size)
+        
+        self.optionsTable.frame = frame
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = true
+        
         if let foodUnwrapped = food {
             
             print(foodUnwrapped)
@@ -100,27 +123,6 @@ class FoodViewController: UIViewController, UITableViewDelegate, UITableViewData
             toPay.text = "$"+twoDecimalPlaces
             
         }
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        fillButtonsArray()
-        
-        //Resize tableview to the content height
-        let point = self.optionsTable.frame.origin
-        let size = CGSize(width: self.optionsTable.frame.width, height: self.optionsTable.contentSize.height)
-        let frame = CGRect(origin: point, size: size)
-        
-        self.optionsTable.frame = frame
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.tabBarController?.tabBar.isHidden = true
         
     }
     

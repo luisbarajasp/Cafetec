@@ -107,11 +107,12 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let state = orderSelected?["state"] as! Int
             
-            if state == 1 {
+            if state == 3 {
                 
-                self.statusColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
-                self.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
-                self.stateStatus.text = "Por entregar"
+                self.statusColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
+                self.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
+                
+                self.stateStatus.text = "Cancelada"
                 
             }else if state == 2{
                 
@@ -136,10 +137,9 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
             }else{
                 
-                self.statusColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
-                self.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
-                
-                self.stateStatus.text = "Cancelada"
+                self.statusColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
+                self.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.6509803922, blue: 0.137254902, alpha: 1)
+                self.stateStatus.text = "Por entregar"
                 
             }
             

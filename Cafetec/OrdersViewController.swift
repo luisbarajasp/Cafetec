@@ -365,7 +365,7 @@ class OrdersViewController: UIViewController, UICollectionViewDelegate, UICollec
                 
                 cell.stateStatus.text = "Entregada " + timeStamp
                 
-            }else{
+            }else if state == 3{
                 
                 cell.stateColor.backgroundColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
                 cell.stateStatus.textColor = UIColor(red: 0.9607843137, green: 0.3176470588, blue: 0.3725490196, alpha: 1)
